@@ -4,6 +4,7 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :username, presence: :true, uniqueness: :true
+  validate :validate_username
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -25,4 +26,9 @@ class User < ApplicationRecord
       end
     end
 
+  def validate_username
+    if User.where(email: username).exists?
+      errors.add(:username, :invalid)
+    end
+  end
 end
