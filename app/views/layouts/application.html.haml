@@ -1,0 +1,39 @@
+!!! 5
+%html
+  %head
+    %title Bubble-2•3•4
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application'
+    = stylesheet_link_tag 'https://use.fontawesome.com/releases/v5.0.8/css/solid.css'
+    = stylesheet_link_tag 'https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css'
+    = stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/simplex/bootstrap.min.css'
+    = javascript_include_tag 'https://code.jquery.com/jquery-3.3.1.min.js'
+    = javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'
+    = csrf_meta_tags
+
+  %body
+    %nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      %a.navbar-brand{:disabled => "true"} 
+        Bubble-2•3•4
+      %div.collapse.navbar-collapse#navbarColor03
+        %ul.navbar-nav.ml-auto
+          %li.nav-item> 
+            #login
+              - if user_signed_in?
+                = link_to "#{current_user.first_name} #{current_user.last_name}", users_myprofile_path, :class => 'btn btn-outline-primary'
+                = link_to "Log Out #{current_user.username}", destroy_user_session_path, :method => 'delete', :class => 'btn btn-outline-primary'
+                = link_to "Edit Profile", edit_user_registration_path, :class => 'btn btn-outline-danger'
+              - else
+                = link_to "Log In", new_user_session_path, :class => 'btn btn-outline-primary'
+                = link_to "Sign Up", new_user_registration_path, :class => 'btn btn-outline-danger'
+    .container
+      %hr
+      - flash.each do |name, msg|
+        - if msg.is_a?(String)
+          %div{:class => "alert alert-dismissible alert-#{name.to_sym == :notice ? "success" : "danger"}"}
+            %button.close{"data-dismiss" => "alert"} ×
+            %div{:id => "flash_#{name}"}
+              %i{:class => "fas fa-#{name.to_sym == :notice ? "check" : "exclamation"}-circle text-#{name.to_sym == :notice ? "success" : "danger"}"}
+              = msg
+      =yield
+      %hr
