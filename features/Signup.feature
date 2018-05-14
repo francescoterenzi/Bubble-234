@@ -1,0 +1,20 @@
+Feature: Signup
+As a user
+So that I can create my profile
+I want to register myself with my email and a password
+
+Scenario: User signed up successfully
+  Given I am not a registered user
+  And I am on the home page
+  And I am not authenticated
+  When I register as test@test.com, testtest
+  Then I should be on the myprofile page
+  And I should see "Welcome! You have signed up successfully."
+
+Scenario: User fails to register
+  Given I am not a registered user
+  And I am on the home page
+  And I am not authenticated
+  When I register as user, useruser
+  Then I should be on the users page
+  And I should see "error"

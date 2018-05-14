@@ -1,16 +1,16 @@
 When /^I log in$/ do
   if @user == nil
-    login('fake@fake.com','fake')
+    login('test@test.com','test')
   else
     @current_user = @user
-    login(@user.email, 'useruser')
+    login(@user.email, 'testtest')
   end
 end
 
 When /^I log in as (.*)$/ do |email|
   @user = User.find_by(email: email)
   @current_user = @user
-  login(@user.email, 'useruser')
+  login(@user.email, 'testtest')
 end
 
 When /^I register as (.+), (.+)$/ do |email, password|
@@ -26,15 +26,15 @@ When /^I sign in with (.*) provider$/ do |provider|
 end
 
 Given /^I am a registered user$/ do
-  @user = User.create!(:first_name => 'user', :last_name => 'user', :email => 'user@user.com', :password => 'useruser', :password_confirmation => 'useruser')
+  @user = User.create!(:first_name => 'test', :last_name => 'user', :email => 'test@test.com', :username => 'test',:password => 'testtest', :password_confirmation => 'testtest')
 end
 
 Given /^another user exists$/ do
-  @user = User.create!(:first_name => 'fake', :last_name => 'fake', :email => 'fake@user.com', :password => 'useruser', :password_confirmation => 'useruser')
+  @user = User.create!(:first_name => 'fake', :last_name => 'fake', :email => 'fake@user.com', :username => 'test',:password => 'testtest', :password_confirmation => 'testtest')
 end
 
 Given /^another user called (.*) exists$/ do |user|
-  @user = User.create!(:first_name => user, :last_name => user, :email => user, :password => 'useruser', :password_confirmation => 'useruser')
+  @user = User.create!(:first_name => user, :last_name => user, :email => user, :username => user,:password => 'testtest', :password_confirmation => 'testtest')
 end
 
 When /^I press Delete button$/ do
@@ -51,42 +51,43 @@ Given /^I am not a registered user$/ do
 end
 
 Given /^I am a logged in user$/ do
-  @user = User.create!(id: 100, :first_name => 'user', :last_name => 'user', :email => 'user@user.com', :password => 'useruser')
+  @user = User.create!(id: 100, :first_name => 'test', :last_name => 'test', :email => 'test@test.com', :username => 'test',:password => 'testtest')
   @current_user = @user
   login(@user.email, @user.password)
 end
 
 Given /^I am a logged in admin user$/ do
-  @user = User.create!(id: 100, :first_name => 'user', :last_name => 'user',admin: true, :email => 'user@user.com', :password => 'useruser')
+  @user = User.create!(id: 100, :first_name => 'test', :last_name => 'test',admin: true, :username => 'test',:email => 'test@test.com', :password => 'testtest')
   @current_user = @user
   login(@user.email, @user.password)
 end
 
 Given /^I was previously logged in as (.*)$/ do |user|
-  @user = User.create!(id: 101, :first_name => user, :last_name => user, :email => user, :password => 'useruser')
+  @user = User.create!(id: 101, :first_name => user, :last_name => user, :email => user, :password => 'testtest')
   login(@user.email, @user.password)
-  visit('/users/sign_out')
+  visit(destroy_user_session_path)
 end
 
 Given /^I am not authenticated$/ do
-  visit '/users/sign_out'  # ensure that at least
+  visit destroy_user_session_path  # ensure that at least
 end
 
 module LoginSteps
   def login(email, password)
-    visit('/users/sign_in')
-    fill_in('Email', :with => email)
+    visit(new_user_session_path)
+    fill_in('Login', :with => email)
     fill_in('Password', :with => password)
-    click_button('Log in')
+    click_button('Log In')
   end
   def register(email, password)
-    visit('/users/sign_up')
-    fill_in('Email', :with => email)
+    visit(new_user_registration_path)
     fill_in('First name', :with => email)
     fill_in('Last name', :with => email)
+    fill_in('Email', :with => email)
+    fill_in('Username', :with => password)
     fill_in('Password', :with => password)
     fill_in('Password confirmation', :with => password)
-    click_button('Sign up')
+    click_button('Sign Up')
   end
 end
 

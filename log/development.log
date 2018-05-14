@@ -5724,3 +5724,188 @@ Processing by CocktailsController#show as HTML
 Completed 200 OK in 80ms (Views: 69.1ms | ActiveRecord: 0.5ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-05-14 11:25:26 +0200
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-14 11:25:26 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+Processing by RegistrationsController#new as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (23.6ms)
+  Rendered devise/_error.html.haml (1.8ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (342.6ms)
+Completed 200 OK in 2101ms (Views: 2073.1ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 2081ms (Views: 2024.0ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-14 11:25:50 +0200
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1MpSG/Szy23oAQ5qdIcRV3FWFMlZ9Ivtqtno7anM57ZfjGbUedx5PQELKX1e5VXmm0jsLjw7gWJq7heyrnYX+Q==", "user"=>{"first_name"=>"Marco", "last_name"=>"Di Lisa", "email"=>"test1@test.it", "username"=>"test1", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "test1"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test1"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test1@test.it"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "username", "first_name", "last_name") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "test1@test.it"], ["encrypted_password", "$2a$11$/t5KmhjqlUHdMGKyKk0nMO3WN7AqOvMPzNU0YZxi6U.fAYhEov95q"], ["created_at", "2018-05-14 09:25:50.771188"], ["updated_at", "2018-05-14 09:25:50.771188"], ["username", "test1"], ["first_name", "Marco"], ["last_name", "Di Lisa"]]
+  [1m[35m (8.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2018-05-14 09:25:50.782818"], ["last_sign_in_at", "2018-05-14 09:25:50.782818"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2018-05-14 09:25:50.783484"], ["id", 2]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/myprofile
+Completed 302 Found in 220ms (ActiveRecord: 11.2ms)
+
+
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-14 11:25:50 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  Rendered users/myprofile.html.haml within layouts/application (2.7ms)
+Completed 200 OK in 47ms (Views: 40.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-14 11:25:57 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (1.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 44ms (Views: 35.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-14 11:25:58 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  Rendered users/myprofile.html.haml within layouts/application (2.4ms)
+Completed 200 OK in 66ms (Views: 57.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-14 22:29:11 +0200
+Started GET "/" for 127.0.0.1 at 2018-05-14 22:29:11 +0200
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RegistrationsController#new as HTML
+Processing by HomeController#index as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendering home/index.html.haml within layouts/application
+  Rendered devise/_error.html.haml (3.0ms)
+  Rendered home/index.html.haml within layouts/application (1.4ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (278.4ms)
+Completed 200 OK in 499ms (Views: 396.0ms | ActiveRecord: 1.7ms)
+
+
+Completed 200 OK in 399ms (Views: 391.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2018-05-14 22:29:14 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (2.8ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (25.3ms)
+Completed 200 OK in 68ms (Views: 67.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-05-14 22:29:20 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sjhrLR1trOHRNVM68iYpo7m+buT6fc1QW2qJ1Fjhn21NGJsYaBdjyI8NgusF/N7zBn2wnxPDKsBg0KWQQk9WuA==", "user"=>{"login"=>"test", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'test' OR lower(email) = lower('test')) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-05-14 20:29:20.757047"], ["last_sign_in_at", "2018-05-13 20:39:26.493099"], ["sign_in_count", 7], ["updated_at", "2018-05-14 20:29:20.758420"], ["id", 1]]
+  [1m[35m (9.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/myprofile
+Completed 302 Found in 211ms (ActiveRecord: 11.1ms)
+
+
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-14 22:29:20 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  Rendered users/myprofile.html.haml within layouts/application (3.1ms)
+Completed 200 OK in 49ms (Views: 43.1ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/users/logout" for 127.0.0.1 at 2018-05-14 22:29:44 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qceoiWlAZ3uIKtlFwEjdSkCXc0lS3WXxQnF/ofgEUHAwBacPzrUpQ6XA9o2Ek3Iz5gD1qhg2bCqa5CqQanLnvA=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-14 22:29:44 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (1.5ms)
+Completed 200 OK in 41ms (Views: 37.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2018-05-14 22:29:45 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (1.9ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (15.8ms)
+Completed 200 OK in 86ms (Views: 82.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-05-14 22:29:49 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HQkTC+20uAm/2we0KVhNd5//8AM39WJ8c6pFYi1nX3W08ddBjHcTHzmV90lZQcVU4IuGEWQhCHHr6HlGKqtX/w==", "user"=>{"login"=>"test", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'test' OR lower(email) = lower('test')) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-05-14 20:29:50.160984"], ["last_sign_in_at", "2018-05-14 20:29:20.757047"], ["sign_in_count", 8], ["updated_at", "2018-05-14 20:29:50.161698"], ["id", 1]]
+  [1m[35m (9.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/myprofile
+Completed 302 Found in 193ms (ActiveRecord: 10.1ms)
+
+
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-14 22:29:50 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  Rendered users/myprofile.html.haml within layouts/application (3.2ms)
+Completed 200 OK in 53ms (Views: 45.2ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/users/logout" for 127.0.0.1 at 2018-05-14 22:41:43 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"aryVyIv/7NzW+5PttL4ywzvZmpyqGY+EeQmgUfdDoM07G/mzwQeIGV6SQE8W2k9UQvvb500FVNfOraK6GAeRKA=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 28ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-14 22:41:43 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (1.7ms)
+Completed 200 OK in 45ms (Views: 39.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2018-05-14 22:41:45 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (1.7ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (19.3ms)
+Completed 200 OK in 68ms (Views: 61.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-05-14 22:41:49 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IZ0WtyqHp5CLtxtXYa2DjXVfoLxnaCqyGQHLBt87KIVgB2YAb2S4ny+VYxiR4yV5oVrGSHsnJWSlgsVk3dG3Cw==", "user"=>{"login"=>"rere", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'rere' OR lower(email) = lower('rere')) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.3ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IZ0WtyqHp5CLtxtXYa2DjXVfoLxnaCqyGQHLBt87KIVgB2YAb2S4ny+VYxiR4yV5oVrGSHsnJWSlgsVk3dG3Cw==", "user"=>{"login"=>"rere", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (2.1ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (15.0ms)
+Completed 200 OK in 208ms (Views: 54.1ms | ActiveRecord: 0.0ms)
+
+

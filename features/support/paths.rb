@@ -17,7 +17,7 @@ module NavigationHelpers
       '/'
 
     when /^the login page$/
-      '/users/sign_in'
+      '/users/login'
 
     when /^the sign up page$/
       '/users/sign_up'
