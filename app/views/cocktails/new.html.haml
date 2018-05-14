@@ -1,0 +1,6 @@
+%h2 Create new cocktail
+
+= form_tag cocktails_path, :method => :post do
+    = render :partial => 'cocktail_form'
+    = submit_tag 'Create Cocktail', :class => 'btn btn-outline-success'
+    = link_to "Back", root_path, :class => 'btn btn-outline-danger'

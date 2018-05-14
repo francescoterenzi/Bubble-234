@@ -1,0 +1,6 @@
+%h2 Editing Cocktail "#{@cocktail.name}"
+
+= form_tag cocktail_path(@cocktail), :method => :put do
+    = render :partial => 'cocktail_form'
+    = submit_tag 'Save Changes', :class => 'btn btn-outline-success'
+    = link_to "Back", cocktail_path(@cocktail), :class => 'btn btn-outline-danger'
