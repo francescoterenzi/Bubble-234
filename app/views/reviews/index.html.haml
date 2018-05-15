@@ -16,7 +16,7 @@
         %hr
 
         - if current_user
-            - if current_user != review.user
+            - if current_user != review.user && current_user != @cocktail.user
                 = link_to "Create a new Review", new_cocktail_review_path(@cocktail), :class => 'btn btn-outline-success'
 
 
