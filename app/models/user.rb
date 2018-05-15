@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validate :validate_username
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
+  has_many :cocktails, dependent: :destroy
 
   def login=(login)
     @login = login
