@@ -6347,3 +6347,173 @@ Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.7ms)
 NoMethodError (undefined method `cocktails' for nil:NilClass):
   
 app/controllers/cocktails_controller.rb:5:in `new'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddUserIdToCocktails (20180515100552)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "cocktails" ADD "user_id" integer[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_cocktails_on_user_id" ON "cocktails" ("user_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180515100552"]]
+  [1m[35m (9.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_cocktail_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_cocktail_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_cocktails_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_cocktails_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_username' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_username' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2018-05-15 12:06:46 +0200
+Started GET "/cocktails/new" for 127.0.0.1 at 2018-05-15 12:06:46 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+Processing by CocktailsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 401 Unauthorized in 37ms (ActiveRecord: 1.1ms)
+
+
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (5.7ms)
+Started GET "/" for 127.0.0.1 at 2018-05-15 12:06:46 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (1.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 2089ms (Views: 2053.9ms | ActiveRecord: 0.3ms)
+
+
+Completed 200 OK in 1799ms (Views: 1795.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2018-05-15 12:06:49 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (3.0ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (25.7ms)
+Completed 200 OK in 133ms (Views: 93.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-05-15 12:06:53 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R0yNzSrMMEgofaoEOsThl7Wx+cb8xeyUm1DfwKV4wCj08tbXbG6FBOe8cx1ufKevdNFzY51Xx4uy4FIGWkVX3g==", "user"=>{"login"=>"test", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'test' OR lower(email) = lower('test')) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-05-15 10:06:53.363092"], ["last_sign_in_at", "2018-05-14 20:29:50.160984"], ["sign_in_count", 9], ["updated_at", "2018-05-15 10:06:53.364285"], ["id", 1]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/myprofile
+Completed 302 Found in 231ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-15 12:06:53 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  Rendered users/myprofile.html.haml within layouts/application (2.8ms)
+Completed 200 OK in 55ms (Views: 47.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cocktails/new" for 127.0.0.1 at 2018-05-15 12:06:55 +0200
+Processing by CocktailsController#new as HTML
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 198ms (ActiveRecord: 2.6ms)
+
+
+  
+NameError (undefined local variable or method `curretn_user' for #<CocktailsController:0x007fcc773f9878>
+Did you mean?  current_user):
+  
+app/controllers/cocktails_controller.rb:5:in `new'
+Started GET "/cocktails/new" for 127.0.0.1 at 2018-05-15 12:07:05 +0200
+Processing by CocktailsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering cocktails/new.html.haml within layouts/application
+  Rendered cocktails/_cocktail_form.html.haml (6.0ms)
+  Rendered cocktails/new.html.haml within layouts/application (12.2ms)
+Completed 200 OK in 128ms (Views: 71.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/cocktails/new" for 127.0.0.1 at 2018-05-15 12:07:07 +0200
+Started GET "/" for 127.0.0.1 at 2018-05-15 12:07:07 +0200
+Processing by CocktailsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering cocktails/new.html.haml within layouts/application
+  Rendered cocktails/_cocktail_form.html.haml (7.3ms)
+  Rendered cocktails/new.html.haml within layouts/application (13.7ms)
+Completed 200 OK in 63ms (Views: 56.9ms | ActiveRecord: 0.3ms)
+
+
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (1.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 64ms (Views: 59.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/cocktails" for 127.0.0.1 at 2018-05-15 12:07:12 +0200
+Processing by CocktailsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"puejemKU5lvmizHZlkzlFMY853/u3hzACU+yOVNwF2ymKRsrUZHVXFaTtf3A77GWjrnAwCvt9W+SwQA9dulNRw==", "cocktail"=>{"name"=>"dasdas", "description"=>"sadsDSAd", "creation_date(1i)"=>"2018", "creation_date(2i)"=>"5", "creation_date(3i)"=>"15"}, "commit"=>"Create Cocktail"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCocktail Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? LIMIT ?[0m  [["name", "dasdas"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cocktails" ("name", "description", "creation_date", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "dasdas"], ["description", "sadsDSAd"], ["creation_date", "2018-05-15 00:00:00"], ["user_id", 1]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/cocktails/11
+Completed 302 Found in 13ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/cocktails/11" for 127.0.0.1 at 2018-05-15 12:07:12 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  Rendered cocktails/show.html.haml within layouts/application (4.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 71ms (Views: 56.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-15 12:07:14 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (2.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 61ms (Views: 51.9ms | ActiveRecord: 0.3ms)
+
+

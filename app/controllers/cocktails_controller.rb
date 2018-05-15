@@ -2,7 +2,7 @@ class CocktailsController < ApplicationController
     before_action :authenticate_user!, except: :show
 
     def new
-        @cocktail = @user.cocktails.build
+        @cocktail = current_user.cocktails.build
     end
 
     def create

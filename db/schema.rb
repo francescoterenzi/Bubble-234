@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180514153949) do
+ActiveRecord::Schema.define(version: 20180515100552) do
 
   create_table "cocktail", force: :cascade do |t|
     t.string "name"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20180514153949) do
     t.string "name"
     t.text "description"
     t.datetime "creation_date"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_cocktails_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
