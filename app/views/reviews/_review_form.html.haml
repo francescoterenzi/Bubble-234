@@ -1,0 +1,15 @@
+%br
+
+= label :review, :rate, 'Rate'
+= select_tag 'review[rate]', options_for_select(1..5)
+
+%br
+%br
+
+= label :review, :comments, 'Comments'
+%br
+= text_area :review, :comments
+%br
+
+%br
+%br

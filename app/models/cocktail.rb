@@ -5,5 +5,6 @@ class Cocktail < ApplicationRecord
   validates :creation_date, presence: true
   #validates_associated :user
 
+  has_many :reviews
   belongs_to :user
 end

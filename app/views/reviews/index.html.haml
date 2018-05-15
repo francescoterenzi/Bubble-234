@@ -1,0 +1,23 @@
+%h2 Reviews for #{@cocktail.name}
+- if @cocktail.reviews.first == nil
+    %p Non è ancora stata scritta alcuna recensione!
+    - if current_user
+        = link_to "Create a new Review", new_cocktail_review_path(@cocktail), :class => 'btn btn-outline-success'
+- else 
+    - @cocktail.reviews.each do |review|
+        
+        %p Username:  #{review.user.username}
+
+        %p Rate:  #{review.rate}
+        
+        %p Comments: #{review.comments}
+
+        = link_to "details", cocktail_review_path(:id => review.id)
+        %hr
+
+        - if current_user
+            - if current_user != review.user
+                = link_to "Create a new Review", new_cocktail_review_path(@cocktail), :class => 'btn btn-outline-success'
+
+
+= link_to "Back", cocktail_path(@cocktail), :class => 'btn btn-outline-success'

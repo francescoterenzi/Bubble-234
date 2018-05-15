@@ -5,9 +5,12 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :username, presence: :true, uniqueness: :true
   validate :validate_username
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  
   has_many :cocktails, dependent: :destroy
+  has_many :reviews
 
   def login=(login)
     @login = login
