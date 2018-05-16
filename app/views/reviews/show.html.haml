@@ -1,12 +1,12 @@
 %h2 Review about cocktail #{@review.cocktail.name}
-%h3 Created by #{@review.cocktail.user.username}
+%h3 Created by #{@review.user.username}
 
 %ul#details
    %li Rate: #{@review.rate}
    %li Comments: #{@review.comments}
 
-= link_to "Edit", edit_cocktail_review_path(@review.cocktail), :class => 'btn btn-outline-danger'
 - if current_user && current_user == @review.user
+   = link_to "Edit", edit_cocktail_review_path(@review.cocktail), :class => 'btn btn-outline-danger'
    = link_to "Delete Review", cocktail_review_path(@review.cocktail), :method => :delete, :class => 'btn btn-outline-primary'
 %br
 %br
