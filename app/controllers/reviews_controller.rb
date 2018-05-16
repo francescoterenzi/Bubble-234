@@ -30,7 +30,7 @@ class ReviewsController < ApplicationController
 
     def create
         current_user.reviews << @cocktail.reviews.build(review_params)
-        redirect_to cocktail_path(@cocktail)
+        redirect_to cocktail_reviews_path(@cocktail)
     end
 
     def review_params
