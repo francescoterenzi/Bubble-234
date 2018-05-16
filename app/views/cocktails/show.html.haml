@@ -2,13 +2,14 @@
 %h3 Created by "#{@cocktail.user.username}"
 
 %ul#details
-   %li Creation date: #{@cocktail.creation_date}
-   %li Description: #{@cocktail.description}
+    %li Creation date: #{@cocktail.creation_date}
+    %li Description: #{@cocktail.description}
 
 = link_to "Show Reviews", cocktail_reviews_path(@cocktail), :class => 'btn btn-outline-success'
 %br
 %br
 = link_to "Back", root_path, :class => 'btn btn-outline-success'
-= link_to "Edit", edit_cocktail_path(@cocktail), :class => 'btn btn-outline-danger'
+- if @cocktail.user == current_user
+    = link_to "Edit", edit_cocktail_path(@cocktail), :class => 'btn btn-outline-danger'
 = link_to "Delete Cocktail", cocktail_path(@cocktail), :method => :delete, :class => 'btn btn-outline-primary'
 
