@@ -47,6 +47,9 @@ module NavigationHelpers
     when /^the user_token page$/
       user_token_path(@user, @user.tokens.first)
 
+    when /^the cocktail (.*) reviews page$/
+      cocktail_reviews_path(Cocktail.find_by(:name => $1))
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

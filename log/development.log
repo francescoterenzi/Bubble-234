@@ -14063,3 +14063,1803 @@ Processing by ReviewsController#index as HTML
 Completed 200 OK in 24ms (Views: 21.9ms | ActiveRecord: 0.7ms)
 
 
+Started GET "/users/" for 127.0.0.1 at 2018-05-16 12:40:02 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-05-16 12:40:05 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (2.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 174ms (Views: 170.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cocktails/16" for 127.0.0.1 at 2018-05-16 12:40:11 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered cocktails/show.html.haml within layouts/application (9.5ms)
+Completed 200 OK in 37ms (Views: 24.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 12:40:17 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 16]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["user_id", 6], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (30.5ms)
+Completed 200 OK in 50ms (Views: 45.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/cocktails/16/reviews/6" for 127.0.0.1 at 2018-05-16 12:40:19 +0200
+Processing by ReviewsController#show as HTML
+  Parameters: {"cocktail_id"=>"16", "id"=>"6"}
+  [1m[36mReview Load (0.9ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering reviews/show.html.haml within layouts/application
+  [1m[36mCocktail Load (0.3ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered reviews/show.html.haml within layouts/application (23.6ms)
+Completed 200 OK in 65ms (Views: 54.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 12:40:21 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.5ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 16]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["user_id", 6], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (25.4ms)
+Completed 200 OK in 64ms (Views: 54.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/cocktails/16/reviews/10" for 127.0.0.1 at 2018-05-16 12:40:23 +0200
+Processing by ReviewsController#show as HTML
+  Parameters: {"cocktail_id"=>"16", "id"=>"10"}
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering reviews/show.html.haml within layouts/application
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered reviews/show.html.haml within layouts/application (9.5ms)
+Completed 200 OK in 41ms (Views: 35.9ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/cocktails/16/reviews/10" for 127.0.0.1 at 2018-05-16 12:40:27 +0200
+Processing by ReviewsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"+qvPxlSRtCjeka/JGCTVQ/ktj/fgi+bHc7EL3eW+gwjEow3Cxnh69jERZdmCruMaJW+QGf9yM4gBTe+JEzTROA==", "cocktail_id"=>"16", "id"=>"10"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["id", 10], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "reviews" WHERE "reviews"."id" = ?[0m  [["id", 10]]
+  [1m[35m (10.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Redirected to http://localhost:3000/cocktails/16/reviews
+Completed 302 Found in 20ms (ActiveRecord: 11.6ms)
+
+
+Started GET "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 12:40:27 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 16]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["user_id", 6], ["LIMIT", 1]]
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (7.6ms)
+Completed 200 OK in 25ms (Views: 22.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/cocktails/16/reviews/new" for 127.0.0.1 at 2018-05-16 12:40:29 +0200
+Processing by ReviewsController#new as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/new.html.haml within layouts/application
+  Rendered reviews/_review_form.html.haml (2.6ms)
+  Rendered reviews/new.html.haml within layouts/application (5.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 27ms (Views: 23.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 12:40:31 +0200
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mr5lRKAqNxD9IDG1ZQBqGqiPq9C/h0VN61DtmLWlOlbbDBxqM5FgnwqFqoq6mbR7Y5LVwUEYQ6y6KFQ36R0eEA==", "review"=>{"rate"=>"1", "comments"=>"f"}, "commit"=>"Create Review", "cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCocktail Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? AND ("cocktails"."id" != ?) LIMIT ?[0m  [["name", "Mojito"], ["id", 16], ["LIMIT", 1]]
+  [1m[36mCACHE Cocktail Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? AND ("cocktails"."id" != ?) LIMIT ?[0m  [["name", "Mojito"], ["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "reviews" ("rate", "comments", "cocktail_id", "user_id") VALUES (?, ?, ?, ?)[0m  [["rate", 1], ["comments", "f"], ["cocktail_id", 16], ["user_id", 6]]
+  [1m[35m (12.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/cocktails/16/reviews
+Completed 302 Found in 25ms (ActiveRecord: 13.5ms)
+
+
+Started GET "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 12:40:31 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 16]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["user_id", 6], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (10.1ms)
+Completed 200 OK in 32ms (Views: 29.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/cocktails/16" for 127.0.0.1 at 2018-05-16 12:40:34 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered cocktails/show.html.haml within layouts/application (6.0ms)
+Completed 200 OK in 33ms (Views: 30.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 12:40:36 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.4ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.6ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 16]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["user_id", 6], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (29.4ms)
+Completed 200 OK in 67ms (Views: 58.3ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/cocktails/16" for 127.0.0.1 at 2018-05-16 12:40:37 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mCocktail Load (0.3ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered cocktails/show.html.haml within layouts/application (6.6ms)
+Completed 200 OK in 33ms (Views: 28.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-16 12:40:49 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  Rendered users/myprofile.html.haml within layouts/application (4.8ms)
+Completed 200 OK in 26ms (Views: 23.1ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/users/logout" for 127.0.0.1 at 2018-05-16 12:40:55 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"1STZfurT+v8ezScN1FKALOLWly5iPc6+ghKkd7JgUzzrLBt6eDo0IfFN7R1O2LZ1PpSIwH3EG/Hw7kAjROoBDA=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-16 12:40:55 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 26ms (Views: 19.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2018-05-16 12:40:56 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (1.3ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (10.2ms)
+Completed 200 OK in 33ms (Views: 31.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-05-16 12:41:01 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Wbc9m2S1MaYfpvgZwMIp2jBlUgKsUtR0dmzRrsfCjSrQ0g7gnqnGS4m+qMVGHi/ASgz7QsgJ2QZ8MeSY/w4vhw==", "user"=>{"login"=>"spada", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'spada' OR lower(email) = lower('spada')) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 401 Unauthorized in 135ms (ActiveRecord: 0.3ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Wbc9m2S1MaYfpvgZwMIp2jBlUgKsUtR0dmzRrsfCjSrQ0g7gnqnGS4m+qMVGHi/ASgz7QsgJ2QZ8MeSY/w4vhw==", "user"=>{"login"=>"spada", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (1.0ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (4.9ms)
+Completed 200 OK in 144ms (Views: 20.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-05-16 12:41:09 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nwz0Ih1h3wzIEgARhxxhqNkg5coKtDVAJdFGvo6Tb9CiYprl4KX35xA3raR0ZDbTzRzJ+rCkYWQFEfWx8z0kfA==", "user"=>{"login"=>"spada", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'spada' OR lower(email) = lower('spada')) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 401 Unauthorized in 131ms (ActiveRecord: 0.2ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nwz0Ih1h3wzIEgARhxxhqNkg5coKtDVAJdFGvo6Tb9CiYprl4KX35xA3raR0ZDbTzRzJ+rCkYWQFEfWx8z0kfA==", "user"=>{"login"=>"spada", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (0.9ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (4.6ms)
+Completed 200 OK in 149ms (Views: 24.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-05-16 12:41:18 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X9VyhJO2E5X0HcUym9x1KkbNUx6/p6Jy69nRMawd9mtiuxxDbnI7fiw4aIdopCJRUvF/LgW39lbLGWI+0bO9xw==", "user"=>{"login"=>"spada", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'spada' OR lower(email) = lower('spada')) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 401 Unauthorized in 132ms (ActiveRecord: 0.3ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"X9VyhJO2E5X0HcUym9x1KkbNUx6/p6Jy69nRMawd9mtiuxxDbnI7fiw4aIdopCJRUvF/LgW39lbLGWI+0bO9xw==", "user"=>{"login"=>"spada", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (0.9ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (4.6ms)
+Completed 200 OK in 144ms (Views: 19.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-05-16 12:41:29 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Wbc9m2S1MaYfpvgZwMIp2jBlUgKsUtR0dmzRrsfCjSrQ0g7gnqnGS4m+qMVGHi/ASgz7QsgJ2QZ8MeSY/w4vhw==", "user"=>{"login"=>"spada", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'spada' OR lower(email) = lower('spada')) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 401 Unauthorized in 131ms (ActiveRecord: 0.3ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Wbc9m2S1MaYfpvgZwMIp2jBlUgKsUtR0dmzRrsfCjSrQ0g7gnqnGS4m+qMVGHi/ASgz7QsgJ2QZ8MeSY/w4vhw==", "user"=>{"login"=>"spada", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (1.0ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (4.8ms)
+Completed 200 OK in 145ms (Views: 20.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-05-16 12:41:35 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ko8JZKHoQQTqGLZcCPE07jrS1mX9VgTQvFtt1PtpgyWv4WejXCxp7zI9G+n7iWOVLu76VUdGUPScm97bhsfIiQ==", "user"=>{"login"=>"spada", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'spada' OR lower(email) = lower('spada')) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 401 Unauthorized in 140ms (ActiveRecord: 0.3ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ko8JZKHoQQTqGLZcCPE07jrS1mX9VgTQvFtt1PtpgyWv4WejXCxp7zI9G+n7iWOVLu76VUdGUPScm97bhsfIiQ==", "user"=>{"login"=>"spada", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (1.0ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (4.9ms)
+Completed 200 OK in 148ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-16 14:41:46 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (2.7ms)
+Completed 200 OK in 176ms (Views: 166.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2018-05-16 14:41:52 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (1.1ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (17.4ms)
+Completed 200 OK in 47ms (Views: 33.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-05-16 14:41:55 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sj4kJva98+Y3foMYFLASg5k4kR+xroADtjPqbsLFDEwNvhh9VgDtj92S5EtmkLh6GVJKo52eO3bQJvA84t+drg==", "user"=>{"login"=>"fratere", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'fratere' OR lower(email) = lower('fratere')) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-05-16 12:41:55.668164"], ["last_sign_in_at", "2018-05-16 10:30:23.993113"], ["sign_in_count", 8], ["updated_at", "2018-05-16 12:41:55.668936"], ["id", 4]]
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/myprofile
+Completed 302 Found in 146ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-16 14:41:55 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  Rendered users/myprofile.html.haml within layouts/application (15.4ms)
+Completed 200 OK in 32ms (Views: 29.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cocktails/new" for 127.0.0.1 at 2018-05-16 14:42:02 +0200
+Processing by CocktailsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering cocktails/new.html.haml within layouts/application
+  Rendered cocktails/_cocktail_form.html.haml (5.0ms)
+  Rendered cocktails/new.html.haml within layouts/application (7.7ms)
+Completed 200 OK in 39ms (Views: 24.3ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/cocktails" for 127.0.0.1 at 2018-05-16 14:42:31 +0200
+Processing by CocktailsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bWI0XaJm1k3rVZUDlqJxSZT+CWbYsGKCUSBhgzrdCREqGwio+dhwom/wMlEtzg/NLSqlwgiO57efvh/WJTDg6Q==", "cocktail"=>{"name"=>"MyCocktail", "description"=>"very tasty", "creation_date(1i)"=>"2018", "creation_date(2i)"=>"5", "creation_date(3i)"=>"16"}, "pic"=>"profile.jpg", "commit"=>"Create Cocktail"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCocktail Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? LIMIT ?[0m  [["name", "MyCocktail"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "cocktails" ("name", "description", "creation_date", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "MyCocktail"], ["description", "very tasty"], ["creation_date", "2018-05-16 00:00:00"], ["user_id", 4]]
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/cocktails/19
+Completed 302 Found in 13ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/cocktails/19" for 127.0.0.1 at 2018-05-16 14:42:31 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered cocktails/show.html.haml within layouts/application (4.4ms)
+Completed 200 OK in 24ms (Views: 20.9ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/cocktails/19" for 127.0.0.1 at 2018-05-16 14:42:34 +0200
+Processing by CocktailsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"GLR5BQ8ogSfsu8AZqdtUx9XcaLjNcB8HiuJMSgJpDydNxcq1hwc+JNcgeci8Z9tBDHt81aDzwzTA7RlqlTk8RA==", "id"=>"19"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "cocktails" WHERE "cocktails"."id" = ?[0m  [["id", 19]]
+  [1m[35m (7.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 11ms (ActiveRecord: 7.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-16 14:42:34 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (1.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 18ms (Views: 16.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-16 14:42:40 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  Rendered users/myprofile.html.haml within layouts/application (2.8ms)
+Completed 200 OK in 20ms (Views: 18.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cocktails/16" for 127.0.0.1 at 2018-05-16 14:52:26 +0200
+  
+LoadError (cannot load such file -- /home/francesco/Desktop/bubble-234/config/routes.rb):
+  
+activesupport (5.1.6) lib/active_support/dependencies.rb:286:in `load'
+activesupport (5.1.6) lib/active_support/dependencies.rb:286:in `block in load'
+activesupport (5.1.6) lib/active_support/dependencies.rb:258:in `load_dependency'
+activesupport (5.1.6) lib/active_support/dependencies.rb:286:in `load'
+railties (5.1.6) lib/rails/application/routes_reloader.rb:55:in `block in load_paths'
+railties (5.1.6) lib/rails/application/routes_reloader.rb:55:in `each'
+railties (5.1.6) lib/rails/application/routes_reloader.rb:55:in `load_paths'
+railties (5.1.6) lib/rails/application/routes_reloader.rb:18:in `reload!'
+railties (5.1.6) lib/rails/application/routes_reloader.rb:41:in `block in updater'
+activesupport (5.1.6) lib/active_support/file_update_checker.rb:81:in `execute'
+railties (5.1.6) lib/rails/application/routes_reloader.rb:25:in `execute'
+railties (5.1.6) lib/rails/application/finisher.rb:141:in `block (2 levels) in <module:Finisher>'
+activesupport (5.1.6) lib/active_support/callbacks.rb:413:in `instance_exec'
+activesupport (5.1.6) lib/active_support/callbacks.rb:413:in `block in make_lambda'
+activesupport (5.1.6) lib/active_support/callbacks.rb:197:in `block (2 levels) in halting'
+activesupport (5.1.6) lib/active_support/callbacks.rb:601:in `block (2 levels) in default_terminator'
+activesupport (5.1.6) lib/active_support/callbacks.rb:600:in `catch'
+activesupport (5.1.6) lib/active_support/callbacks.rb:600:in `block in default_terminator'
+activesupport (5.1.6) lib/active_support/callbacks.rb:198:in `block in halting'
+activesupport (5.1.6) lib/active_support/callbacks.rb:507:in `block in invoke_before'
+activesupport (5.1.6) lib/active_support/callbacks.rb:507:in `each'
+activesupport (5.1.6) lib/active_support/callbacks.rb:507:in `invoke_before'
+activesupport (5.1.6) lib/active_support/callbacks.rb:130:in `run_callbacks'
+activesupport (5.1.6) lib/active_support/execution_wrapper.rb:108:in `run!'
+activesupport (5.1.6) lib/active_support/reloader.rb:113:in `run!'
+activesupport (5.1.6) lib/active_support/execution_wrapper.rb:70:in `block in run!'
+activesupport (5.1.6) lib/active_support/execution_wrapper.rb:67:in `tap'
+activesupport (5.1.6) lib/active_support/execution_wrapper.rb:67:in `run!'
+activesupport (5.1.6) lib/active_support/reloader.rb:59:in `run!'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:10:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/cocktails/" for 127.0.0.1 at 2018-05-16 14:52:32 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/cocktails"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/cocktails/17" for 127.0.0.1 at 2018-05-16 14:52:36 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/cocktails/17"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/cocktails/16" for 127.0.0.1 at 2018-05-16 14:52:39 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/cocktails/16"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 14:52:48 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/cocktails/16/reviews"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-05-16 14:52:54 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-05-16 14:54:15 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (2.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 187ms (Views: 177.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/cocktails/16" for 127.0.0.1 at 2018-05-16 14:54:19 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered cocktails/show.html.haml within layouts/application (9.4ms)
+Completed 200 OK in 37ms (Views: 24.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 14:54:23 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 16]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["user_id", 4], ["LIMIT", 1]]
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (20.2ms)
+Completed 200 OK in 40ms (Views: 35.9ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/users/logout" for 127.0.0.1 at 2018-05-16 14:54:43 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qlrcgiMlFG++Sf6xLtS5zV9jMitzMysaYLbd5LfD9nT/K28yqwqrbIXSR2A7aDZLhsQmRh6w9ykquYjEIJPFFw=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 13ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-16 14:54:43 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (1.3ms)
+Completed 200 OK in 29ms (Views: 28.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2018-05-16 14:54:44 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (1.5ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (10.0ms)
+Completed 200 OK in 32ms (Views: 30.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2018-05-16 14:54:53 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (3.3ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (12.7ms)
+Completed 200 OK in 38ms (Views: 35.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-16 14:54:55 +0200
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (1.1ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (8.4ms)
+Completed 200 OK in 29ms (Views: 27.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-16 14:55:01 +0200
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KP4t1oweylyjowT+ETNYA4624hYgpmkcwNjm0BvVS5AP5keGrBZgAFQFGdRJVrr6GSzTDmf5WUOoKM73XYpN1Q==", "user"=>{"first_name"=>"Franc", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", ""], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (1.7ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (8.7ms)
+Completed 200 OK in 48ms (Views: 35.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-16 14:55:22 +0200
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/7ABM7ZTzB5O9+WLB9tPp2U+ea1uHBhdNkYVRJDEEPuCnpbjEhf5MkeES9+/TWqxcSIjDHQQZHWPmc06Wm+Q4w==", "user"=>{"first_name"=>"Francesco", "last_name"=>"Terenzi", "email"=>"test@test.test", "username"=>"fratere2", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "fratere2"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "fratere2"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.test"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "username", "first_name", "last_name") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "test@test.test"], ["encrypted_password", "$2a$11$ghGux95Z4bRGGyFW.zJIFumt7C2TvDFpsG7Irfc4hHW..y6qBv0Xi"], ["created_at", "2018-05-16 12:55:22.997313"], ["updated_at", "2018-05-16 12:55:22.997313"], ["username", "fratere2"], ["first_name", "Francesco"], ["last_name", "Terenzi"]]
+  [1m[35m (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2018-05-16 12:55:23.003598"], ["last_sign_in_at", "2018-05-16 12:55:23.003598"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2018-05-16 12:55:23.003977"], ["id", 7]]
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/myprofile
+Completed 302 Found in 157ms (ActiveRecord: 8.2ms)
+
+
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-16 14:55:23 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  Rendered users/myprofile.html.haml within layouts/application (4.0ms)
+Completed 200 OK in 24ms (Views: 22.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 14:55:43 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 16]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["user_id", 7], ["LIMIT", 1]]
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (7.8ms)
+Completed 200 OK in 27ms (Views: 24.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/cocktails/16/reviews/new" for 127.0.0.1 at 2018-05-16 14:55:56 +0200
+Processing by ReviewsController#new as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/new.html.haml within layouts/application
+  Rendered reviews/_review_form.html.haml (2.4ms)
+  Rendered reviews/new.html.haml within layouts/application (6.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Completed 200 OK in 31ms (Views: 28.9ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/users/logout" for 127.0.0.1 at 2018-05-16 15:01:45 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"cMMj7jnA6BN94qmWoZ3eQZkdALsY0prVPSO+D6cUoMMN7bQ+nYTdP3SRB8IZC/tXjQFaGgLe5v2E/GZxbb8g2w=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-16 15:01:45 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2018-05-16 15:01:47 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (2.0ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (7.2ms)
+Completed 200 OK in 27ms (Views: 25.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-05-16 15:02:03 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lfAfyfAgTIsY2SuIQ4I4NNiHz/6bVDwYPSIkpP6ybnztWPTjSSPn5PwD9kozYMVg3wnq6n2Y2UcNepPZ1tjRLA==", "user"=>{"login"=>"fratere2", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'fratere2' OR lower(email) = lower('fratere2')) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-05-16 13:02:03.184126"], ["sign_in_count", 2], ["updated_at", "2018-05-16 13:02:03.184704"], ["id", 7]]
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/myprofile
+Completed 302 Found in 142ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-16 15:02:03 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  Rendered users/myprofile.html.haml within layouts/application (2.3ms)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/users/logout" for 127.0.0.1 at 2018-05-16 15:02:42 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"iVoCCP63ioBaCkDGFGSWvJgpCmI/5d9H30s0TrgxMsMTg8KEWGT3grqnxVWqUpJ7ooWL9fWNEQHZ6Fu3R0TszQ=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-16 15:02:42 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (1.7ms)
+Completed 200 OK in 20ms (Views: 18.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2018-05-16 15:02:42 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (3.3ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (12.3ms)
+Completed 200 OK in 36ms (Views: 34.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2018-05-16 15:08:12 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (1.8ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (7.6ms)
+Completed 200 OK in 26ms (Views: 25.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-05-16 15:08:15 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ezhHGVQRZk7umfEAptNw+botV6yj3J0S8jxnSkCXthF/V3FYuuF+TRa6ZTo5LqT5hTI9d/3xAXTxpyQbVLulTA==", "user"=>{"login"=>"fratere", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'fratere' OR lower(email) = lower('fratere')) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-05-16 13:08:15.561552"], ["last_sign_in_at", "2018-05-16 12:41:55.668164"], ["sign_in_count", 9], ["updated_at", "2018-05-16 13:08:15.562052"], ["id", 4]]
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/myprofile
+Completed 302 Found in 141ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-16 15:08:15 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  Rendered users/myprofile.html.haml within layouts/application (2.2ms)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cocktails/new" for 127.0.0.1 at 2018-05-16 15:10:53 +0200
+Processing by CocktailsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering cocktails/new.html.haml within layouts/application
+  Rendered cocktails/_cocktail_form.html.haml (4.6ms)
+  Rendered cocktails/new.html.haml within layouts/application (7.3ms)
+Completed 200 OK in 29ms (Views: 25.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cocktails/new" for 127.0.0.1 at 2018-05-16 15:25:01 +0200
+Processing by CocktailsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering cocktails/new.html.haml within layouts/application
+  Rendered cocktails/_cocktail_form.html.haml (4.0ms)
+  Rendered cocktails/new.html.haml within layouts/application (6.7ms)
+Completed 200 OK in 24ms (Views: 21.5ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/users/logout" for 127.0.0.1 at 2018-05-16 15:26:18 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"djSwRb2Kc+tYx+etilEx7xDfqDOWcR/P3S8xC4mZhr//g2TR2NSCdl4aoQs1RpoSWAWTnsTvqHZ/RiBx3gnC4w=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-16 15:26:18 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 16ms (Views: 15.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2018-05-16 15:26:20 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (1.1ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (5.9ms)
+Completed 200 OK in 25ms (Views: 23.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-05-16 15:26:22 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4d+99SanOI1AI8yH5ZzyXRx9g5ZVGuIEUeeSHLAb/WhtMoIRhy17snbGRPb4ffcDgttLYh2EaqcQwGwqmDjM7g==", "user"=>{"login"=>"fratere", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'fratere' OR lower(email) = lower('fratere')) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-05-16 13:26:22.917295"], ["last_sign_in_at", "2018-05-16 13:08:15.561552"], ["sign_in_count", 10], ["updated_at", "2018-05-16 13:26:22.917872"], ["id", 4]]
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/myprofile
+Completed 302 Found in 142ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-16 15:26:22 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  Rendered users/myprofile.html.haml within layouts/application (2.1ms)
+Completed 200 OK in 18ms (Views: 16.8ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/users/logout" for 127.0.0.1 at 2018-05-16 15:28:32 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"T5BBRDv4R2ODsElaLYh3uAHujZMYytCOF04MK2JGIxW5EXWkHxNa5oDMm8iAhOoHCBjtLgunH2q3W68HQw629A=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-16 15:28:32 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (1.2ms)
+Completed 200 OK in 23ms (Views: 22.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-16 15:49:16 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (2.7ms)
+Completed 200 OK in 163ms (Views: 154.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2018-05-16 15:49:18 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (1.1ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (12.7ms)
+Completed 200 OK in 59ms (Views: 42.3ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-05-16 15:49:20 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fOI2rqZzAoqwpHKnbaYOx7WDdtRkBrhuAgGYNcCMXzCn4ydYknxEBTKBQjIPEuiTzHkv/Dfkw3ElbLmo5tX0Cw==", "user"=>{"login"=>"fratere", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'fratere' OR lower(email) = lower('fratere')) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-05-16 13:49:21.059123"], ["last_sign_in_at", "2018-05-16 13:26:22.917295"], ["sign_in_count", 11], ["updated_at", "2018-05-16 13:49:21.059839"], ["id", 4]]
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/myprofile
+Completed 302 Found in 151ms (ActiveRecord: 4.2ms)
+
+
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-16 15:49:21 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  Rendered users/myprofile.html.haml within layouts/application (14.4ms)
+Completed 200 OK in 32ms (Views: 30.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cocktails/16" for 127.0.0.1 at 2018-05-16 15:49:28 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered cocktails/show.html.haml within layouts/application (8.0ms)
+Completed 200 OK in 31ms (Views: 24.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 15:49:32 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 16]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["user_id", 4], ["LIMIT", 1]]
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (14.4ms)
+Completed 200 OK in 39ms (Views: 35.4ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/users/logout" for 127.0.0.1 at 2018-05-16 15:49:56 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"vSYDCcA+2JIwmTRZU6bf1zGQJcoDdSe2Zt7bJfqgxchD3qrFV3EpUik2HekDzwa7Svx22JQvRWaAWbpSyEtG0g=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 20ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-16 15:49:56 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (1.1ms)
+Completed 200 OK in 20ms (Views: 18.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2018-05-16 15:49:57 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (1.7ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (7.6ms)
+Completed 200 OK in 36ms (Views: 33.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-05-16 15:50:04 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nJvgy8XrASRME1ZUsce1XqyyLrU/atUr0NEGk1vd2dhvIyMW7zFpswcRZYSvAcW90EEwSWgQZIg7c3Jb559FHA==", "user"=>{"login"=>"fratere2", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'fratere2' OR lower(email) = lower('fratere2')) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-05-16 13:50:04.165090"], ["last_sign_in_at", "2018-05-16 13:02:03.184126"], ["sign_in_count", 3], ["updated_at", "2018-05-16 13:50:04.165928"], ["id", 7]]
+  [1m[35m (4.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/myprofile
+Completed 302 Found in 141ms (ActiveRecord: 4.6ms)
+
+
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-16 15:50:04 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  Rendered users/myprofile.html.haml within layouts/application (2.4ms)
+Completed 200 OK in 22ms (Views: 20.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 15:50:11 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 16]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["user_id", 7], ["LIMIT", 1]]
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (9.7ms)
+Completed 200 OK in 39ms (Views: 36.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/cocktails/16/reviews/new" for 127.0.0.1 at 2018-05-16 15:53:15 +0200
+Processing by ReviewsController#new as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/new.html.haml within layouts/application
+  Rendered reviews/_review_form.html.haml (2.0ms)
+  Rendered reviews/new.html.haml within layouts/application (5.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Completed 200 OK in 31ms (Views: 27.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 15:54:37 +0200
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"x2VOad0YXkWoa95bdsybgw/cTpulfsyrgD5YSJ81ViVk/f9zdZ5dqk5K7FPkQS2chDDp9/94HWGkg945S8ECiQ==", "review"=>{"rate"=>"1", "comments"=>"dd"}, "commit"=>"Create Review", "cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCocktail Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? AND ("cocktails"."id" != ?) LIMIT ?[0m  [["name", "Mojito"], ["id", 16], ["LIMIT", 1]]
+  [1m[36mCACHE Cocktail Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? AND ("cocktails"."id" != ?) LIMIT ?[0m  [["name", "Mojito"], ["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "reviews" ("rate", "comments", "cocktail_id", "user_id") VALUES (?, ?, ?, ?)[0m  [["rate", 1], ["comments", "dd"], ["cocktail_id", 16], ["user_id", 7]]
+  [1m[35m (10.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/cocktails/16/reviews
+Completed 302 Found in 21ms (ActiveRecord: 11.1ms)
+
+
+Started GET "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 15:54:37 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 16]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["user_id", 7], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (8.9ms)
+Completed 200 OK in 27ms (Views: 24.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/cocktails/16/reviews/12" for 127.0.0.1 at 2018-05-16 15:57:18 +0200
+Processing by ReviewsController#show as HTML
+  Parameters: {"cocktail_id"=>"16", "id"=>"12"}
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering reviews/show.html.haml within layouts/application
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered reviews/show.html.haml within layouts/application (5.2ms)
+Completed 200 OK in 36ms (Views: 24.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cocktails/16/reviews/11" for 127.0.0.1 at 2018-05-16 15:57:21 +0200
+Processing by ReviewsController#show as HTML
+  Parameters: {"cocktail_id"=>"16", "id"=>"11"}
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reviews/show.html.haml within layouts/application
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered reviews/show.html.haml within layouts/application (4.6ms)
+Completed 200 OK in 23ms (Views: 21.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 15:58:38 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 16]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["user_id", 7], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (6.3ms)
+Completed 200 OK in 25ms (Views: 23.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cocktails/16/reviews/12" for 127.0.0.1 at 2018-05-16 16:00:51 +0200
+Processing by ReviewsController#show as HTML
+  Parameters: {"cocktail_id"=>"16", "id"=>"12"}
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering reviews/show.html.haml within layouts/application
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered reviews/show.html.haml within layouts/application (8.0ms)
+Completed 200 OK in 32ms (Views: 28.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cocktails/16/reviews/12" for 127.0.0.1 at 2018-05-16 16:01:36 +0200
+Processing by ReviewsController#show as HTML
+  Parameters: {"cocktail_id"=>"16", "id"=>"12"}
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering reviews/show.html.haml within layouts/application
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered reviews/show.html.haml within layouts/application (6.6ms)
+Completed 200 OK in 28ms (Views: 24.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cocktails/16/reviews/12/edit" for 127.0.0.1 at 2018-05-16 16:01:37 +0200
+Processing by ReviewsController#edit as HTML
+  Parameters: {"cocktail_id"=>"16", "id"=>"12"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/edit.html.haml within layouts/application
+  Rendered reviews/_review_form.html.haml (1.7ms)
+  Rendered reviews/edit.html.haml within layouts/application (4.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Completed 200 OK in 34ms (Views: 31.9ms | ActiveRecord: 0.6ms)
+
+
+Started PUT "/cocktails/16/reviews/12" for 127.0.0.1 at 2018-05-16 16:01:49 +0200
+Processing by ReviewsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tHseiCCv0sstpf1XkjiBFtAnV3RC5HGMXddme3HTYJjf7pLYWAlVT0XFTi2109itHsxNvSpbrVWUVGS+bMcEzw==", "review"=>{"rate"=>"1", "comments"=>"ew"}, "commit"=>"Save Changes", "cocktail_id"=>"16", "id"=>"12"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCocktail Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? AND ("cocktails"."id" != ?) LIMIT ?[0m  [["name", "Mojito"], ["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "reviews" SET "comments" = ? WHERE "reviews"."id" = ?[0m  [["comments", "ew"], ["id", 12]]
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/cocktails/12/reviews/12
+Completed 302 Found in 11ms (ActiveRecord: 4.7ms)
+
+
+Started GET "/cocktails/12/reviews/12" for 127.0.0.1 at 2018-05-16 16:01:49 +0200
+Processing by ReviewsController#show as HTML
+  Parameters: {"cocktail_id"=>"12", "id"=>"12"}
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering reviews/show.html.haml within layouts/application
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered reviews/show.html.haml within layouts/application (4.5ms)
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 16:08:09 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 16]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["user_id", 7], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (9.9ms)
+Completed 200 OK in 30ms (Views: 27.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cocktails/16/reviews/12" for 127.0.0.1 at 2018-05-16 16:08:12 +0200
+Processing by ReviewsController#show as HTML
+  Parameters: {"cocktail_id"=>"16", "id"=>"12"}
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering reviews/show.html.haml within layouts/application
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered reviews/show.html.haml within layouts/application (5.3ms)
+Completed 200 OK in 26ms (Views: 23.0ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/cocktails/16/reviews/12" for 127.0.0.1 at 2018-05-16 16:08:13 +0200
+Processing by ReviewsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"H2Ew66wpoLsIOwsrU0f+4zei8rLO363CefS/sqzvzofrlSZ+D8PvEjbnaTKCJaFyqqVVaT+OI9mO1+VOd3u8YA==", "cocktail_id"=>"16", "id"=>"12"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "reviews" WHERE "reviews"."id" = ?[0m  [["id", 12]]
+  [1m[35m (14.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Redirected to http://localhost:3000/cocktails/16/reviews
+Completed 302 Found in 26ms (ActiveRecord: 15.7ms)
+
+
+Started GET "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 16:08:13 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 16]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["user_id", 7], ["LIMIT", 1]]
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (12.8ms)
+Completed 200 OK in 40ms (Views: 35.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/cocktails/16/reviews/11" for 127.0.0.1 at 2018-05-16 16:08:15 +0200
+Processing by ReviewsController#show as HTML
+  Parameters: {"cocktail_id"=>"16", "id"=>"11"}
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering reviews/show.html.haml within layouts/application
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered reviews/show.html.haml within layouts/application (6.6ms)
+Completed 200 OK in 33ms (Views: 27.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 16:08:16 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.3ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 16]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["user_id", 7], ["LIMIT", 1]]
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (16.2ms)
+Completed 200 OK in 41ms (Views: 36.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/cocktails/16/reviews/6" for 127.0.0.1 at 2018-05-16 16:08:17 +0200
+Processing by ReviewsController#show as HTML
+  Parameters: {"cocktail_id"=>"16", "id"=>"6"}
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering reviews/show.html.haml within layouts/application
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered reviews/show.html.haml within layouts/application (5.5ms)
+Completed 200 OK in 27ms (Views: 23.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 16:08:18 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.3ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 16]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["user_id", 7], ["LIMIT", 1]]
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (11.7ms)
+Completed 200 OK in 40ms (Views: 34.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/cocktails/16/reviews/new" for 127.0.0.1 at 2018-05-16 16:28:31 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ReviewsController#new as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/new.html.haml within layouts/application
+  Rendered reviews/_review_form.html.haml (2.4ms)
+  Rendered reviews/new.html.haml within layouts/application (7.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Completed 200 OK in 201ms (Views: 162.9ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 16:28:35 +0200
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mAZAUBNZOSRXosiRNiXlhzM9jk+mHekYHz6M2AdWj21s8lbFsLN2jWl+qojnR7oWrjoplFdMZwPoHdYk3ML9ig==", "review"=>{"rate"=>"3", "comments"=>"dd"}, "commit"=>"Create Review", "cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCocktail Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? AND ("cocktails"."id" != ?) LIMIT ?[0m  [["name", "Mojito"], ["id", 16], ["LIMIT", 1]]
+  [1m[36mCACHE Cocktail Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? AND ("cocktails"."id" != ?) LIMIT ?[0m  [["name", "Mojito"], ["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "reviews" ("rate", "comments", "cocktail_id", "user_id") VALUES (?, ?, ?, ?)[0m  [["rate", 3], ["comments", "dd"], ["cocktail_id", 16], ["user_id", 7]]
+  [1m[35m (10.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/cocktails/16/reviews
+Completed 302 Found in 23ms (ActiveRecord: 11.2ms)
+
+
+Started GET "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 16:28:35 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 16]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["user_id", 7], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (7.3ms)
+Completed 200 OK in 25ms (Views: 22.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/cocktails/16/reviews/13" for 127.0.0.1 at 2018-05-16 16:36:00 +0200
+Processing by ReviewsController#show as HTML
+  Parameters: {"cocktail_id"=>"16", "id"=>"13"}
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering reviews/show.html.haml within layouts/application
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered reviews/show.html.haml within layouts/application (10.4ms)
+Completed 200 OK in 43ms (Views: 39.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/cocktails/16/reviews/13/edit" for 127.0.0.1 at 2018-05-16 16:36:02 +0200
+Processing by ReviewsController#edit as HTML
+  Parameters: {"cocktail_id"=>"16", "id"=>"13"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/edit.html.haml within layouts/application
+  Rendered reviews/_review_form.html.haml (3.6ms)
+  Rendered reviews/edit.html.haml within layouts/application (8.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Completed 200 OK in 43ms (Views: 39.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cocktails/16/reviews/13" for 127.0.0.1 at 2018-05-16 16:47:50 +0200
+Processing by ReviewsController#show as HTML
+  Parameters: {"cocktail_id"=>"16", "id"=>"13"}
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering reviews/show.html.haml within layouts/application
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered reviews/show.html.haml within layouts/application (10.1ms)
+Completed 200 OK in 43ms (Views: 39.0ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/cocktails/16/reviews/13" for 127.0.0.1 at 2018-05-16 16:47:50 +0200
+Processing by ReviewsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"XZpwroz0Nfdvd4/EEc1VyXEkGFxs1KrmQ/pYrnxbmv6pbmY7Lx56XlGr7d3ArwpY7CO/h52FJP202QJSp8/oGQ==", "cocktail_id"=>"16", "id"=>"13"}
+  [1m[36mCocktail Load (0.4ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[31mDELETE FROM "reviews" WHERE "reviews"."id" = ?[0m  [["id", 13]]
+  [1m[35m (10.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Redirected to http://localhost:3000/cocktails/16/reviews
+Completed 302 Found in 26ms (ActiveRecord: 13.5ms)
+
+
+Started GET "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 16:47:50 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 16]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["user_id", 7], ["LIMIT", 1]]
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (14.9ms)
+Completed 200 OK in 41ms (Views: 36.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/cocktails/16/reviews/new" for 127.0.0.1 at 2018-05-16 16:47:52 +0200
+Processing by ReviewsController#new as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/new.html.haml within layouts/application
+  Rendered reviews/_review_form.html.haml (1.6ms)
+  Rendered reviews/new.html.haml within layouts/application (4.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Completed 200 OK in 27ms (Views: 23.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 16:47:55 +0200
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F8U0yj0Ji7Oa15bi2Grdfj7DqIpmEEMYV3/VHc1y/5a0XYXQlY+IXHz2pOpK52thtS8P5jwWktJzwlNsGYarOg==", "review"=>{"rate"=>"4", "comments"=>"fff"}, "commit"=>"Create Review", "cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCocktail Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? AND ("cocktails"."id" != ?) LIMIT ?[0m  [["name", "Mojito"], ["id", 16], ["LIMIT", 1]]
+  [1m[36mCACHE Cocktail Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? AND ("cocktails"."id" != ?) LIMIT ?[0m  [["name", "Mojito"], ["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "reviews" ("rate", "comments", "cocktail_id", "user_id") VALUES (?, ?, ?, ?)[0m  [["rate", 4], ["comments", "fff"], ["cocktail_id", 16], ["user_id", 7]]
+  [1m[35m (4.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/cocktails/16/reviews
+Completed 302 Found in 15ms (ActiveRecord: 5.7ms)
+
+
+Started GET "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 16:47:55 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 16]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["user_id", 7], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (6.4ms)
+Completed 200 OK in 23ms (Views: 20.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cocktails/16/reviews/14" for 127.0.0.1 at 2018-05-16 16:54:21 +0200
+Processing by ReviewsController#show as HTML
+  Parameters: {"cocktail_id"=>"16", "id"=>"14"}
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  Rendering reviews/show.html.haml within layouts/application
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered reviews/show.html.haml within layouts/application (9.2ms)
+Completed 200 OK in 36ms (Views: 31.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/cocktails/16/reviews/14/edit" for 127.0.0.1 at 2018-05-16 16:54:22 +0200
+Processing by ReviewsController#edit as HTML
+  Parameters: {"cocktail_id"=>"16", "id"=>"14"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/edit.html.haml within layouts/application
+  Rendered reviews/_review_form.html.haml (1.9ms)
+  Rendered reviews/edit.html.haml within layouts/application (5.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Completed 200 OK in 29ms (Views: 25.8ms | ActiveRecord: 0.4ms)
+
+
+Started PUT "/cocktails/16/reviews/14" for 127.0.0.1 at 2018-05-16 16:54:24 +0200
+Processing by ReviewsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tl0VZEwrqPqGt6nhw6aQF1T+vwktngZtg9lw32BnCseewvG6tcMUmxHv0QHAZYift5l+4zAlUUiCc08UXsO98A==", "review"=>{"rate"=>"1", "comments"=>"trr"}, "commit"=>"Save Changes", "cocktail_id"=>"16", "id"=>"14"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCocktail Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? AND ("cocktails"."id" != ?) LIMIT ?[0m  [["name", "Mojito"], ["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "reviews" SET "rate" = ?, "comments" = ? WHERE "reviews"."id" = ?[0m  [["rate", 1], ["comments", "trr"], ["id", 14]]
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/cocktails/14/reviews/14
+Completed 302 Found in 16ms (ActiveRecord: 5.2ms)
+
+
+Started GET "/cocktails/14/reviews/14" for 127.0.0.1 at 2018-05-16 16:54:24 +0200
+Processing by ReviewsController#show as HTML
+  Parameters: {"cocktail_id"=>"14", "id"=>"14"}
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  Rendering reviews/show.html.haml within layouts/application
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered reviews/show.html.haml within layouts/application (4.8ms)
+Completed 200 OK in 22ms (Views: 20.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cocktails/16/reviews/14/edit" for 127.0.0.1 at 2018-05-16 16:54:59 +0200
+Processing by ReviewsController#edit as HTML
+  Parameters: {"cocktail_id"=>"16", "id"=>"14"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/edit.html.haml within layouts/application
+  Rendered reviews/_review_form.html.haml (1.7ms)
+  Rendered reviews/edit.html.haml within layouts/application (4.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Completed 200 OK in 25ms (Views: 23.7ms | ActiveRecord: 0.3ms)
+
+
+Started PUT "/cocktails/16/reviews/14" for 127.0.0.1 at 2018-05-16 16:55:00 +0200
+Processing by ReviewsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o1gp9hrdNJp05WodXIurt7MNipv9hJQN5cKkvW5mZoaLx80o4zWI++O9Ev1fSLM/UGpLceA/wyjkaJt2UMLRsQ==", "review"=>{"rate"=>"1", "comments"=>""}, "commit"=>"Save Changes", "cocktail_id"=>"16", "id"=>"14"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mCocktail Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? AND ("cocktails"."id" != ?) LIMIT ?[0m  [["name", "Mojito"], ["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "reviews" SET "comments" = ? WHERE "reviews"."id" = ?[0m  [["comments", ""], ["id", 14]]
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/cocktails/14/reviews/14
+Completed 302 Found in 13ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/cocktails/14/reviews/14" for 127.0.0.1 at 2018-05-16 16:55:00 +0200
+Processing by ReviewsController#show as HTML
+  Parameters: {"cocktail_id"=>"14", "id"=>"14"}
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  Rendering reviews/show.html.haml within layouts/application
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered reviews/show.html.haml within layouts/application (4.4ms)
+Completed 200 OK in 21ms (Views: 20.1ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/cocktails/16/reviews/14" for 127.0.0.1 at 2018-05-16 16:55:47 +0200
+Processing by ReviewsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"0EQTlnCtWG/YUeRSXzVs3BEJW7etiapoJ5TRHavdWDQksAUD00cXxuaNhkuOVzNNjA78bFzYJHPQt4vhcEkq0w==", "cocktail_id"=>"16", "id"=>"14"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["id", 14], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "reviews" WHERE "reviews"."id" = ?[0m  [["id", 14]]
+  [1m[35m (10.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Redirected to http://localhost:3000/cocktails/16/reviews
+Completed 302 Found in 18ms (ActiveRecord: 11.4ms)
+
+
+Started GET "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 16:55:47 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 16]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["user_id", 7], ["LIMIT", 1]]
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (9.7ms)
+Completed 200 OK in 30ms (Views: 25.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cocktails/16/reviews/new" for 127.0.0.1 at 2018-05-16 16:56:33 +0200
+Processing by ReviewsController#new as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/new.html.haml within layouts/application
+  Rendered reviews/_review_form.html.haml (2.9ms)
+  Rendered reviews/new.html.haml within layouts/application (6.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Completed 200 OK in 29ms (Views: 25.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 16:56:36 +0200
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"d/e33Uvn2gDTeoCQRh5+yKT7dSMLFM6GF97mhSYMDtDUbwbH42HZ7zVbspjUk8jXLxfST1ESH0wzY2D08vhafA==", "review"=>{"rate"=>"1", "comments"=>"f"}, "commit"=>"Create Review", "cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCocktail Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? AND ("cocktails"."id" != ?) LIMIT ?[0m  [["name", "Mojito"], ["id", 16], ["LIMIT", 1]]
+  [1m[36mCACHE Cocktail Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? AND ("cocktails"."id" != ?) LIMIT ?[0m  [["name", "Mojito"], ["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "reviews" ("rate", "comments", "cocktail_id", "user_id") VALUES (?, ?, ?, ?)[0m  [["rate", 1], ["comments", "f"], ["cocktail_id", 16], ["user_id", 7]]
+  [1m[35m (10.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/cocktails/16/reviews
+Completed 302 Found in 22ms (ActiveRecord: 12.1ms)
+
+
+Started GET "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 16:56:36 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 16]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["user_id", 7], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (9.6ms)
+Completed 200 OK in 30ms (Views: 27.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/cocktails/16/reviews/15" for 127.0.0.1 at 2018-05-16 16:56:45 +0200
+Processing by ReviewsController#show as HTML
+  Parameters: {"cocktail_id"=>"16", "id"=>"15"}
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  Rendering reviews/show.html.haml within layouts/application
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered reviews/show.html.haml within layouts/application (7.9ms)
+Completed 200 OK in 30ms (Views: 27.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 16:58:18 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 16]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["user_id", 7], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (11.3ms)
+Completed 200 OK in 36ms (Views: 32.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cocktails/16/reviews/15" for 127.0.0.1 at 2018-05-16 16:58:27 +0200
+Processing by ReviewsController#show as HTML
+  Parameters: {"cocktail_id"=>"16", "id"=>"15"}
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  Rendering reviews/show.html.haml within layouts/application
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered reviews/show.html.haml within layouts/application (12.7ms)
+Completed 200 OK in 46ms (Views: 38.1ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/cocktails/16/reviews/15" for 127.0.0.1 at 2018-05-16 17:03:28 +0200
+Processing by ReviewsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"rxIGMj1MOA1t480GphGom5V7LfcmRiZpusC2SFquLLlb5hCnnqZ3pFM/rx93c/cKCHyKLNcXqHJN4+y0gTpeXg==", "cocktail_id"=>"16", "id"=>"15"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["id", 15], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "reviews" WHERE "reviews"."id" = ?[0m  [["id", 15]]
+  [1m[35m (9.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Redirected to http://localhost:3000/cocktails/16/reviews
+Completed 302 Found in 39ms (ActiveRecord: 12.0ms)
+
+
+Started GET "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 17:03:28 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 16]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["user_id", 7], ["LIMIT", 1]]
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (7.5ms)
+Completed 200 OK in 23ms (Views: 21.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/cocktails/16/reviews/new" for 127.0.0.1 at 2018-05-16 17:04:06 +0200
+Processing by ReviewsController#new as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/new.html.haml within layouts/application
+  Rendered reviews/_review_form.html.haml (2.8ms)
+  Rendered reviews/new.html.haml within layouts/application (11.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Completed 200 OK in 34ms (Views: 29.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 17:04:08 +0200
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wFJEa1JSCz8rgEpA5IQModBlTs5zIgFduwL7mr9tx6JjyvVx+tQI0M2heEh2Cbq+W4npoikk0Jefv33ra5mTDg==", "review"=>{"rate"=>"1", "comments"=>"ss"}, "commit"=>"Create Review", "cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCocktail Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? AND ("cocktails"."id" != ?) LIMIT ?[0m  [["name", "Mojito"], ["id", 16], ["LIMIT", 1]]
+  [1m[36mCACHE Cocktail Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? AND ("cocktails"."id" != ?) LIMIT ?[0m  [["name", "Mojito"], ["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "reviews" ("rate", "comments", "cocktail_id", "user_id") VALUES (?, ?, ?, ?)[0m  [["rate", 1], ["comments", "ss"], ["cocktail_id", 16], ["user_id", 7]]
+  [1m[35m (10.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/cocktails/16/reviews
+Completed 302 Found in 24ms (ActiveRecord: 11.8ms)
+
+
+Started GET "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 17:04:08 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 16]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["user_id", 7], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (8.2ms)
+Completed 200 OK in 27ms (Views: 23.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/cocktails/16/reviews/16" for 127.0.0.1 at 2018-05-16 17:04:09 +0200
+Processing by ReviewsController#show as HTML
+  Parameters: {"cocktail_id"=>"16", "id"=>"16"}
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/show.html.haml within layouts/application
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered reviews/show.html.haml within layouts/application (6.3ms)
+Completed 200 OK in 30ms (Views: 26.8ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/cocktails/16/reviews/16" for 127.0.0.1 at 2018-05-16 17:04:11 +0200
+Processing by ReviewsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"+UW4tWpYCOLAk+WIFQ9zqTObN7JK5iBEE53TiJCznhYNsa4gybJHS/5Ph5HEbSw4rpyQabu3rl/kvol0Syfs8Q==", "cocktail_id"=>"16", "id"=>"16"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["id", 16], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM "reviews" WHERE "reviews"."id" = ?[0m  [["id", 16]]
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+Redirected to http://localhost:3000/cocktails/16/reviews
+Completed 302 Found in 11ms (ActiveRecord: 5.2ms)
+
+
+Started GET "/cocktails/16/reviews" for 127.0.0.1 at 2018-05-16 17:04:11 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"16"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 16], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 16]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mReview Load (0.0ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 16], ["user_id", 7], ["LIMIT", 1]]
+  [1m[36mCocktail Load (0.0ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (6.4ms)
+Completed 200 OK in 23ms (Views: 21.1ms | ActiveRecord: 0.7ms)
+
+

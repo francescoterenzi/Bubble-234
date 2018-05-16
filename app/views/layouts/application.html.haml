@@ -22,7 +22,7 @@
               - if user_signed_in?
                 = link_to "New Cocktail", new_cocktail_path, :class => 'btn btn-outline-success'
                 = link_to "#{current_user.first_name} #{current_user.last_name}", users_myprofile_path, :class => 'btn btn-outline-primary'
-                = link_to "Log Out #{current_user.username}", destroy_user_session_path, :method => 'delete', :class => 'btn btn-outline-primary'
+                = link_to "Log Out", destroy_user_session_path, :method => 'delete', :class => 'btn btn-outline-primary'
                 = link_to "Edit Profile", edit_user_registration_path, :class => 'btn btn-outline-danger'
               - else
                 = link_to "Log In", new_user_session_path, :class => 'btn btn-outline-primary'
