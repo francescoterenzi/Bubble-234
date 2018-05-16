@@ -19,6 +19,7 @@ gem 'haml'
 
 # Use Carrierwave for image uploading
 gem 'carrierwave', '~> 1.0'
+gem 'mini_magick', '~> 4.3'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

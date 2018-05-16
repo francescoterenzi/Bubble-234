@@ -12,5 +12,7 @@
 %br
 = date_select :cocktail, :creation_date
 %br
-%input{:accept => "image/*", :name => "pic", :type => "file"}
+= label :image, :insert_image, 'Image Upload'
+%br
+= file_field :image, :insert_image
 %br

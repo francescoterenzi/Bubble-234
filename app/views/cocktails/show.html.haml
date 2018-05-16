@@ -4,6 +4,7 @@
 %ul#details
     %li Creation date: #{@cocktail.creation_date}
     %li Description: #{@cocktail.description}
+= image_tag "#{@cocktail.image.url}"
 
 = link_to "Show Reviews", cocktail_reviews_path(@cocktail), :class => 'btn btn-outline-success'
 %br

@@ -7,4 +7,5 @@ class Cocktail < ApplicationRecord
 
   has_many :reviews
   belongs_to :user
+  mount_uploader :image, ImageUploader
 end
