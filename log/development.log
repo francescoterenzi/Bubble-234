@@ -12785,3 +12785,37 @@ Processing by CocktailsController#show as HTML
 Completed 200 OK in 118ms (Views: 109.1ms | ActiveRecord: 2.9ms)
 
 
+Started GET "/cocktails/16" for 127.0.0.1 at 2018-05-16 11:33:19 +0200
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mCocktail Load (0.9ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (9.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered cocktails/show.html.haml within layouts/application (101.5ms)
+Completed 200 OK in 749ms (Views: 627.2ms | ActiveRecord: 20.5ms)
+
+
+Started GET "/cocktails/16" for 127.0.0.1 at 2018-05-16 11:33:35 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mCocktail Load (1.0ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered cocktails/show.html.haml within layouts/application (30.5ms)
+Completed 200 OK in 135ms (Views: 122.1ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/cocktails/18" for 127.0.0.1 at 2018-05-16 11:33:37 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mCocktail Load (0.7ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered cocktails/show.html.haml within layouts/application (20.2ms)
+Completed 200 OK in 107ms (Views: 96.5ms | ActiveRecord: 1.9ms)
+
+

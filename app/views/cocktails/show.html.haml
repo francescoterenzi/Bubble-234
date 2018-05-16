@@ -11,5 +11,6 @@
 = link_to "Back", root_path, :class => 'btn btn-outline-success'
 - if @cocktail.user == current_user
     = link_to "Edit", edit_cocktail_path(@cocktail), :class => 'btn btn-outline-danger'
-= link_to "Delete Cocktail", cocktail_path(@cocktail), :method => :delete, :class => 'btn btn-outline-primary'
+    = link_to "Delete Cocktail", cocktail_path(@cocktail), :method => :delete, :class => 'btn btn-outline-primary'
+
 
