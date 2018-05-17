@@ -6,6 +6,7 @@
 = image_tag "#{@cocktail.image.url}"
 
 = link_to "Show Reviews", cocktail_reviews_path(@cocktail), :class => 'btn btn-outline-success'
+= link_to "Add to Favorite", users_favorites_path, :action => :create, :class => 'btn btn-outline-success'
 %br
 %br
 = link_to "Back", root_path, :class => 'btn btn-outline-success'

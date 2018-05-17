@@ -1,0 +1,7 @@
+%h2 Favorite Cocktails
+
+- if @favorites == nil
+    %p No cocktail saved as favorite
+- else
+    - @favorites.each do |f|
+        = link_to "#{f.cocktail}", cocktail_path(f.cocktail)

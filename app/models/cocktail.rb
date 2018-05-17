@@ -6,5 +6,9 @@ class Cocktail < ApplicationRecord
 
   has_many :reviews
   belongs_to :user
+
+  has_many :favorite_cocktails 
+  has_many :favorited_by, through: :favorite_cocktails, source: :user 
+
   mount_uploader :image , ImageUploader , presence: true
 end

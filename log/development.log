@@ -19925,3 +19925,1359 @@ Processing by UsersController#myprofile as HTML
 Completed 200 OK in 125ms (Views: 115.1ms | ActiveRecord: 4.5ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-05-17 20:48:07 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (2.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 182ms (Views: 172.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 20:48:09 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 4]]
+  Rendered users/myprofile.html.haml within layouts/application (21.3ms)
+Completed 200 OK in 41ms (Views: 38.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/favourite" for 127.0.0.1 at 2018-05-17 20:48:14 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/users/favourite"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/favourite" for 127.0.0.1 at 2018-05-17 20:48:30 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/users/favourite"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/f" for 127.0.0.1 at 2018-05-17 20:49:08 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/users/f"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/" for 127.0.0.1 at 2018-05-17 20:49:09 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-05-17 20:49:13 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (1.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 38ms (Views: 35.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-17 20:50:35 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (1.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 33ms (Views: 31.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-17 20:51:01 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (1.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 33ms (Views: 31.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/favourites" for 127.0.0.1 at 2018-05-17 20:51:05 +0200
+Processing by UsersController#favourites as HTML
+  Rendering users/favourites.html.haml within layouts/application
+  Rendered users/favourites.html.haml within layouts/application (2.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 31ms (Views: 29.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cocktails/new" for 127.0.0.1 at 2018-05-17 20:51:06 +0200
+Processing by CocktailsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering cocktails/new.html.haml within layouts/application
+  Rendered cocktails/_cocktail_form.html.haml (4.2ms)
+  Rendered cocktails/new.html.haml within layouts/application (7.5ms)
+Completed 200 OK in 49ms (Views: 28.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/favourites" for 127.0.0.1 at 2018-05-17 20:51:07 +0200
+Processing by UsersController#favourites as HTML
+  Rendering users/favourites.html.haml within layouts/application
+  Rendered users/favourites.html.haml within layouts/application (5.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 55ms (Views: 49.4ms | ActiveRecord: 0.2ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DropCocktail (20180517185320)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180517185320"]]
+  [1m[35m (15.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_cocktails_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_cocktails_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reviews_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reviews_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reviews_on_cocktail_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reviews_on_cocktail_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_username' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_username' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/users/favourites" for 127.0.0.1 at 2018-05-17 20:58:55 +0200
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#favourites as HTML
+Completed 500 Internal Server Error in 149ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `user' for #<UsersController:0x00000000045d0440>):
+  
+app/controllers/users_controller.rb:10:in `favourites'
+Started GET "/users/favourites" for 127.0.0.1 at 2018-05-17 20:59:08 +0200
+Processing by UsersController#favourites as HTML
+Completed 500 Internal Server Error in 3ms
+
+
+  
+NoMethodError (undefined method `favourites' for nil:NilClass):
+  
+app/controllers/users_controller.rb:10:in `favourites'
+Started GET "/users/favourites" for 127.0.0.1 at 2018-05-17 20:59:21 +0200
+Processing by UsersController#favourites as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 1.0ms)
+
+
+  
+NoMethodError (undefined method `favourites' for #<User:0x0000000003d4fc80>
+Did you mean?  favorites
+               favorites=):
+  
+app/controllers/users_controller.rb:10:in `favourites'
+Started GET "/" for 127.0.0.1 at 2018-05-17 20:59:24 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (2.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 125ms (Views: 123.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/favourites" for 127.0.0.1 at 2018-05-17 20:59:26 +0200
+Processing by UsersController#favourites as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.5ms)
+
+
+  
+NoMethodError (undefined method `favourites' for #<User:0x00007f1b7c017770>
+Did you mean?  favorites
+               favorites=):
+  
+app/controllers/users_controller.rb:10:in `favourites'
+Started GET "/users/favourites" for 127.0.0.1 at 2018-05-17 20:59:39 +0200
+Processing by UsersController#favourites as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 0.9ms)
+
+
+  
+ActiveRecord::HasManyThroughSourceAssociationNotFoundError (Could not find the source association(s) "favourite" or :favourites in model Cocktail. Try 'has_many :favourites, :through => :cocktails, :source => <name>'. Is it one of reviews or user?):
+  
+app/controllers/users_controller.rb:10:in `favourites'
+Started GET "/users/favourites" for 127.0.0.1 at 2018-05-17 21:09:08 +0200
+Processing by UsersController#favourites as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.9ms)
+
+
+  
+ActiveRecord::HasManyThroughSourceAssociationNotFoundError (Could not find the source association(s) "favourite" or :favourites in model Cocktail. Try 'has_many :favourites, :through => :cocktails, :source => <name>'. Is it one of reviews, user, favorite_cocktails, or favorited_by?):
+  
+app/controllers/users_controller.rb:10:in `favourites'
+Started GET "/users/favourites" for 127.0.0.1 at 2018-05-17 21:09:25 +0200
+Processing by UsersController#favourites as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 1.4ms)
+
+
+  
+ActiveRecord::HasManyThroughSourceAssociationNotFoundError (Could not find the source association(s) "favourite" or :favourites in model Cocktail. Try 'has_many :favourites, :through => :cocktails, :source => <name>'. Is it one of reviews, user, favorites, or favorited_by?):
+  
+app/controllers/users_controller.rb:10:in `favourites'
+Started GET "/users/favourites" for 127.0.0.1 at 2018-05-17 21:09:42 +0200
+Processing by UsersController#favourites as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.9ms)
+
+
+  
+ActiveRecord::HasManyThroughSourceAssociationNotFoundError (Could not find the source association(s) "favourite" or :favourites in model Cocktail. Try 'has_many :favourites, :through => :cocktails, :source => <name>'. Is it one of reviews, user, favorites, or favourited_by?):
+  
+app/controllers/users_controller.rb:10:in `favourites'
+Started GET "/users/favourites" for 127.0.0.1 at 2018-05-17 21:10:07 +0200
+Processing by UsersController#favourites as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.9ms)
+
+
+  
+ActiveRecord::HasManyThroughSourceAssociationNotFoundError (Could not find the source association(s) "favourite" or :favourites in model Cocktail. Try 'has_many :favourites, :through => :cocktails, :source => <name>'. Is it one of reviews, user, favorited, or favourited_by?):
+  
+app/controllers/users_controller.rb:10:in `favourites'
+Started GET "/users/favourites" for 127.0.0.1 at 2018-05-17 21:10:28 +0200
+Processing by UsersController#favourites as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 1.0ms)
+
+
+  
+ActiveRecord::HasManyThroughAssociationNotFoundError (Could not find the association :cocktail in model User):
+  
+app/controllers/users_controller.rb:10:in `favourites'
+Started GET "/users/favourites" for 127.0.0.1 at 2018-05-17 21:10:37 +0200
+Processing by UsersController#favourites as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.9ms)
+
+
+  
+ActiveRecord::HasManyThroughSourceAssociationNotFoundError (Could not find the source association(s) "favourite" or :favourites in model Cocktail. Try 'has_many :favourites, :through => :cocktails, :source => <name>'. Is it one of reviews, user, favorited, or favourited_by?):
+  
+app/controllers/users_controller.rb:10:in `favourites'
+Started GET "/users/favourites" for 127.0.0.1 at 2018-05-17 21:11:17 +0200
+  
+SyntaxError (/home/francesco/Desktop/Projects/bubble-234/app/models/user.rb:13: syntax error, unexpected ':', expecting keyword_end
+...as_many :favourites, :through :cocktails, :source :cocktail
+...                              ^
+/home/francesco/Desktop/Projects/bubble-234/app/models/user.rb:13: syntax error, unexpected ':', expecting &. or :: or '[' or '.'
+... :through :cocktails, :source :cocktail
+...                              ^):
+  
+app/models/user.rb:13: syntax error, unexpected ':', expecting keyword_end
+app/models/user.rb:13: syntax error, unexpected ':', expecting &. or :: or '[' or '.'
+config/routes.rb:5:in `block in <top (required)>'
+config/routes.rb:1:in `<top (required)>'
+Started GET "/users/favourites" for 127.0.0.1 at 2018-05-17 21:11:31 +0200
+Processing by UsersController#favourites as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.8ms)
+
+
+  
+ActiveRecord::HasManyThroughSourceAssociationNotFoundError (Could not find the source association(s) :cocktail in model Cocktail. Try 'has_many :favourites, :through => :cocktails, :source => <name>'. Is it one of reviews, user, favorited, or favourited_by?):
+  
+app/controllers/users_controller.rb:10:in `favourites'
+Started GET "/" for 127.0.0.1 at 2018-05-17 21:15:12 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (1.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 231ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `users_favourites_path' for #<#<Class:0x00007f1b6d2901f0>:0x00007f1b6d27bc28>
+Did you mean?  users_favorites_path
+               users_favorites_url):
+    21:             #login
+    22:               - if user_signed_in?
+    23:                 = link_to "New Cocktail", new_cocktail_path, :class => 'btn btn-outline-success'
+    24:                 = link_to "Favourites", users_favourites_path, :class => 'btn btn-outline-success'
+    25:                 = link_to "#{current_user.first_name} #{current_user.last_name}", users_myprofile_path, :class => 'btn btn-outline-primary'
+    26:                 = link_to "Log Out", destroy_user_session_path, :method => 'delete', :class => 'btn btn-outline-primary'
+    27:               - else
+  
+app/views/layouts/application.html.haml:24:in `_app_views_layouts_application_html_haml__916605972498357876_69877886016060'
+Started GET "/" for 127.0.0.1 at 2018-05-17 21:15:40 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (1.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 29ms (Views: 28.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/favorites" for 127.0.0.1 at 2018-05-17 21:15:42 +0200
+Processing by UsersController#favorites as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.4ms)
+
+
+  
+NameError (uninitialized constant User::FavoriteCocktail):
+  
+app/controllers/users_controller.rb:10:in `favorites'
+Started GET "/users/favorites" for 127.0.0.1 at 2018-05-17 21:16:29 +0200
+Processing by UsersController#favorites as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 1.4ms)
+
+
+  
+NoMethodError (undefined method `favorites_cocktails' for #<User:0x00007f1b81a4dd70>
+Did you mean?  favorite_cocktails
+               favorite_cocktails=
+               favorite_cocktail_ids
+               favorite_cocktail_ids=):
+  
+app/controllers/users_controller.rb:10:in `favorites'
+Started GET "/users/favorites" for 127.0.0.1 at 2018-05-17 21:16:52 +0200
+Processing by UsersController#favorites as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.8ms)
+
+
+  
+NameError (uninitialized constant User::FavoriteCocktail):
+  
+app/controllers/users_controller.rb:10:in `favorites'
+Started GET "/users/favorites" for 127.0.0.1 at 2018-05-17 21:17:41 +0200
+Processing by UsersController#favorites as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.9ms)
+
+
+  
+LoadError (Unable to autoload constant FavoriteCocktail, expected /home/francesco/Desktop/Projects/bubble-234/app/models/favorite_cocktail.rb to define it):
+  
+app/controllers/users_controller.rb:10:in `favorites'
+Started GET "/users/favorites" for 127.0.0.1 at 2018-05-17 21:18:18 +0200
+Processing by UsersController#favorites as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/favorites.html.haml within layouts/application
+  Rendered users/favorites.html.haml within layouts/application (0.9ms)
+Completed 200 OK in 33ms (Views: 17.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/favorites" for 127.0.0.1 at 2018-05-17 21:19:51 +0200
+Processing by UsersController#favorites as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/favorites.html.haml within layouts/application
+  Rendered users/favorites.html.haml within layouts/application (5.5ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (Could not find table 'favorite_cocktails'):
+    1: - if @favorites.size == 0
+    2:     %p No cocktail saved as favorite
+  
+app/views/users/favorites.html.haml:1:in `_app_views_users_favorites_html_haml__4017819480619892845_69877887290980'
+Started GET "/users/favorites" for 127.0.0.1 at 2018-05-17 21:20:04 +0200
+Processing by UsersController#favorites as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/favorites.html.haml within layouts/application
+  Rendered users/favorites.html.haml within layouts/application (4.4ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (Could not find table 'favorite_cocktails'):
+    1: - if @favorites == nil
+    2:     %p No cocktail saved as favorite
+  
+app/views/users/favorites.html.haml:1:in `_app_views_users_favorites_html_haml__4017819480619892845_69877881727260'
+Started GET "/users/favorites" for 127.0.0.1 at 2018-05-17 21:23:06 +0200
+Processing by UsersController#favorites as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/favorites.html.haml within layouts/application
+  Rendered users/favorites.html.haml within layouts/application (2.1ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (Could not find table 'favorite_cocktails'):
+    1: - if @favorites == nil
+    2:     %p No cocktail saved as favorite
+  
+app/views/users/favorites.html.haml:1:in `_app_views_users_favorites_html_haml__4017819480619892845_69878047897800'
+Started GET "/users/favorites" for 127.0.0.1 at 2018-05-17 21:23:17 +0200
+Processing by UsersController#favorites as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/favorites.html.haml within layouts/application
+  Rendered users/favorites.html.haml within layouts/application (2.1ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (Could not find table 'favorite_cocktails'):
+    1: - if @favorites == nil
+    2:     %p No cocktail saved as favorite
+  
+app/views/users/favorites.html.haml:1:in `_app_views_users_favorites_html_haml__4017819480619892845_69877879289680'
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 21:25:33 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 4]]
+  Rendered users/myprofile.html.haml within layouts/application (12.6ms)
+Completed 200 OK in 30ms (Views: 27.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/cocktails/new" for 127.0.0.1 at 2018-05-17 21:25:36 +0200
+Processing by CocktailsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering cocktails/new.html.haml within layouts/application
+  Rendered cocktails/_cocktail_form.html.haml (3.2ms)
+  Rendered cocktails/new.html.haml within layouts/application (6.1ms)
+Completed 200 OK in 36ms (Views: 24.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/cocktails" for 127.0.0.1 at 2018-05-17 21:25:42 +0200
+Processing by CocktailsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CctIAmQimCRbty51KacRdujwaAIJz0T8I3V23piGCcMu2vg75E8VjM+dtWuuBMz44k2GH02PCyStSwxM52eEjQ==", "cocktail"=>{"name"=>"Mojito", "description"=>"k", "image"=>""}, "commit"=>"Create Cocktail"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCocktail Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? LIMIT ?[0m  [["name", "Mojito"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cocktails" ("name", "description", "user_id") VALUES (?, ?, ?)[0m  [["name", "Mojito"], ["description", "k"], ["user_id", 4]]
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/cocktails/36
+Completed 302 Found in 11ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/cocktails/36" for 127.0.0.1 at 2018-05-17 21:25:42 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered cocktails/show.html.haml within layouts/application (5.1ms)
+Completed 200 OK in 25ms (Views: 21.9ms | ActiveRecord: 0.5ms)
+
+
+Started PUT "/users/favorites" for 127.0.0.1 at 2018-05-17 21:25:45 +0200
+  
+ActionController::RoutingError (No route matches [PUT] "/users/favorites"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/cocktails/36" for 127.0.0.1 at 2018-05-17 21:26:14 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered cocktails/show.html.haml within layouts/application (6.2ms)
+Completed 200 OK in 29ms (Views: 26.1ms | ActiveRecord: 0.6ms)
+
+
+Started PUT "/users/favorites" for 127.0.0.1 at 2018-05-17 21:26:17 +0200
+  
+ActionController::RoutingError (No route matches [PUT] "/users/favorites"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started PUT "/users/favorites" for 127.0.0.1 at 2018-05-17 21:26:20 +0200
+  
+ActionController::RoutingError (No route matches [PUT] "/users/favorites"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/favorites" for 127.0.0.1 at 2018-05-17 21:27:17 +0200
+Processing by UsersController#favorites as HTML
+  Rendering users/favorites.html.haml within layouts/application
+  Rendered users/favorites.html.haml within layouts/application (1.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 31ms (Views: 29.3ms | ActiveRecord: 0.8ms)
+
+
+Started PUT "/users/favorites" for 127.0.0.1 at 2018-05-17 21:27:21 +0200
+  
+ActionController::RoutingError (No route matches [PUT] "/users/favorites"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 21:27:23 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT "cocktails".* FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 4]]
+  Rendered users/myprofile.html.haml within layouts/application (23.0ms)
+Completed 200 OK in 51ms (Views: 46.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/favorites" for 127.0.0.1 at 2018-05-17 21:27:26 +0200
+Processing by UsersController#favorites as HTML
+  Rendering users/favorites.html.haml within layouts/application
+  Rendered users/favorites.html.haml within layouts/application (2.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 27ms (Views: 25.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 21:27:57 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT "cocktails".* FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 4]]
+  Rendered users/myprofile.html.haml within layouts/application (12.4ms)
+Completed 200 OK in 52ms (Views: 48.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cocktails/36" for 127.0.0.1 at 2018-05-17 21:28:00 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mCocktail Load (0.3ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered cocktails/show.html.haml within layouts/application (12.0ms)
+Completed 200 OK in 56ms (Views: 51.3ms | ActiveRecord: 1.0ms)
+
+
+Started PUT "/users/favorites" for 127.0.0.1 at 2018-05-17 21:28:01 +0200
+  
+ActionController::RoutingError (No route matches [PUT] "/users/favorites"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started PUT "/users/favorites" for 127.0.0.1 at 2018-05-17 21:28:05 +0200
+  
+ActionController::RoutingError (No route matches [PUT] "/users/favorites"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/favorites" for 127.0.0.1 at 2018-05-17 21:29:07 +0200
+Processing by UsersController#favorites as HTML
+  Rendering users/favorites.html.haml within layouts/application
+  Rendered users/favorites.html.haml within layouts/application (1.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 44ms (Views: 41.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 21:29:11 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT "cocktails".* FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 4]]
+  Rendered users/myprofile.html.haml within layouts/application (19.0ms)
+Completed 200 OK in 40ms (Views: 36.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/cocktails/36" for 127.0.0.1 at 2018-05-17 21:29:12 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered cocktails/show.html.haml within layouts/application (5.9ms)
+Completed 200 OK in 29ms (Views: 26.3ms | ActiveRecord: 0.6ms)
+
+
+Started PUT "/users/favorites" for 127.0.0.1 at 2018-05-17 21:29:13 +0200
+Processing by UsersController#favorites as HTML
+  Parameters: {"authenticity_token"=>"dQ73i49+Q3sWN6TFz2VCGL4xcqh9vZIzaTsLRN5ALxX42QDIiQUfdcw0ExR8TfLfTEfPaxzcDLIDXLw6yFHcMg=="}
+  Rendering users/favorites.html.haml within layouts/application
+  Rendered users/favorites.html.haml within layouts/application (4.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 45ms (Views: 42.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/favorites" for 127.0.0.1 at 2018-05-17 21:30:42 +0200
+Processing by UsersController#favorites as HTML
+  Rendering users/favorites.html.haml within layouts/application
+  Rendered users/favorites.html.haml within layouts/application (1.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 25ms (Views: 24.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/favorites" for 127.0.0.1 at 2018-05-17 21:30:44 +0200
+Processing by UsersController#favorites as HTML
+  Rendering users/favorites.html.haml within layouts/application
+  Rendered users/favorites.html.haml within layouts/application (1.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 20ms (Views: 18.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 21:30:46 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT "cocktails".* FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 4]]
+  Rendered users/myprofile.html.haml within layouts/application (6.5ms)
+Completed 200 OK in 27ms (Views: 24.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cocktails/36" for 127.0.0.1 at 2018-05-17 21:30:48 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mCocktail Load (0.7ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered cocktails/show.html.haml within layouts/application (10.7ms)
+Completed 200 OK in 40ms (Views: 33.6ms | ActiveRecord: 1.5ms)
+
+
+Started PUT "/users/favorites" for 127.0.0.1 at 2018-05-17 21:30:49 +0200
+Processing by UsersController#favorites as HTML
+  Parameters: {"authenticity_token"=>"1ABX9LE4LJeExGFMOeX9+hp0HRMCPk/2qogFyCahr/ZZ16C3t0NwmV7H1p2KzU096AKg0GNf0XfA77K2MLBc0Q=="}
+  Rendering users/favorites.html.haml within layouts/application
+  Rendered users/favorites.html.haml within layouts/application (9.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 29ms (Views: 27.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/favorites" for 127.0.0.1 at 2018-05-17 21:31:12 +0200
+Processing by UsersController#favorites as HTML
+  Rendering users/favorites.html.haml within layouts/application
+  Rendered users/favorites.html.haml within layouts/application (2.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 21:31:14 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT "cocktails".* FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 4]]
+  Rendered users/myprofile.html.haml within layouts/application (5.4ms)
+Completed 200 OK in 26ms (Views: 22.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cocktails/36" for 127.0.0.1 at 2018-05-17 21:31:15 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mCocktail Load (0.6ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered cocktails/show.html.haml within layouts/application (8.7ms)
+Completed 200 OK in 42ms (Views: 34.8ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/users/favorites" for 127.0.0.1 at 2018-05-17 21:31:15 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/users/favorites"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/favorites" for 127.0.0.1 at 2018-05-17 21:31:29 +0200
+Processing by UsersController#favorites as HTML
+  Rendering users/favorites.html.haml within layouts/application
+  Rendered users/favorites.html.haml within layouts/application (1.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 35ms (Views: 33.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 21:31:31 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT "cocktails".* FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 4]]
+  Rendered users/myprofile.html.haml within layouts/application (21.7ms)
+Completed 200 OK in 42ms (Views: 37.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/cocktails/36" for 127.0.0.1 at 2018-05-17 21:31:32 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mCocktail Load (0.4ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered cocktails/show.html.haml within layouts/application (8.6ms)
+Completed 200 OK in 32ms (Views: 27.5ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/users/favorites" for 127.0.0.1 at 2018-05-17 21:31:33 +0200
+Processing by UsersController#favorites as HTML
+  Parameters: {"authenticity_token"=>"/hdkXGBzjH1hMfFoiYdNU3bIVUCm8YXEcD7uHfzwItlzwJMfZgjQc7syRrk6r/2UhL7og8eQG0UaWVlj6uHR/g=="}
+  Rendering users/favorites.html.haml within layouts/application
+  Rendered users/favorites.html.haml within layouts/application (4.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 40ms (Views: 37.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/favorites" for 127.0.0.1 at 2018-05-17 21:32:59 +0200
+Processing by UsersController#favorites as HTML
+  Rendering users/favorites.html.haml within layouts/application
+  Rendered users/favorites.html.haml within layouts/application (2.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 31ms (Views: 29.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/favorites" for 127.0.0.1 at 2018-05-17 21:33:00 +0200
+Processing by UsersController#favorites as HTML
+  Rendering users/favorites.html.haml within layouts/application
+  Rendered users/favorites.html.haml within layouts/application (2.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 27ms (Views: 24.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 21:33:01 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mCocktail Load (0.3ms)[0m  [1m[34mSELECT "cocktails".* FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 4]]
+  Rendered users/myprofile.html.haml within layouts/application (13.0ms)
+Completed 200 OK in 51ms (Views: 39.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/cocktails/36" for 127.0.0.1 at 2018-05-17 21:33:02 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mCocktail Load (0.5ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered cocktails/show.html.haml within layouts/application (9.7ms)
+Completed 200 OK in 37ms (Views: 32.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/users/favorites" for 127.0.0.1 at 2018-05-17 21:33:03 +0200
+Processing by UsersController#favorites as HTML
+  Parameters: {"authenticity_token"=>"QCWvZF2NehX4OL4zQSvIkJ8nIpOAMYp0NDpnhlI9lmDN8lgnW/YmGyI7CeLyA3hXbVGfUOFQFPVeXdD4RCxlRw=="}
+  Rendering users/favorites.html.haml within layouts/application
+  Rendered users/favorites.html.haml within layouts/application (2.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 24ms (Views: 22.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 21:33:39 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT "cocktails".* FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 4]]
+  Rendered users/myprofile.html.haml within layouts/application (8.4ms)
+Completed 200 OK in 32ms (Views: 28.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/cocktails/36" for 127.0.0.1 at 2018-05-17 21:33:40 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mCocktail Load (0.3ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  Rendered cocktails/show.html.haml within layouts/application (4.9ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.3ms)
+
+
+  
+SyntaxError (/home/francesco/Desktop/Projects/bubble-234/app/views/cocktails/show.html.haml:9: syntax error, unexpected =>
+...sers_favorites_path, method: => :post, :class => 'btn btn-ou...
+...                             ^~):
+  
+app/views/cocktails/show.html.haml:9: syntax error, unexpected =>
+Started GET "/cocktails/36" for 127.0.0.1 at 2018-05-17 21:34:05 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  Rendered cocktails/show.html.haml within layouts/application (2.7ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms)
+
+
+  
+SyntaxError (/home/francesco/Desktop/Projects/bubble-234/app/views/cocktails/show.html.haml:9: syntax error, unexpected =>
+...sers_favorites_path, method: => :post, :class => 'btn btn-ou...
+...                             ^~):
+  
+app/views/cocktails/show.html.haml:9: syntax error, unexpected =>
+Started GET "/cocktails/36" for 127.0.0.1 at 2018-05-17 21:34:46 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  Rendered cocktails/show.html.haml within layouts/application (2.6ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms)
+
+
+  
+SyntaxError (/home/francesco/Desktop/Projects/bubble-234/app/views/cocktails/show.html.haml:9: syntax error, unexpected ':', expecting ')'
+...users_favorites_path, :action :create, :class => 'btn btn-ou...
+...                              ^
+/home/francesco/Desktop/Projects/bubble-234/app/views/cocktails/show.html.haml:9: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+...ath, :action :create, :class => 'btn btn-outline-success'
+...                             ^~):
+  
+app/views/cocktails/show.html.haml:9: syntax error, unexpected ':', expecting ')'
+app/views/cocktails/show.html.haml:9: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+Started GET "/cocktails/36" for 127.0.0.1 at 2018-05-17 21:35:01 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered cocktails/show.html.haml within layouts/application (5.8ms)
+Completed 200 OK in 30ms (Views: 27.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/favorites" for 127.0.0.1 at 2018-05-17 21:35:03 +0200
+Processing by UsersController#favorites as HTML
+  Parameters: {"authenticity_token"=>"10utrW3Ys4tE2zEnPKALLw2NM+ENlldpc0WCiSpL7ItanFrua6PvhZ7YhvaPiLvo//uOImz3yegZIjX3PFofrA=="}
+  Rendering users/favorites.html.haml within layouts/application
+  Rendered users/favorites.html.haml within layouts/application (1.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 21ms (Views: 19.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cocktails/36" for 127.0.0.1 at 2018-05-17 21:35:21 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered cocktails/show.html.haml within layouts/application (5.5ms)
+Completed 200 OK in 30ms (Views: 28.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/favorites" for 127.0.0.1 at 2018-05-17 21:35:23 +0200
+Processing by UsersController#favorites as HTML
+  Rendering users/favorites.html.haml within layouts/application
+  Rendered users/favorites.html.haml within layouts/application (2.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 32ms (Views: 30.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cocktails/36" for 127.0.0.1 at 2018-05-17 21:36:02 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered cocktails/show.html.haml within layouts/application (15.3ms)
+Completed 200 OK in 43ms (Views: 30.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/favorites" for 127.0.0.1 at 2018-05-17 21:36:03 +0200
+Processing by UsersController#favorites as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/favorites.html.haml within layouts/application
+  Rendered users/favorites.html.haml within layouts/application (3.9ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (Could not find table 'favorite_cocktails'):
+    1: %h2 Favorite Cocktails
+    2: 
+    3: - if @favorites == nil
+    4:     %p No cocktail saved as favorite
+    5: - else
+    6:     - @favorites.each do |f|
+  
+app/views/users/favorites.html.haml:3:in `_app_views_users_favorites_html_haml__4017819480619892845_69877890699520'
+Started GET "/users/favorites" for 127.0.0.1 at 2018-05-17 21:36:56 +0200
+Processing by UsersController#favorites as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/favorites.html.haml within layouts/application
+  Rendered users/favorites.html.haml within layouts/application (11.3ms)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (Could not find table 'favorite_cocktails'):
+    1: %h2 Favorite Cocktails
+    2: 
+    3: - if @user.favorites == nil
+    4:     %p No cocktail saved as favorite
+    5: - else
+    6:     - @user.favorites.each do |f|
+  
+app/views/users/favorites.html.haml:3:in `_app_views_users_favorites_html_haml__4017819480619892845_69877878881000'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_cocktails_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_cocktails_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reviews_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reviews_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reviews_on_cocktail_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reviews_on_cocktail_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_username' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_username' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/users/favorites" for 127.0.0.1 at 2018-05-17 21:41:12 +0200
+  
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  
+config/routes.rb:9:in `block in <top (required)>'
+config/routes.rb:1:in `<top (required)>'
+Started GET "/users/favorites" for 127.0.0.1 at 2018-05-17 21:41:56 +0200
+Processing by UsersController#favorites as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/favorites.html.haml within layouts/application
+  Rendered users/favorites.html.haml within layouts/application (10.4ms)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (Could not find table 'favorite_cocktails'):
+    1: %h2 Favorite Cocktails
+    2: 
+    3: - if @user.favorites == nil
+    4:     %p No cocktail saved as favorite
+    5: - else
+    6:     - @user.favorites.each do |f|
+  
+app/views/users/favorites.html.haml:3:in `_app_views_users_favorites_html_haml__4017819480619892845_69877979357200'
+Started GET "/users/favorites" for 127.0.0.1 at 2018-05-17 21:42:22 +0200
+Processing by UsersController#favorites as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/favorites.html.haml within layouts/application
+  Rendered users/favorites.html.haml within layouts/application (1.7ms)
+Completed 200 OK in 22ms (Views: 19.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 21:42:29 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT "cocktails".* FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 4]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 4]]
+  Rendered users/myprofile.html.haml within layouts/application (14.3ms)
+Completed 200 OK in 38ms (Views: 34.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/cocktails/36" for 127.0.0.1 at 2018-05-17 21:42:31 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mCocktail Load (0.3ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered cocktails/show.html.haml within layouts/application (214.4ms)
+Completed 500 Internal Server Error in 219ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `favorite_cocktails_path' for #<#<Class:0x00007f1b6ca6ca50>:0x00007f1b6ca14580>):
+     6: = image_tag "#{@cocktail.image.url}"
+     7: 
+     8: = link_to "Show Reviews", cocktail_reviews_path(@cocktail), :class => 'btn btn-outline-success'
+     9: = link_to "Add to Favorite", favorite_cocktails_path, :action => :create, :class => 'btn btn-outline-success'
+    10: %br
+    11: %br
+    12: = link_to "Back", root_path, :class => 'btn btn-outline-success'
+  
+app/views/cocktails/show.html.haml:9:in `_app_views_cocktails_show_html_haml___3127767896100835970_69877881863000'
+Started GET "/cocktails/36" for 127.0.0.1 at 2018-05-17 21:42:50 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered cocktails/show.html.haml within layouts/application (262.7ms)
+Completed 500 Internal Server Error in 266ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `users_favorite_path' for #<#<Class:0x00007f1b6ca6ca50>:0x00007f1b6daa8428>
+Did you mean?  users_favorites_path
+               users_favorites_url):
+     6: = image_tag "#{@cocktail.image.url}"
+     7: 
+     8: = link_to "Show Reviews", cocktail_reviews_path(@cocktail), :class => 'btn btn-outline-success'
+     9: = link_to "Add to Favorite", users_favorite_path, :action => :create, :class => 'btn btn-outline-success'
+    10: %br
+    11: %br
+    12: = link_to "Back", root_path, :class => 'btn btn-outline-success'
+  
+app/views/cocktails/show.html.haml:9:in `_app_views_cocktails_show_html_haml___3127767896100835970_69877890369980'
+Started GET "/cocktails/36" for 127.0.0.1 at 2018-05-17 21:43:03 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendered cocktails/show.html.haml within layouts/application (4.4ms)
+Completed 200 OK in 21ms (Views: 19.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/favorites" for 127.0.0.1 at 2018-05-17 21:43:07 +0200
+Processing by UsersController#favorites as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering users/favorites.html.haml within layouts/application
+  Rendered users/favorites.html.haml within layouts/application (2.5ms)
+Completed 200 OK in 28ms (Views: 25.2ms | ActiveRecord: 0.4ms)
+
+
