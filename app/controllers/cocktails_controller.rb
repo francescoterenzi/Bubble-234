@@ -35,9 +35,12 @@ class CocktailsController < ApplicationController
       params.require(:cocktail)
       permitted = params[:cocktail].permit(:name,:description,:creation_date)
 
-      @cocktail.update_attributes!(permitted)
-      flash[:notice] = "#{@cocktail.name} was successfullt updated"
-      redirect_to cocktail_path(@cocktail)
+      if @cocktail.update_attributes(permitted)
+        flash[:notice] = "#{@cocktail.name} was successfullt updated"
+        redirect_to cocktail_path(@cocktail)
+      else
+        render 'edit'
+      end
     end
 
     def cocktail_params
