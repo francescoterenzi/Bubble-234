@@ -24408,3 +24408,227 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 463ms (Views: 459.7ms | ActiveRecord: 0.3ms)
 
 
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddAvatarToUsers (20180517212405)
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.3ms)[0m  [1m[35mALTER TABLE "users" ADD "avatar" varchar[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180517212405"]]
+  [1m[35m (12.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_cocktails_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_cocktails_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reviews_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reviews_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reviews_on_cocktail_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reviews_on_cocktail_id' AND type='index'
+[0m
+  [1m[35m (0.5ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_username' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_username' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 23:29:00 +0200
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 82ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-17 23:29:00 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (10.3ms)
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 23:29:21 +0200
+Processing by UsersController#myprofile as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-17 23:29:21 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (7.0ms)
+Completed 200 OK in 1808ms (Views: 1803.7ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 23138ms (Views: 23134.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2018-05-17 23:29:27 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (6.1ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (63.0ms)
+Completed 200 OK in 149ms (Views: 143.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-05-17 23:29:36 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"33leNbaEC7G/guWPLVyhfp51HM8IpnCX6vpc2dJDEERLxCRsIQePHXlsoI1AE86Ml36S47563mr8DfLep6vG9w==", "user"=>{"login"=>"burra", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'burra' OR lower(email) = lower('burra')) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.7ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-05-17 21:29:37.127394"], ["last_sign_in_at", "2018-05-17 17:29:13.494398"], ["sign_in_count", 3], ["updated_at", "2018-05-17 21:29:37.130120"], ["id", 8]]
+  [1m[35m (7.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/myprofile
+Completed 302 Found in 242ms (ActiveRecord: 12.2ms)
+
+
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 23:29:37 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 8]]
+  [1m[36mCocktail Load (1.2ms)[0m  [1m[34mSELECT "cocktails".* FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 8]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 8]]
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 8]]
+  [1m[36mCocktail Load (0.7ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  Rendered users/myprofile.html.haml within layouts/application (130.8ms)
+Completed 200 OK in 223ms (Views: 209.2ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2018-05-17 23:29:43 +0200
+Processing by RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering devise/registrations/edit.html.haml within layouts/application
+  Rendered devise/_error.html.haml (3.5ms)
+  Rendered devise/registrations/edit.html.haml within layouts/application (34.9ms)
+Completed 200 OK in 130ms (Views: 122.3ms | ActiveRecord: 0.6ms)
+
+
+Started PUT "/users" for 127.0.0.1 at 2018-05-17 23:30:18 +0200
+Processing by RegistrationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Dr2lUw7zDdxSOW0jH2yMbQypTGfykqqQwSVUYaEMe+1haOvBfQsDyj7wm03kt8yQKHRLfOxypkPkGgNy/vL1rQ==", "user"=>{"first_name"=>"blbl", "last_name"=>"minchia", "email"=>"valerio@libero.it", "username"=>"burra", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x007f848c8a6de0 @tempfile=#<Tempfile:/tmp/RackMultipart20180517-6657-119q6wu.jpg>, @original_filename="02.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[avatar]\"; filename=\"02.jpg\"\r\nContent-Type: image/jpeg\r\n">, "avatar_cache"=>""}, "commit"=>"Update"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? AND ("users"."id" != ?) LIMIT ?[0m  [["username", "burra"], ["id", 8], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "burra"], ["LIMIT", 1]]
+  [1m[35mSQL (2.0ms)[0m  [1m[33mUPDATE "users" SET "encrypted_password" = ?, "avatar" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["encrypted_password", "$2a$11$hSYmOlrSf1b7Xxifa/PD1.KbrATauQM4zoBLRMsG8lJQkh.WadHj6"], ["avatar", "02.jpg"], ["updated_at", "2018-05-17 21:30:19.304240"], ["id", 8]]
+  [1m[35m (30.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/myprofile
+Completed 302 Found in 454ms (ActiveRecord: 35.6ms)
+
+
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 23:30:19 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 8]]
+  [1m[36mCocktail Load (0.8ms)[0m  [1m[34mSELECT "cocktails".* FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 8]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 8]]
+  [1m[36mReview Load (0.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 8]]
+  [1m[36mCocktail Load (1.0ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  Rendered users/myprofile.html.haml within layouts/application (42.3ms)
+Completed 200 OK in 150ms (Views: 137.7ms | ActiveRecord: 5.1ms)
+
+
+Started DELETE "/users/logout" for 127.0.0.1 at 2018-05-17 23:30:23 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"rezGPCHbqX37uW9udNnt2qwanS3KzjwJKR8q6ASvOLaJbGnfuNWm47JXn5H0bfs+yg4RCRf3U7c4t99rcWtSDg=="}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 69ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-05-17 23:30:23 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (5.3ms)
+Completed 200 OK in 118ms (Views: 114.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-17 23:30:25 +0200
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (4.4ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (28.6ms)
+Completed 200 OK in 120ms (Views: 116.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-17 23:31:30 +0200
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (6.3ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (38.4ms)
+Completed 200 OK in 143ms (Views: 136.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-05-17 23:32:04 +0200
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VMSqiXE0b/powgSbTsWVFxuqj/gGANT7lKZAm8RCiiwF9rouzzOCoIPxozUrMh8f0YTNPqxPtc065nyvUDZLCg==", "user"=>{"first_name"=>"Valerio", "last_name"=>"nico", "email"=>"cock.tail@rosico.com", "username"=>"cock.tail", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x0000000354f648 @tempfile=#<Tempfile:/tmp/RackMultipart20180517-6657-eutb0p.jpg>, @original_filename="Sidecar-cocktail.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[avatar]\"; filename=\"Sidecar-cocktail.jpg\"\r\nContent-Type: image/jpeg\r\n">, "avatar_cache"=>""}, "commit"=>"Sign Up"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "cock.tail"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "cock.tail"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "cock.tail@rosico.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "username", "first_name", "last_name", "avatar") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "cock.tail@rosico.com"], ["encrypted_password", "$2a$11$kzVWAYhKBrRlMM61vFmdy.k2Ue8JJkjkkjK62tQupRGWuHfYsLvbW"], ["created_at", "2018-05-17 21:32:04.868715"], ["updated_at", "2018-05-17 21:32:04.868715"], ["username", "cock.tail"], ["first_name", "Valerio"], ["last_name", "nico"], ["avatar", "Sidecar-cocktail.jpg"]]
+  [1m[35m (14.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2018-05-17 21:32:04.894156"], ["last_sign_in_at", "2018-05-17 21:32:04.894156"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2018-05-17 21:32:04.898170"], ["id", 9]]
+  [1m[35m (11.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/myprofile
+Completed 302 Found in 264ms (ActiveRecord: 31.1ms)
+
+
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 23:32:04 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 9]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 9]]
+  Rendered users/myprofile.html.haml within layouts/application (16.2ms)
+Completed 200 OK in 95ms (Views: 87.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 23:32:09 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 9]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 9]]
+  Rendered users/myprofile.html.haml within layouts/application (21.5ms)
+Completed 200 OK in 131ms (Views: 121.8ms | ActiveRecord: 2.5ms)
+
+
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
