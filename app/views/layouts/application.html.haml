@@ -21,9 +21,10 @@
             #login
               - if user_signed_in?
                 = link_to "New Cocktail", new_cocktail_path, :class => 'btn btn-outline-success'
-                = link_to "Favorites", users_favorites_path, :class => 'btn btn-outline-success'
                 = link_to "#{current_user.first_name} #{current_user.last_name}", users_myprofile_path, :class => 'btn btn-outline-primary'
                 = link_to "Log Out", destroy_user_session_path, :method => 'delete', :class => 'btn btn-outline-primary'
+                - if current_user.admin?
+                  = link_to "Admin", rails_admin_path, :class => 'btn btn-outline-primary'
               - else
                 = link_to "Log In", new_user_session_path, :class => 'btn btn-outline-primary'
                 = link_to "Sign Up", new_user_registration_path, :class => 'btn btn-outline-danger'

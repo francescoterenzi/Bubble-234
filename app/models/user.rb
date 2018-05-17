@@ -12,8 +12,8 @@ class User < ApplicationRecord
   has_many :cocktails, dependent: :destroy
   has_many :reviews
 
-  has_many :favorite_cocktails
-  has_many :favorites, through: :favorite_cocktails, source: :cocktail
+  #has_many :favorite_cocktails
+  #has_many :favorites, through: :favorite_cocktails, source: :cocktail
 
   def login=(login)
     @login = login

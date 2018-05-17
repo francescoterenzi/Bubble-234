@@ -39,6 +39,11 @@ gem 'jbuilder', '~> 2.5'
 
 #authentication
 gem 'devise'
+gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'rails_admin'
+
+#authorization
+gem 'cancancan'
 
 gem 'autoprefixer-rails'
 
