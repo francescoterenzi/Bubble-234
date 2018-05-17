@@ -1,7 +1,7 @@
 .card.border-dark.mb-3
   .card-header
     %h3 #{@user.first_name} #{@user.last_name}
-    %hr    
+    %hr
 
     %h5 Cocktails:
     - if @user.cocktails.size == 0
@@ -9,7 +9,7 @@
     -else
       - current_user.cocktails.each do |c|
         = link_to "see the #{c.name} recipe", cocktail_path(c)
-    
+
     %br
     %hr
     %h5 Reviews:

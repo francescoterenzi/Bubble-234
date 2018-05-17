@@ -7,7 +7,6 @@ class CocktailsController < ApplicationController
 
     def create
         @cocktail = current_user.cocktails.build(cocktail_params)
-        @cocktail.image = params[:image]
         if @cocktail.save
             redirect_to cocktail_path(@cocktail)
         else
@@ -23,7 +22,7 @@ class CocktailsController < ApplicationController
     def destroy
       @cocktail = Cocktail.find(params[:id])
       @cocktail.destroy
-      flash[:notice] = "Movie '#{@cocktail.name}' deleted."
+      flash[:notice] = "Cocktail '#{@cocktail.name}' deleted."
       redirect_to root_path
     end
 
@@ -42,7 +41,7 @@ class CocktailsController < ApplicationController
     end
 
     def cocktail_params
-        params.require(:cocktail).permit(:name,:description,:creation_date,:user_id,:id,:image)
+        params.require(:cocktail).permit(:name,:description,:user_id,:id,:image)
     end
 
     end

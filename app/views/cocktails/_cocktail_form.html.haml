@@ -1,3 +1,10 @@
+- unless @cocktail.errors.empty?
+  #warning
+    Errors occured, this cocktail can't be #{controller.action_name}d:
+    %ul
+      - @cocktail.errors.full_messages.each do |error|
+        %li= error
+
 = label :cocktail, :name, 'Name'
 %br
 = text_field :cocktail, :name
@@ -8,11 +15,7 @@
 = text_area :cocktail, :description
 %br
 
-= label :cocktail, :creation_date, 'Creation date'
+= label :cocktail, :image, 'Choose image'
 %br
-= date_select :cocktail, :creation_date
-%br
-= label :image, :insert_image, 'Image Upload'
-%br
-= file_field :image, :insert_image
+= file_field :cocktail, :image
 %br
