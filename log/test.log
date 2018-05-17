@@ -27979,3 +27979,1250 @@ Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.6ms)
   [1m[35m (0.4ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
   [1m[35m (4.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'reviews';[0m
   [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddImageToCocktails (20180516174622)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "cocktails" ADD "image" varchar[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180516174622"]]
+  [1m[35m (4.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2018-05-17 13:54:57.455650"], ["updated_at", "2018-05-17 13:54:57.455650"]]
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_cocktail_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_cocktail_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_cocktails_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_cocktails_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reviews_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reviews_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reviews_on_cocktail_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reviews_on_cocktail_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_username' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_username' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "username", "first_name", "last_name") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "test@test.com"], ["encrypted_password", "$2a$04$bi2YEyj2Pg1sf5WUCv.r6.PFUPPdI6rgzur9N1hyeF.Qp.6nc3bWy"], ["created_at", "2018-05-17 13:55:01.906654"], ["updated_at", "2018-05-17 13:55:01.906654"], ["username", "test"], ["first_name", "test"], ["last_name", "user"]]
+  [1m[35m (10.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "fake_test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "fake_test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "fake@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "username", "first_name", "last_name") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "fake@user.com"], ["encrypted_password", "$2a$04$spNceLtBF8wfs7nyCBCh3eHtFKnxvutTjc2IyNFUEWq6hvG8K1yAa"], ["created_at", "2018-05-17 13:55:01.923276"], ["updated_at", "2018-05-17 13:55:01.923276"], ["username", "fake_test"], ["first_name", "fake"], ["last_name", "fake"]]
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/users/login" for 127.0.0.1 at 2018-05-17 15:55:01 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (1.1ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (15.0ms)
+Completed 200 OK in 186ms (Views: 177.3ms | ActiveRecord: 0.0ms)
+Started POST "/users/login" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"login"=>"fake_test", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'fake_test' OR lower(email) = lower('fake_test')) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-05-17 13:55:02.136123"], ["last_sign_in_at", "2018-05-17 13:55:02.136123"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2018-05-17 13:55:02.136530"], ["id", 2]]
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://www.example.com/users/myprofile
+Completed 302 Found in 12ms (ActiveRecord: 4.4ms)
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered users/myprofile.html.haml within layouts/application (30.6ms)
+Completed 200 OK in 34ms (Views: 31.8ms | ActiveRecord: 0.9ms)
+Started GET "/cocktails/new" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by CocktailsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering cocktails/new.html.haml within layouts/application
+  Rendered cocktails/_cocktail_form.html.haml (3.3ms)
+  Rendered cocktails/new.html.haml within layouts/application (5.2ms)
+Completed 200 OK in 15ms (Views: 7.2ms | ActiveRecord: 0.4ms)
+Started POST "/cocktails" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by CocktailsController#create as HTML
+  Parameters: {"utf8"=>"✓", "cocktail"=>{"name"=>"\"Mojito\"", "description"=>"My cocktail", "creation_date(1i)"=>"2018", "creation_date(2i)"=>"5", "creation_date(3i)"=>"17"}, "image"=>{"insert_image"=>""}, "commit"=>"Create Cocktail"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCocktail Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? LIMIT ?[0m  [["name", "\"Mojito\""], ["LIMIT", 1]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "cocktails" ("name", "description", "creation_date", "user_id", "image") VALUES (?, ?, ?, ?, ?)[0m  [["name", "\"Mojito\""], ["description", "My cocktail"], ["creation_date", "2018-05-17 00:00:00"], ["user_id", 2], ["image", nil]]
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://www.example.com/cocktails/1
+Completed 302 Found in 8ms (ActiveRecord: 4.2ms)
+Started GET "/cocktails/1" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered cocktails/show.html.haml within layouts/application (3.9ms)
+Completed 200 OK in 7ms (Views: 4.9ms | ActiveRecord: 0.4ms)
+Started GET "/users/logout" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+Started GET "/" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.0ms)
+Started GET "/users/login" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (0.0ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (1.2ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+Started POST "/users/login" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"login"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'test@test.com' OR lower(email) = lower('test@test.com')) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-05-17 13:55:02.248003"], ["last_sign_in_at", "2018-05-17 13:55:02.248003"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2018-05-17 13:55:02.248364"], ["id", 1]]
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://www.example.com/users/myprofile
+Completed 302 Found in 9ms (ActiveRecord: 3.9ms)
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered users/myprofile.html.haml within layouts/application (2.9ms)
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 0.7ms)
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."name" = ? LIMIT ?[0m  [["name", "\"Mojito\""], ["LIMIT", 1]]
+Started GET "/cocktails/1/reviews" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"1"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCocktail Load (0.0ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (6.0ms)
+Completed 200 OK in 10ms (Views: 7.2ms | ActiveRecord: 0.9ms)
+Started GET "/cocktails/1/reviews/new" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by ReviewsController#new as HTML
+  Parameters: {"cocktail_id"=>"1"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reviews/new.html.haml within layouts/application
+  Rendered reviews/_review_form.html.haml (1.5ms)
+  Rendered reviews/new.html.haml within layouts/application (3.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 11ms (Views: 5.5ms | ActiveRecord: 0.3ms)
+Started POST "/cocktails/1/reviews" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "review"=>{"rate"=>"3", "comments"=>"Il più buono di tutti"}, "commit"=>"Create Review", "cocktail_id"=>"1"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCocktail Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? AND ("cocktails"."id" != ?) LIMIT ?[0m  [["name", "\"Mojito\""], ["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Cocktail Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? AND ("cocktails"."id" != ?) LIMIT ?[0m  [["name", "\"Mojito\""], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "reviews" ("rate", "comments", "cocktail_id", "user_id") VALUES (?, ?, ?, ?)[0m  [["rate", 3], ["comments", "Il più buono di tutti"], ["cocktail_id", 1], ["user_id", 1]]
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://www.example.com/cocktails/1/reviews
+Completed 302 Found in 10ms (ActiveRecord: 4.3ms)
+Started GET "/cocktails/1/reviews" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"1"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 1], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (3.4ms)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.6ms)
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."name" = ? LIMIT ?[0m  [["name", "\"Mojito\""], ["LIMIT", 1]]
+Started GET "/cocktails/1/reviews" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"1"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 1], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReview Load (0.0ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (2.8ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.5ms)
+Started GET "/cocktails/1/reviews/1" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by ReviewsController#show as HTML
+  Parameters: {"cocktail_id"=>"1", "id"=>"1"}
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reviews/show.html.haml within layouts/application
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered reviews/show.html.haml within layouts/application (4.5ms)
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.4ms)
+Started DELETE "/cocktails/1/reviews/1" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by ReviewsController#destroy as HTML
+  Parameters: {"cocktail_id"=>"1", "id"=>"1"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."id" = ? LIMIT ?[0m  [["cocktail_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "reviews" WHERE "reviews"."id" = ?[0m  [["id", 1]]
+  [1m[35m (3.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://www.example.com/cocktails/1/reviews
+Completed 302 Found in 9ms (ActiveRecord: 4.6ms)
+Started GET "/cocktails/1/reviews" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"1"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (4.2ms)
+Completed 200 OK in 8ms (Views: 5.4ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (3.8ms)[0m  [1m[31mDELETE FROM "cocktails";[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (3.6ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'cocktails';[0m
+  [1m[35m (3.5ms)[0m  [1m[31mDELETE FROM "users";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (3.5ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'users';[0m
+  [1m[35m (3.5ms)[0m  [1m[31mDELETE FROM "ar_internal_metadata";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'ar_internal_metadata';[0m
+  [1m[35m (3.7ms)[0m  [1m[31mDELETE FROM "cocktail";[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'cocktail';[0m
+  [1m[35m (4.0ms)[0m  [1m[31mDELETE FROM "reviews";[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (3.7ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'reviews';[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "username", "first_name", "last_name") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "test@test.com"], ["encrypted_password", "$2a$04$tcX9ngme3t6/crG553rHQu9UV0UrMp9ivQILitRn4M.GaRvkVSGfC"], ["created_at", "2018-05-17 13:55:02.407971"], ["updated_at", "2018-05-17 13:55:02.407971"], ["username", "test"], ["first_name", "test"], ["last_name", "user"]]
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "fake_test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "fake_test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "fake@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "username", "first_name", "last_name") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "fake@user.com"], ["encrypted_password", "$2a$04$sF5nvkQ30Fhd6DJbBsayh.tMgccGMAtBh49CkCEfh0TaqwcgOCJgG"], ["created_at", "2018-05-17 13:55:02.421103"], ["updated_at", "2018-05-17 13:55:02.421103"], ["username", "fake_test"], ["first_name", "fake"], ["last_name", "fake"]]
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/users/login" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (0.1ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (1.4ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.0ms)
+Started POST "/users/login" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"login"=>"fake_test", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'fake_test' OR lower(email) = lower('fake_test')) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-05-17 13:55:02.438223"], ["last_sign_in_at", "2018-05-17 13:55:02.438223"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2018-05-17 13:55:02.438580"], ["id", 2]]
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://www.example.com/users/myprofile
+Completed 302 Found in 9ms (ActiveRecord: 3.9ms)
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered users/myprofile.html.haml within layouts/application (3.0ms)
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.6ms)
+Started GET "/cocktails/new" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by CocktailsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering cocktails/new.html.haml within layouts/application
+  Rendered cocktails/_cocktail_form.html.haml (1.4ms)
+  Rendered cocktails/new.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 6ms (Views: 3.5ms | ActiveRecord: 0.2ms)
+Started POST "/cocktails" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by CocktailsController#create as HTML
+  Parameters: {"utf8"=>"✓", "cocktail"=>{"name"=>"\"Mojito\"", "description"=>"My cocktail", "creation_date(1i)"=>"2018", "creation_date(2i)"=>"5", "creation_date(3i)"=>"17"}, "image"=>{"insert_image"=>""}, "commit"=>"Create Cocktail"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCocktail Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? LIMIT ?[0m  [["name", "\"Mojito\""], ["LIMIT", 1]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "cocktails" ("name", "description", "creation_date", "user_id", "image") VALUES (?, ?, ?, ?, ?)[0m  [["name", "\"Mojito\""], ["description", "My cocktail"], ["creation_date", "2018-05-17 00:00:00"], ["user_id", 2], ["image", nil]]
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://www.example.com/cocktails/1
+Completed 302 Found in 8ms (ActiveRecord: 4.2ms)
+Started GET "/cocktails/1" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered cocktails/show.html.haml within layouts/application (1.9ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.4ms)
+Started GET "/users/logout" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+Started GET "/" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+Started GET "/users/login" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (0.0ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (1.4ms)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.0ms)
+Started POST "/users/login" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"login"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'test@test.com' OR lower(email) = lower('test@test.com')) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-05-17 13:55:02.503114"], ["last_sign_in_at", "2018-05-17 13:55:02.503114"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2018-05-17 13:55:02.503494"], ["id", 1]]
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://www.example.com/users/myprofile
+Completed 302 Found in 10ms (ActiveRecord: 4.4ms)
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered users/myprofile.html.haml within layouts/application (2.7ms)
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 0.7ms)
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."name" = ? LIMIT ?[0m  [["name", "\"Mojito\""], ["LIMIT", 1]]
+Started GET "/cocktails/1/reviews" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"1"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCocktail Load (0.0ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (2.8ms)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.6ms)
+Started GET "/cocktails/1/reviews/new" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by ReviewsController#new as HTML
+  Parameters: {"cocktail_id"=>"1"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reviews/new.html.haml within layouts/application
+  Rendered reviews/_review_form.html.haml (0.3ms)
+  Rendered reviews/new.html.haml within layouts/application (0.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.3ms)
+Started POST "/cocktails/1/reviews" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "review"=>{"rate"=>"3", "comments"=>"Il più buono di tutti"}, "commit"=>"Create Review", "cocktail_id"=>"1"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCocktail Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? AND ("cocktails"."id" != ?) LIMIT ?[0m  [["name", "\"Mojito\""], ["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Cocktail Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? AND ("cocktails"."id" != ?) LIMIT ?[0m  [["name", "\"Mojito\""], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "reviews" ("rate", "comments", "cocktail_id", "user_id") VALUES (?, ?, ?, ?)[0m  [["rate", 3], ["comments", "Il più buono di tutti"], ["cocktail_id", 1], ["user_id", 1]]
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://www.example.com/cocktails/1/reviews
+Completed 302 Found in 10ms (ActiveRecord: 4.4ms)
+Started GET "/cocktails/1/reviews" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"1"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 1], ["LIMIT", 1]]
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (5.5ms)
+Completed 200 OK in 9ms (Views: 6.8ms | ActiveRecord: 1.1ms)
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."name" = ? LIMIT ?[0m  [["name", "\"Mojito\""], ["LIMIT", 1]]
+Started GET "/cocktails/1/reviews" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"1"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 1], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (3.2ms)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.6ms)
+Started GET "/cocktails/1/reviews/1" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by ReviewsController#show as HTML
+  Parameters: {"cocktail_id"=>"1", "id"=>"1"}
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reviews/show.html.haml within layouts/application
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered reviews/show.html.haml within layouts/application (2.3ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.4ms)
+Started GET "/cocktails/1/reviews/1/edit" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by ReviewsController#edit as HTML
+  Parameters: {"cocktail_id"=>"1", "id"=>"1"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reviews/edit.html.haml within layouts/application
+  Rendered reviews/_review_form.html.haml (0.3ms)
+  Rendered reviews/edit.html.haml within layouts/application (2.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.3ms)
+Started PUT "/cocktails/1/reviews/1" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by ReviewsController#update as HTML
+  Parameters: {"utf8"=>"✓", "review"=>{"rate"=>"2", "comments"=>"Il più buonissimo di tutti"}, "commit"=>"Save Changes", "cocktail_id"=>"1", "id"=>"1"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCocktail Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? AND ("cocktails"."id" != ?) LIMIT ?[0m  [["name", "\"Mojito\""], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "reviews" SET "rate" = ?, "comments" = ? WHERE "reviews"."id" = ?[0m  [["rate", 2], ["comments", "Il più buonissimo di tutti"], ["id", 1]]
+  [1m[35m (3.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://www.example.com/cocktails/1/reviews/1
+Completed 302 Found in 9ms (ActiveRecord: 4.1ms)
+Started GET "/cocktails/1/reviews/1" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by ReviewsController#show as HTML
+  Parameters: {"cocktail_id"=>"1", "id"=>"1"}
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reviews/show.html.haml within layouts/application
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered reviews/show.html.haml within layouts/application (2.2ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (3.7ms)[0m  [1m[31mDELETE FROM "cocktails";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (3.3ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'cocktails';[0m
+  [1m[35m (3.5ms)[0m  [1m[31mDELETE FROM "users";[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (4.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'users';[0m
+  [1m[35m (4.0ms)[0m  [1m[31mDELETE FROM "ar_internal_metadata";[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'ar_internal_metadata';[0m
+  [1m[35m (3.9ms)[0m  [1m[31mDELETE FROM "cocktail";[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'cocktail';[0m
+  [1m[35m (4.0ms)[0m  [1m[31mDELETE FROM "reviews";[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (3.8ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'reviews';[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "username", "first_name", "last_name") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "test@test.com"], ["encrypted_password", "$2a$04$ACkiMjRu1hfmNuAfwRvW4OjVuASh3/TjXUwoW1PTjllYIHBaVik4K"], ["created_at", "2018-05-17 13:55:02.673984"], ["updated_at", "2018-05-17 13:55:02.673984"], ["username", "test"], ["first_name", "test"], ["last_name", "user"]]
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (0.1ms)
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+Started GET "/users/logout" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by Devise::SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+Started GET "/users/login" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (0.0ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (1.4ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+Started POST "/users/login" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"login"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'test@test.com' OR lower(email) = lower('test@test.com')) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-05-17 13:55:02.703644"], ["last_sign_in_at", "2018-05-17 13:55:02.703644"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2018-05-17 13:55:02.704015"], ["id", 1]]
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://www.example.com/users/myprofile
+Completed 302 Found in 8ms (ActiveRecord: 3.7ms)
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered users/myprofile.html.haml within layouts/application (1.5ms)
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (3.3ms)[0m  [1m[31mDELETE FROM "cocktails";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'cocktails';[0m
+  [1m[35m (3.7ms)[0m  [1m[31mDELETE FROM "users";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (3.2ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'users';[0m
+  [1m[35m (3.7ms)[0m  [1m[31mDELETE FROM "ar_internal_metadata";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'ar_internal_metadata';[0m
+  [1m[35m (3.3ms)[0m  [1m[31mDELETE FROM "cocktail";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'cocktail';[0m
+  [1m[35m (3.5ms)[0m  [1m[31mDELETE FROM "reviews";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'reviews';[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+Started GET "/" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+Started GET "/users/logout" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by Devise::SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+Started GET "/users/login" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (0.0ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (1.3ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+Started POST "/users/login" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"login"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'test@test.com' OR lower(email) = lower('test@test.com')) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.2ms)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"login"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (0.1ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (1.6ms)
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (3.4ms)[0m  [1m[31mDELETE FROM "cocktails";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'cocktails';[0m
+  [1m[35m (3.7ms)[0m  [1m[31mDELETE FROM "users";[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'users';[0m
+  [1m[35m (4.0ms)[0m  [1m[31mDELETE FROM "ar_internal_metadata";[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'ar_internal_metadata';[0m
+  [1m[35m (3.8ms)[0m  [1m[31mDELETE FROM "cocktail";[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.3ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'cocktail';[0m
+  [1m[35m (4.5ms)[0m  [1m[31mDELETE FROM "reviews";[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'reviews';[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+Started GET "/" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (0.1ms)
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+Started GET "/users/logout" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by Devise::SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (0.1ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (0.1ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (7.4ms)
+Completed 200 OK in 16ms (Views: 12.5ms | ActiveRecord: 0.0ms)
+Started POST "/users" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"test@test.com", "last_name"=>"test@test.com", "email"=>"test@test.com", "username"=>"testtest", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "testtest"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "testtest"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "username", "first_name", "last_name") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "test@test.com"], ["encrypted_password", "$2a$04$wMXjNfFyN5DU35.kUB3FgegjRC2VkUFRHHNtUKx/SUsyT2g7bF0PK"], ["created_at", "2018-05-17 13:55:02.869814"], ["updated_at", "2018-05-17 13:55:02.869814"], ["username", "testtest"], ["first_name", "test@test.com"], ["last_name", "test@test.com"]]
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 1], ["current_sign_in_at", "2018-05-17 13:55:02.874166"], ["last_sign_in_at", "2018-05-17 13:55:02.874166"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["updated_at", "2018-05-17 13:55:02.874464"], ["id", 1]]
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://www.example.com/users/myprofile
+Completed 302 Found in 15ms (ActiveRecord: 7.2ms)
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered users/myprofile.html.haml within layouts/application (1.5ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (3.4ms)[0m  [1m[31mDELETE FROM "cocktails";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'cocktails';[0m
+  [1m[35m (3.6ms)[0m  [1m[31mDELETE FROM "users";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (3.3ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'users';[0m
+  [1m[35m (3.8ms)[0m  [1m[31mDELETE FROM "ar_internal_metadata";[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'ar_internal_metadata';[0m
+  [1m[35m (4.8ms)[0m  [1m[31mDELETE FROM "cocktail";[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'cocktail';[0m
+  [1m[35m (4.0ms)[0m  [1m[31mDELETE FROM "reviews";[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.3ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'reviews';[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+Started GET "/" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (0.1ms)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.0ms)
+Started GET "/users/logout" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by Devise::SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (0.1ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (0.1ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (2.5ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+Started POST "/users" for 127.0.0.1 at 2018-05-17 15:55:02 +0200
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"user", "last_name"=>"user", "email"=>"user", "username"=>"useruser", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "useruser"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "useruser"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering devise/registrations/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (0.4ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (8.4ms)
+Completed 200 OK in 15ms (Views: 9.9ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (4.5ms)[0m  [1m[31mDELETE FROM "cocktails";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'cocktails';[0m
+  [1m[35m (3.7ms)[0m  [1m[31mDELETE FROM "users";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'users';[0m
+  [1m[35m (3.4ms)[0m  [1m[31mDELETE FROM "ar_internal_metadata";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'ar_internal_metadata';[0m
+  [1m[35m (3.0ms)[0m  [1m[31mDELETE FROM "cocktail";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'cocktail';[0m
+  [1m[35m (4.5ms)[0m  [1m[31mDELETE FROM "reviews";[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'reviews';[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "username", "first_name", "last_name") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "test@test.com"], ["encrypted_password", "$2a$04$YqUOv2bVw2GuGVQtWxz.HOGAd.Ld5t3i58GVpm2Wvnc.J0AgpTZ/K"], ["created_at", "2018-05-17 13:55:03.028798"], ["updated_at", "2018-05-17 13:55:03.028798"], ["username", "test"], ["first_name", "test"], ["last_name", "user"]]
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/users/login" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (0.0ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (1.4ms)
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.0ms)
+Started POST "/users/login" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"login"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'test@test.com' OR lower(email) = lower('test@test.com')) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-05-17 13:55:03.047902"], ["last_sign_in_at", "2018-05-17 13:55:03.047902"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2018-05-17 13:55:03.048264"], ["id", 1]]
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://www.example.com/users/myprofile
+Completed 302 Found in 9ms (ActiveRecord: 4.0ms)
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered users/myprofile.html.haml within layouts/application (1.6ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.4ms)
+Started GET "/cocktails/new" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by CocktailsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering cocktails/new.html.haml within layouts/application
+  Rendered cocktails/_cocktail_form.html.haml (1.1ms)
+  Rendered cocktails/new.html.haml within layouts/application (1.6ms)
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.2ms)
+Started POST "/cocktails" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by CocktailsController#create as HTML
+  Parameters: {"utf8"=>"✓", "cocktail"=>{"name"=>"\"Mojito\"", "description"=>"My cocktail", "creation_date(1i)"=>"2018", "creation_date(2i)"=>"5", "creation_date(3i)"=>"17"}, "image"=>{"insert_image"=>""}, "commit"=>"Create Cocktail"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCocktail Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? LIMIT ?[0m  [["name", "\"Mojito\""], ["LIMIT", 1]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "cocktails" ("name", "description", "creation_date", "user_id", "image") VALUES (?, ?, ?, ?, ?)[0m  [["name", "\"Mojito\""], ["description", "My cocktail"], ["creation_date", "2018-05-17 00:00:00"], ["user_id", 1], ["image", nil]]
+  [1m[35m (3.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://www.example.com/cocktails/1
+Completed 302 Found in 8ms (ActiveRecord: 4.3ms)
+Started GET "/cocktails/1" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered cocktails/show.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 0.5ms)
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT "cocktails".* FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered users/myprofile.html.haml within layouts/application (2.5ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.5ms)
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."name" = ? LIMIT ?[0m  [["name", "\"Mojito\""], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (4.0ms)[0m  [1m[31mDELETE FROM "cocktails";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (3.6ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'cocktails';[0m
+  [1m[35m (4.3ms)[0m  [1m[31mDELETE FROM "users";[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (3.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'users';[0m
+  [1m[35m (3.7ms)[0m  [1m[31mDELETE FROM "ar_internal_metadata";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'ar_internal_metadata';[0m
+  [1m[35m (3.6ms)[0m  [1m[31mDELETE FROM "cocktail";[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.3ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'cocktail';[0m
+  [1m[35m (3.6ms)[0m  [1m[31mDELETE FROM "reviews";[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'reviews';[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "username", "first_name", "last_name") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "test@test.com"], ["encrypted_password", "$2a$04$Mvki.AnIAZL2ZZX3Jhoak.oLdoR5s2AJwT18xhaxC/vbfCUy81QW2"], ["created_at", "2018-05-17 13:55:03.152763"], ["updated_at", "2018-05-17 13:55:03.152763"], ["username", "test"], ["first_name", "test"], ["last_name", "user"]]
+  [1m[35m (3.9ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/users/login" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (0.2ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (3.7ms)
+Completed 200 OK in 8ms (Views: 6.2ms | ActiveRecord: 0.0ms)
+Started POST "/users/login" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"login"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'test@test.com' OR lower(email) = lower('test@test.com')) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-05-17 13:55:03.182461"], ["last_sign_in_at", "2018-05-17 13:55:03.182461"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2018-05-17 13:55:03.183272"], ["id", 1]]
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://www.example.com/users/myprofile
+Completed 302 Found in 13ms (ActiveRecord: 4.1ms)
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered users/myprofile.html.haml within layouts/application (2.9ms)
+Completed 200 OK in 7ms (Views: 4.7ms | ActiveRecord: 0.8ms)
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered users/myprofile.html.haml within layouts/application (2.3ms)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (3.9ms)[0m  [1m[31mDELETE FROM "cocktails";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'cocktails';[0m
+  [1m[35m (3.9ms)[0m  [1m[31mDELETE FROM "users";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (3.6ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'users';[0m
+  [1m[35m (3.7ms)[0m  [1m[31mDELETE FROM "ar_internal_metadata";[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'ar_internal_metadata';[0m
+  [1m[35m (3.9ms)[0m  [1m[31mDELETE FROM "cocktail";[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'cocktail';[0m
+  [1m[35m (4.3ms)[0m  [1m[31mDELETE FROM "reviews";[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'reviews';[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "username", "first_name", "last_name") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "test@test.com"], ["encrypted_password", "$2a$04$WscvNBOs3.YdEIoBcaqlQeI3524LLvRiFOIMPhXvc810vzJmZ6Y.W"], ["created_at", "2018-05-17 13:55:03.255305"], ["updated_at", "2018-05-17 13:55:03.255305"], ["username", "test"], ["first_name", "test"], ["last_name", "user"]]
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "fake_test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "fake_test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "fake@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "username", "first_name", "last_name") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "fake@user.com"], ["encrypted_password", "$2a$04$hOEJzAE94vnG0gzgZXICZ.3qWfdyIM75UhVrl4VOPm0QlRC2FsR/i"], ["created_at", "2018-05-17 13:55:03.267315"], ["updated_at", "2018-05-17 13:55:03.267315"], ["username", "fake_test"], ["first_name", "fake"], ["last_name", "fake"]]
+  [1m[35m (3.9ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/users/login" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (0.1ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (1.8ms)
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.0ms)
+Started POST "/users/login" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"login"=>"fake_test", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'fake_test' OR lower(email) = lower('fake_test')) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-05-17 13:55:03.286845"], ["last_sign_in_at", "2018-05-17 13:55:03.286845"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2018-05-17 13:55:03.287236"], ["id", 2]]
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://www.example.com/users/myprofile
+Completed 302 Found in 8ms (ActiveRecord: 3.9ms)
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered users/myprofile.html.haml within layouts/application (1.6ms)
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 0.4ms)
+Started GET "/cocktails/new" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by CocktailsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering cocktails/new.html.haml within layouts/application
+  Rendered cocktails/_cocktail_form.html.haml (1.3ms)
+  Rendered cocktails/new.html.haml within layouts/application (1.8ms)
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.2ms)
+Started POST "/cocktails" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by CocktailsController#create as HTML
+  Parameters: {"utf8"=>"✓", "cocktail"=>{"name"=>"\"Mojito\"", "description"=>"My cocktail", "creation_date(1i)"=>"2018", "creation_date(2i)"=>"5", "creation_date(3i)"=>"17"}, "image"=>{"insert_image"=>""}, "commit"=>"Create Cocktail"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCocktail Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? LIMIT ?[0m  [["name", "\"Mojito\""], ["LIMIT", 1]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "cocktails" ("name", "description", "creation_date", "user_id", "image") VALUES (?, ?, ?, ?, ?)[0m  [["name", "\"Mojito\""], ["description", "My cocktail"], ["creation_date", "2018-05-17 00:00:00"], ["user_id", 2], ["image", nil]]
+  [1m[35m (3.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://www.example.com/cocktails/1
+Completed 302 Found in 8ms (ActiveRecord: 4.3ms)
+Started GET "/cocktails/1" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered cocktails/show.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.5ms)
+Started GET "/users/logout" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+Started GET "/" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+Started GET "/users/login" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (0.0ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (1.3ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+Started POST "/users/login" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"login"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'test@test.com' OR lower(email) = lower('test@test.com')) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-05-17 13:55:03.348504"], ["last_sign_in_at", "2018-05-17 13:55:03.348504"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2018-05-17 13:55:03.348875"], ["id", 1]]
+  [1m[35m (3.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://www.example.com/users/myprofile
+Completed 302 Found in 9ms (ActiveRecord: 4.3ms)
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered users/myprofile.html.haml within layouts/application (1.6ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.4ms)
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."name" = ? LIMIT ?[0m  [["name", "\"Mojito\""], ["LIMIT", 1]]
+Started GET "/cocktails/1/reviews" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"1"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (2.7ms)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.6ms)
+Started GET "/cocktails/1/reviews/new" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by ReviewsController#new as HTML
+  Parameters: {"cocktail_id"=>"1"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reviews/new.html.haml within layouts/application
+  Rendered reviews/_review_form.html.haml (0.4ms)
+  Rendered reviews/new.html.haml within layouts/application (0.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.3ms)
+Started POST "/cocktails/1/reviews" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "review"=>{"rate"=>"3", "comments"=>"Il più buono di tutti"}, "commit"=>"Create Review", "cocktail_id"=>"1"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCocktail Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? AND ("cocktails"."id" != ?) LIMIT ?[0m  [["name", "\"Mojito\""], ["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Cocktail Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? AND ("cocktails"."id" != ?) LIMIT ?[0m  [["name", "\"Mojito\""], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "reviews" ("rate", "comments", "cocktail_id", "user_id") VALUES (?, ?, ?, ?)[0m  [["rate", 3], ["comments", "Il più buono di tutti"], ["cocktail_id", 1], ["user_id", 1]]
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://www.example.com/cocktails/1/reviews
+Completed 302 Found in 9ms (ActiveRecord: 4.6ms)
+Started GET "/cocktails/1/reviews" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"1"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 1], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (3.0ms)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.6ms)
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered users/myprofile.html.haml within layouts/application (2.9ms)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.5ms)
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."name" = ? LIMIT ?[0m  [["name", "\"Mojito\""], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? LIMIT ?[0m  [["cocktail_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (3.8ms)[0m  [1m[31mDELETE FROM "cocktails";[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (4.2ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'cocktails';[0m
+  [1m[35m (4.0ms)[0m  [1m[31mDELETE FROM "users";[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (4.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'users';[0m
+  [1m[35m (3.9ms)[0m  [1m[31mDELETE FROM "ar_internal_metadata";[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'ar_internal_metadata';[0m
+  [1m[35m (3.6ms)[0m  [1m[31mDELETE FROM "cocktail";[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'cocktail';[0m
+  [1m[35m (4.4ms)[0m  [1m[31mDELETE FROM "reviews";[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (3.8ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'reviews';[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "username", "first_name", "last_name") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "test@test.com"], ["encrypted_password", "$2a$04$7RoXUSXRv5cabXI/6WchSewPSNAbyZ0gyr5onN2gSbtc/3glvCJei"], ["created_at", "2018-05-17 13:55:03.458058"], ["updated_at", "2018-05-17 13:55:03.458058"], ["username", "test"], ["first_name", "test"], ["last_name", "user"]]
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/users/login" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (0.1ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (4.4ms)
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.0ms)
+Started POST "/users/login" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"login"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'test@test.com' OR lower(email) = lower('test@test.com')) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-05-17 13:55:03.494695"], ["last_sign_in_at", "2018-05-17 13:55:03.494695"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2018-05-17 13:55:03.495101"], ["id", 1]]
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://www.example.com/users/myprofile
+Completed 302 Found in 10ms (ActiveRecord: 3.9ms)
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered users/myprofile.html.haml within layouts/application (2.2ms)
+Completed 200 OK in 7ms (Views: 3.5ms | ActiveRecord: 1.1ms)
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered users/myprofile.html.haml within layouts/application (1.7ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (4.1ms)[0m  [1m[31mDELETE FROM "cocktails";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'cocktails';[0m
+  [1m[35m (3.7ms)[0m  [1m[31mDELETE FROM "users";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (3.7ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'users';[0m
+  [1m[35m (4.4ms)[0m  [1m[31mDELETE FROM "ar_internal_metadata";[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.1ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'ar_internal_metadata';[0m
+  [1m[35m (3.7ms)[0m  [1m[31mDELETE FROM "cocktail";[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'cocktail';[0m
+  [1m[35m (4.2ms)[0m  [1m[31mDELETE FROM "reviews";[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'reviews';[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "username", "first_name", "last_name") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "test@test.com"], ["encrypted_password", "$2a$04$ULLc/7KnQ3YDLB7prkU3nemQ9EVI/Fg4Ns2CSCpw1qbKW/LH1OHmG"], ["created_at", "2018-05-17 13:55:03.559329"], ["updated_at", "2018-05-17 13:55:03.559329"], ["username", "test"], ["first_name", "test"], ["last_name", "user"]]
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "fake_test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "fake_test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "fake@user.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "username", "first_name", "last_name") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "fake@user.com"], ["encrypted_password", "$2a$04$0yI5twH8xET5ADsMaMmCoeT/vtUTXPtLlJ6b09gQGa0NYx7WFRt/e"], ["created_at", "2018-05-17 13:55:03.571066"], ["updated_at", "2018-05-17 13:55:03.571066"], ["username", "fake_test"], ["first_name", "fake"], ["last_name", "fake"]]
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/users/login" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (0.0ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (1.4ms)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.0ms)
+Started POST "/users/login" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"login"=>"fake_test", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'fake_test' OR lower(email) = lower('fake_test')) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-05-17 13:55:03.589444"], ["last_sign_in_at", "2018-05-17 13:55:03.589444"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2018-05-17 13:55:03.589834"], ["id", 2]]
+  [1m[35m (4.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://www.example.com/users/myprofile
+Completed 302 Found in 10ms (ActiveRecord: 4.5ms)
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 2]]
+  Rendered users/myprofile.html.haml within layouts/application (1.6ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.4ms)
+Started GET "/cocktails/new" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by CocktailsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering cocktails/new.html.haml within layouts/application
+  Rendered cocktails/_cocktail_form.html.haml (1.2ms)
+  Rendered cocktails/new.html.haml within layouts/application (1.6ms)
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.2ms)
+Started POST "/cocktails" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by CocktailsController#create as HTML
+  Parameters: {"utf8"=>"✓", "cocktail"=>{"name"=>"\"Mojito\"", "description"=>"My cocktail", "creation_date(1i)"=>"2018", "creation_date(2i)"=>"5", "creation_date(3i)"=>"17"}, "image"=>{"insert_image"=>""}, "commit"=>"Create Cocktail"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCocktail Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? LIMIT ?[0m  [["name", "\"Mojito\""], ["LIMIT", 1]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "cocktails" ("name", "description", "creation_date", "user_id", "image") VALUES (?, ?, ?, ?, ?)[0m  [["name", "\"Mojito\""], ["description", "My cocktail"], ["creation_date", "2018-05-17 00:00:00"], ["user_id", 2], ["image", nil]]
+  [1m[35m (4.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://www.example.com/cocktails/1
+Completed 302 Found in 9ms (ActiveRecord: 4.5ms)
+Started GET "/cocktails/1" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by CocktailsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCocktail Load (0.2ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering cocktails/show.html.haml within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered cocktails/show.html.haml within layouts/application (4.0ms)
+Completed 200 OK in 9ms (Views: 6.4ms | ActiveRecord: 0.8ms)
+Started GET "/users/logout" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+Started GET "/" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by HomeController#index as HTML
+  Rendering home/index.html.haml within layouts/application
+  Rendered home/index.html.haml within layouts/application (0.1ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+Started GET "/users/login" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.haml within layouts/application
+  Rendered devise/_error.html.haml (0.1ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (2.3ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+Started POST "/users/login" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"login"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE (username = 'test@test.com' OR lower(email) = lower('test@test.com')) ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-05-17 13:55:03.668754"], ["last_sign_in_at", "2018-05-17 13:55:03.668754"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2018-05-17 13:55:03.669113"], ["id", 1]]
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://www.example.com/users/myprofile
+Completed 302 Found in 9ms (ActiveRecord: 4.1ms)
+Started GET "/users/myprofile" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by UsersController#myprofile as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/myprofile.html.haml within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "cocktails" WHERE "cocktails"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered users/myprofile.html.haml within layouts/application (1.7ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.4ms)
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."name" = ? LIMIT ?[0m  [["name", "\"Mojito\""], ["LIMIT", 1]]
+Started GET "/cocktails/1/reviews" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"1"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mCocktail Load (0.0ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (2.9ms)
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.6ms)
+Started GET "/cocktails/1/reviews/new" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by ReviewsController#new as HTML
+  Parameters: {"cocktail_id"=>"1"}
+  [1m[36mCocktail Load (0.5ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reviews/new.html.haml within layouts/application
+  Rendered reviews/_review_form.html.haml (0.4ms)
+  Rendered reviews/new.html.haml within layouts/application (1.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 7ms (Views: 3.1ms | ActiveRecord: 0.6ms)
+Started POST "/cocktails/1/reviews" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "review"=>{"rate"=>"3", "comments"=>"Il più buono di tutti"}, "commit"=>"Create Review", "cocktail_id"=>"1"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCocktail Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? AND ("cocktails"."id" != ?) LIMIT ?[0m  [["name", "\"Mojito\""], ["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Cocktail Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "cocktails" WHERE "cocktails"."name" = ? AND ("cocktails"."id" != ?) LIMIT ?[0m  [["name", "\"Mojito\""], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "reviews" ("rate", "comments", "cocktail_id", "user_id") VALUES (?, ?, ?, ?)[0m  [["rate", 3], ["comments", "Il più buono di tutti"], ["cocktail_id", 1], ["user_id", 1]]
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://www.example.com/cocktails/1/reviews
+Completed 302 Found in 10ms (ActiveRecord: 4.0ms)
+Started GET "/cocktails/1/reviews" for 127.0.0.1 at 2018-05-17 15:55:03 +0200
+Processing by ReviewsController#index as HTML
+  Parameters: {"cocktail_id"=>"1"}
+  [1m[36mCocktail Load (0.1ms)[0m  [1m[34mSELECT  "cocktails".* FROM "cocktails" WHERE "cocktails"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reviews/index.html.haml within layouts/application
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? ORDER BY "reviews"."id" ASC LIMIT ?[0m  [["cocktail_id", 1], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ?[0m  [["cocktail_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT  "reviews".* FROM "reviews" WHERE "reviews"."cocktail_id" = ? AND "reviews"."user_id" = ? LIMIT ?[0m  [["cocktail_id", 1], ["user_id", 1], ["LIMIT", 1]]
+  Rendered reviews/index.html.haml within layouts/application (3.0ms)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (3.4ms)[0m  [1m[31mDELETE FROM "cocktails";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (3.2ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'cocktails';[0m
+  [1m[35m (3.7ms)[0m  [1m[31mDELETE FROM "users";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (3.9ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'users';[0m
+  [1m[35m (3.4ms)[0m  [1m[31mDELETE FROM "ar_internal_metadata";[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.3ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'ar_internal_metadata';[0m
+  [1m[35m (3.9ms)[0m  [1m[31mDELETE FROM "cocktail";[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'cocktail';[0m
+  [1m[35m (4.4ms)[0m  [1m[31mDELETE FROM "reviews";[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (4.3ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'reviews';[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m

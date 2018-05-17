@@ -306,6 +306,10 @@ Given /^he creates a cocktail (.*)$/ do |title|
   new_cocktail(title)
 end
 
+Given /^I create a cocktail (.*)$/ do |title|
+  new_cocktail(title)
+end
+
 Given /^another user called (.*) exists$/ do |user|
   @user = User.create!(:first_name => user, :last_name => user, :email => user, :username => user,:password => 'testtest', :password_confirmation => 'testtest')
 end
@@ -354,9 +358,9 @@ end
 
 Given /^I wrote a review for (.*) cocktail$/ do |cocktail|
   steps %Q{
-    Given another users's cocktail "Mojito" exists
+    Given another users's cocktail #{cocktail} exists
     And I log in
-    When I go to the cocktail "Mojito" reviews page
+    When I go to the cocktail #{cocktail} reviews page
     And I follow "Create a new Review"
     When I select "3" from "Rate"
     And I fill in "Comments" with "Il più buono di tutti"
@@ -364,6 +368,19 @@ Given /^I wrote a review for (.*) cocktail$/ do |cocktail|
     Then I should see "Rate: 3"
   }
 end
+
+Then /^I should see the link to (.*) cocktail$/ do |c|
+  ckt = Cocktail.find_by(:name => c)
+  page.should have_link("see the #{c} recipe", :href => cocktail_path(:id => ckt.id))
+end
+
+Then /^I should see the link to (.*) review$/ do |c|
+  ckt = Cocktail.find_by(:name => c)
+  r = Review.find_by(:cocktail_id => ckt.id)
+  page.should have_link("review to #{c} cocktail", :href => cocktail_review_path(:id => r.id, :cocktail_id => r.cocktail_id))
+end
+
+
 
 module LoginSteps
   def login(email, password)
