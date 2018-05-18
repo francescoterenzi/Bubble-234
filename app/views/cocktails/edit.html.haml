@@ -1,6 +1,24 @@
+= render :partial => 'errors'
 %h2 Editing Cocktail "#{@cocktail.name}"
 
-= form_tag cocktail_path(@cocktail), :method => :put do
-    = render :partial => 'cocktail_form'
+= form_tag cocktail_path(@cocktail), :method => :put, :html => {:multipart => true} do
+    %div
+    = label :cocktail, :name, 'Name'
+    %br
+    = text_field :cocktail, :name
+    %br
+
+    %div
+    = label :cocktail, :description, 'Description'
+    %br
+    = text_area :cocktail, :description
+    %br
+    %br
+    %div
+    = label :cocktail, :image, 'Choose image'
+    = file_field :cocktail, :image
+    = hidden_field :cocktail, :image_cache
+    %br
+    %hr
     = submit_tag 'Save Changes', :class => 'btn btn-outline-success'
     = link_to "Back", cocktail_path(@cocktail), :class => 'btn btn-outline-danger'

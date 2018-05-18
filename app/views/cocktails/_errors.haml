@@ -1,0 +1,6 @@
+- unless @cocktail.errors.empty?
+  #warning
+    Errors occured, this cocktail can't be #{controller.action_name}d:
+    %ul
+      - @cocktail.errors.full_messages.each do |error|
+        %li= error

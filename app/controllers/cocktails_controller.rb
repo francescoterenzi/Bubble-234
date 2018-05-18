@@ -49,11 +49,11 @@ class CocktailsController < ApplicationController
         if type == "favorite"
           current_user.favorites << @cocktail
           redirect_back fallback_location: root_path, notice: "#{@cocktail.name} added to Favorites"
-    
+
         elsif type == "unfavorite"
           current_user.favorites.delete(@cocktail)
           redirect_back fallback_location: root_path, notice: "#{@cocktail.name} removed from Favorites"
-    
+
         else
           # Type missing, nothing happens
           redirect_to :back, notice: 'Nothing happened.'
@@ -61,7 +61,7 @@ class CocktailsController < ApplicationController
     end
 
     def cocktail_params
-        params.require(:cocktail).permit(:name,:description,:user_id,:id,:image)
+        params.require(:cocktail).permit(:name,:description,:user_id,:id,:image, :image_cache, :remove_image)
     end
 
     end

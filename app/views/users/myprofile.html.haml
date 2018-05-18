@@ -15,6 +15,7 @@
     -else
       - current_user.cocktails.each do |c|
         = link_to "see the #{c.name} recipe", cocktail_path(c)
+        %br
 
     %br
     %hr
@@ -24,6 +25,7 @@
     - else
       - @user.reviews.each do |r|
         = link_to "review to #{r.cocktail.name} cocktail", cocktail_review_path(:id => r.id, :cocktail_id => r.cocktail_id)
+        %br
 
 = link_to "Home", root_path, :class => 'btn btn-outline-primary'
 = link_to "Edit Profile", edit_user_registration_path, :class => 'btn btn-outline-danger'

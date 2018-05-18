@@ -1,6 +1,25 @@
+= render :partial => 'errors'
 %h2 Create new cocktail
 
-= form_tag cocktails_path, :method => :post do
-    = render :partial => 'cocktail_form'
+= form_tag cocktails_path, :html => {:multipart => true} do
+
+    %div
+    = label :cocktail, :name, 'Name'
+    %br
+    = text_field :cocktail, :name
+    %br
+
+    %div
+    = label :cocktail, :description, 'Description'
+    %br
+    = text_area :cocktail, :description
+    %br
+    %br
+    %div
+    = label :cocktail, :image, 'Choose image'
+    = file_field :cocktail, :image
+    = hidden_field :cocktail, :image_cache
+    %br
+    %hr
     = submit_tag 'Create Cocktail', :class => 'btn btn-outline-success'
     = link_to "Back", root_path, :class => 'btn btn-outline-danger'
