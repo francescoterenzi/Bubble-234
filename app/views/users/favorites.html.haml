@@ -5,7 +5,7 @@
 - else
     %br
     - @cocktails.each do |c|
-        = link_to "#{c.name} recipe", cocktail_path(c.id), :class => 'btn btn-outline-success'
+        = link_to "#{c.name} by #{c.user.username}", cocktail_path(c.id), :class => 'btn btn-outline-success'
         = link_to "Remove from Favorites", favorite_cocktail_path(c, type: "unfavorite"), :method => :put
         %br
         %br
