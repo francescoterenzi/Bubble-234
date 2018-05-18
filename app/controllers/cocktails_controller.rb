@@ -32,10 +32,8 @@ class CocktailsController < ApplicationController
 
     def update
       @cocktail = Cocktail.find params[:id]
-      params.require(:cocktail)
-      permitted = params[:cocktail].permit(:name,:description,:creation_date)
 
-      if @cocktail.update_attributes(permitted)
+      if @cocktail.update_attributes(cocktail_params)
         flash[:notice] = "#{@cocktail.name} was successfullt updated"
         redirect_to cocktail_path(@cocktail)
       else
@@ -61,7 +59,7 @@ class CocktailsController < ApplicationController
     end
 
     def cocktail_params
-        params.require(:cocktail).permit(:name,:description,:user_id,:id,:image, :image_cache, :remove_image)
+        params.require(:cocktail).permit(:name, :description, :user_id, :id, :image, :image_cache, :remove_image)
     end
 
     end
