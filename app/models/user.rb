@@ -12,10 +12,10 @@ class User < ApplicationRecord
   has_many :cocktails, dependent: :destroy
   has_many :reviews
 
-  mount_uploader :avatar, AvatarUploader
+  has_many :favorite_cocktails
+  has_many :favorites, through: :favorite_cocktails, source: :cocktail
 
-  #has_many :favorite_cocktails
-  #has_many :favorites, through: :favorite_cocktails, source: :cocktail
+  mount_uploader :avatar, AvatarUploader
 
   def login=(login)
     @login = login

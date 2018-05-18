@@ -6,9 +6,13 @@ Rails.application.routes.draw do
   devise_for :users, :path_names => {:sign_in => 'login', :sign_out => 'logout'}, :controllers => { registrations: 'registrations'}
 
   get 'users/myprofile'
-  #get 'users/favorites'
+  get 'users/favorites'
+
+
+
 
   resources :cocktails do
+    put :favorite, on: :member
     resources :reviews
   end
 

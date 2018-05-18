@@ -6,7 +6,10 @@
 = image_tag "#{@cocktail.image.url}"
 
 = link_to "Show Reviews", cocktail_reviews_path(@cocktail), :class => 'btn btn-outline-success'
-= link_to "Add to Favorite", users_favorites_path, :action => :create, :class => 'btn btn-outline-success'
+- if FavoriteCocktail.find_by(:user_id => current_user.id) != nil
+    = link_to "Remove from Favorites", favorite_cocktail_path(@cocktail, type: "unfavorite"), method: :put, :class => 'btn btn-outline-danger'
+- else
+    = link_to "Add to Favorites", favorite_cocktail_path(@cocktail, type: "favorite"), method: :put, :class => 'btn btn-outline-success'
 %br
 %br
 = link_to "Back", root_path, :class => 'btn btn-outline-success'

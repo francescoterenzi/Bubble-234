@@ -1,7 +1,11 @@
 %h2 Favorite Cocktails
 
-- if @favorites == nil
+- if @cocktails.empty?
     %p No cocktail saved as favorite
 - else
-    - @favorites.each do |f|
-        = link_to "#{f.cocktail}", cocktail_path(f.cocktail)
+    %br
+    - @cocktails.each do |c|
+        = link_to "#{c.name} recipe", cocktail_path(c.id), :class => 'btn btn-outline-success'
+        = link_to "Remove from Favorites", favorite_cocktail_path(c, type: "unfavorite"), :method => :put
+        %br
+        %br
