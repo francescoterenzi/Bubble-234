@@ -12,23 +12,28 @@
     = csrf_meta_tags
 
   %body
-    %nav.navbar.navbar-expand-lg.navbar-light.bg-light
-      %a.navbar-brand{:disabled => "true"}
-        Bubble-2•3•4
-      %div.collapse.navbar-collapse#navbarColor03
+    %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+      %a.navbar-brand{:href => root_path}
+        Bubble-2•3•4 
+      %div.collapse.navbar-collapse#navbarColor02
         %ul.navbar-nav.ml-auto
-          %li.nav-item>
-            #login
-              - if user_signed_in?
-                = link_to "New Cocktail", new_cocktail_path, :class => 'btn btn-outline-success'
-                = link_to "Favorites", users_favorites_path, :class => 'btn btn-outline-success'
-                = link_to "#{current_user.first_name} #{current_user.last_name}", users_myprofile_path, :class => 'btn btn-outline-primary'
-                = link_to "Log Out", destroy_user_session_path, :method => 'delete', :class => 'btn btn-outline-primary'
+          - if user_signed_in?
+            %li.nav-item.dropdown
+              %a.nav-link.dropdown-toggle{"data-toggle" => "dropdown", :href => "#", :role => "button", "aria-haspopup" => "true", "aria-expanded"=> "false"}
+                #{current_user.first_name} #{current_user.last_name}
+              .dropdown-menu{"x-placement" => "bottom-start", :style => "position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 48px, 0px);"}
+                = link_to "New Cocktail", new_cocktail_path, :class => 'dropdown-item'
+                = link_to "Favorites", users_favorites_path, :class => 'dropdown-item'
+                = link_to "My Profile", users_myprofile_path, :class => 'dropdown-item'
+                = link_to "Log Out", destroy_user_session_path, :method => 'delete', :class => 'dropdown-item'
                 - if current_user.admin?
-                  = link_to "Admin", rails_admin_path, :class => 'btn btn-outline-primary'
-              - else
-                = link_to "Log In", new_user_session_path, :class => 'btn btn-outline-primary'
-                = link_to "Sign Up", new_user_registration_path, :class => 'btn btn-outline-danger'
+                  .dropdown-divider
+                  = link_to "Admin", rails_admin_path, :class => 'dropdown-item'
+          - else
+            %li.nav-item>
+              = link_to "Log In", new_user_session_path, :class => 'nav-link'
+            %li.nav-item>
+              = link_to "Sign Up", new_user_registration_path, :class => 'nav-link'
     .container
       %hr
       - flash.each do |name, msg|
