@@ -3,6 +3,12 @@
     %h3 #{@user.first_name} #{@user.last_name}
     %hr
 
+    %div
+      = image_tag "#{@user.avatar.url}"
+
+    %br
+    %hr
+
     %h5 Cocktails:
     - if @user.cocktails.size == 0
       %p No cocktails yet

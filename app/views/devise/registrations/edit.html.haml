@@ -37,7 +37,9 @@
       %i (we need your current password to confirm your changes)
       %br/
       = f.password_field :current_password, autocomplete: "off"
+  %hr
   %div
+    %h6 Select an Avatar
     = f.label :avatar do
       = f.file_field :avatar
       = f.hidden_field :avatar_cache

@@ -32,7 +32,9 @@
     %br/
     = f.password_field :password_confirmation, autocomplete: "off"
 
+  %hr
   %div
+    %h6 Select an Avatar
     = f.label :avatar do
       = f.file_field :avatar
       = f.hidden_field :avatar_cache
