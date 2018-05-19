@@ -12,6 +12,8 @@
     = link_to "Remove from Favorites", favorite_cocktail_path(@cocktail, type: "unfavorite"), method: :put, :class => 'btn btn-outline-danger'
 - else
     = link_to "Add to Favorites", favorite_cocktail_path(@cocktail, type: "favorite"), method: :put, :class => 'btn btn-outline-success'
+= link_to "Download pdf", cocktail_path(@cocktail, format: 'pdf'), :class => 'btn btn-outline-primary'
+
 %br
 %br
 = link_to "Back", root_path, :class => 'btn btn-outline-success'
@@ -19,4 +21,3 @@
     = link_to "Edit", edit_cocktail_path(@cocktail), :class => 'btn btn-outline-danger'
     = link_to "Delete Cocktail", cocktail_path(@cocktail), :method => :delete, :class => 'btn btn-outline-primary'
 
-= link_to "Download pdf", cocktail_path(@cocktail, format: 'pdf')
