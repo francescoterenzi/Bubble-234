@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get 'users/myprofile'
   get 'users/favorites'
+  get 'users/results'
 
 
   resources :cocktails do

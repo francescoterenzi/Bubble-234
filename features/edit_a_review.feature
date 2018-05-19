@@ -12,4 +12,4 @@ Scenario: Edit a review
   When I select "2" from "Rate"
   And I fill in "Comments" with "Il più buonissimo di tutti"
   And I press "Save Changes"
-  Then I should see "your review was successfullt updated "
+  Then I should see "Your review was successfully updated "

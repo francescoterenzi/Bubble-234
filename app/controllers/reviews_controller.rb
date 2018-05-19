@@ -15,7 +15,7 @@ class ReviewsController < ApplicationController
         @review = Review.find params[:id]
   
         @review.update_attributes!(review_params)
-        flash[:notice] = "your review was successfullt updated"
+        flash[:notice] = "Your review was successfully updated"
         redirect_to cocktail_review_path(@review.id)
       end
 

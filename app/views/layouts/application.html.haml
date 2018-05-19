@@ -19,7 +19,7 @@
         %ul.navbar-nav.ml-auto
           - if user_signed_in?
             %li.nav-item>
-              = link_to "new Cocktail", new_cocktail_path, :class => 'nav-link'
+              = link_to "New Cocktail", new_cocktail_path, :class => 'nav-link'
             %li.nav-item>
               = link_to "Favorites", users_favorites_path, :class => 'nav-link'
             %li.nav-item.dropdown
@@ -32,6 +32,9 @@
                 - if current_user.admin?
                   .dropdown-divider
                   = link_to "Admin", rails_admin_path, :class => 'dropdown-item'
+            %li.nav-item
+              %button.btn.btn-outline-secondary.btn-lg{:href=> "#", "data-toggle" => "modal", "data-target" => ".bs-modal-sm"}
+                %span.fa.fa-search.fa-lg
           - else
             %li.nav-item>
               = link_to "Log In", new_user_session_path, :class => 'nav-link'
@@ -46,5 +49,19 @@
             %div{:id => "flash_#{name}"}
               %i{:class => "fas fa-#{name.to_sym == :notice ? "check" : "exclamation"}-circle text-#{name.to_sym == :notice ? "success" : "danger"}"}
               = msg
+
+      .modal.fade.bs-modal-sm{"aria-hidden" => "true", "aria-labelledby" => "mySmallModalLabel", :role => "dialog", :tabindex => "-1"}
+        .modal-dialog.modal-sm
+          .modal-content
+            .modal-header
+              .modal-title
+                Search Users
+              %button.close{"data-dismiss" => "modal"} ×
+            .modal-body
+              = form_tag users_results_path, :method => :get do
+                .input-group.mb-3
+                  = text_field_tag(:usr,'',:class => "form-control mr-sm-2", :placeholder => 'Search Users', :required => :true) 
+                  = submit_tag 'Search', :class => 'btn btn-outline-success'
+
       =yield
       %hr

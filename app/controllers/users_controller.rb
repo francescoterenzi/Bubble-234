@@ -11,4 +11,12 @@ class UsersController < ApplicationController
     @cocktails = current_user.favorites
   end
 
+  def results
+    @username = params[:usr]
+    @users = User.where("username like ?", "%#{@username}%").order(:username)
+    if @users.size == 0
+      flash[:warning] = 'No users found!'
+      redirect_to root_path
+    end
+  end
 end

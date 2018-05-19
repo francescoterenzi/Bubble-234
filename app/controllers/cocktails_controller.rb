@@ -11,6 +11,7 @@ class CocktailsController < ApplicationController
     def create
         @cocktail = current_user.cocktails.build(cocktail_params)
         if @cocktail.save
+            flash[:notice] = "'#{@cocktail.name}' was successfully created!"
             redirect_to cocktail_path(@cocktail)
         else
             render 'new'
@@ -52,7 +53,7 @@ class CocktailsController < ApplicationController
       @cocktail = Cocktail.find params[:id]
 
       if @cocktail.update_attributes(cocktail_params)
-        flash[:notice] = "#{@cocktail.name} was successfullt updated"
+        flash[:notice] = "#{@cocktail.name} was successfully updated"
         redirect_to cocktail_path(@cocktail)
       else
         render 'edit'

@@ -259,6 +259,14 @@ end
 
 #####
 
+When /^I try to search an user that doesn't exist$/ do
+  search('@')
+end
+
+When /^I search (.*)$/ do |username|
+  search(username)
+end
+
 When /^I log in$/ do
   if @user == nil
     login('test@test.com','test')
@@ -410,5 +418,13 @@ module CocktailSteps
   end
 end
 
+module UserSteps
+  def search(name)
+      fill_in("Search Users", :with => name)
+      click_button('Search')
+  end
+end
+
 World(LoginSteps)
 World(CocktailSteps)
+World(UserSteps)

@@ -22,9 +22,6 @@ module NavigationHelpers
     when /^the sign up page$/
       '/users/sign_up'
 
-    when /^the users page$/
-      '/users'
-
     when /^the myprofile page$/
       '/users/myprofile'
 
@@ -41,14 +38,11 @@ module NavigationHelpers
     when /^the admin page$/
       '/admin'
 
-    when /^the scannedtokens_show\s?page$/
-      '/scannedtokens/show'
-
-    when /^the user_token page$/
-      user_token_path(@user, @user.tokens.first)
-
     when /^the cocktail (.*) reviews page$/
       cocktail_reviews_path(Cocktail.find_by(:name => $1))
+
+    when /^the results page$/
+      users_results_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
