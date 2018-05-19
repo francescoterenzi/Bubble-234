@@ -32,8 +32,8 @@ module NavigationHelpers
     when /^the users_edit page$/
       edit_user_path(@user)
 
-    when /^the users_select page$/
-	     users_select_path
+     when /^the users page$/
+      '/users'
 
     when /^the admin page$/
       '/admin'
