@@ -21,9 +21,11 @@ class CocktailsController < ApplicationController
           # some other formats like: format.html { render :show }
           format.html.haml
           format.pdf do
-            pdf = Prawn::Document.new
-            pdf.text "Name: #{@cocktail.name}\nDescription: #{@cocktail.description}\n"
-            pdf.image "#{Rails.root}/public#{@cocktail.image}"
+            pdf = Prawn::Document.new(:page_layout => :landscape)
+            pdf.text "Details about cocktail '#{@cocktail.name}'\n", :size => 29, :align => :center
+            pdf.text "Created by '#{@cocktail.user.username}'\n\n\n", :size => 20, :align => :center
+            pdf.text "Description: #{@cocktail.description}\n\n", :size => 20
+            pdf.image "#{Rails.root}/public#{@cocktail.image}",:scale => 0.7
             send_data pdf.render,
               filename: "cocktail.pdf",
               type: 'application/pdf',
