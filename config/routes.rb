@@ -9,11 +9,17 @@ Rails.application.routes.draw do
   get 'users/favorites'
 
 
-
-
   resources :cocktails do
+
     put :favorite, on: :member
-    resources :reviews
+    
+    resources :reviews do
+      member do
+        post 'like'
+        delete 'dislike'
+      end
+    end
+  
   end
 
 end

@@ -4,12 +4,11 @@ class ReviewsController < ApplicationController
     
     def find_cocktail
         unless (@cocktail = Cocktail.find_by(:id => params[:cocktail_id]))
-            flash[:warning] = "Review must be for an existing cocktail"
-            redirect_to cocktails_path
         end
     end
 
     def index
+
     end
   
     def update
@@ -42,6 +41,19 @@ class ReviewsController < ApplicationController
         @review.destroy
         flash[:notice] = "#{@review.user.username}'s Review deleted"
         redirect_to cocktail_reviews_path(@cocktail)
-      end
+    end
+
+    def like
+        @review = Review.find params[:id]
+        current_user.reviews_liked << @review
+        flash[:notice] = "#{@review.user.username}'s Review liked"
+        redirect_to cocktail_review_path(@review)
+    end
+    
+    def dislike
+        @review = Review.find params[:id]
+        current_user.reviews_liked.destroy(@review)
+        redirect_to cocktail_review_path(@review)
+    end
 
 end

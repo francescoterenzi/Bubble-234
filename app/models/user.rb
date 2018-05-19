@@ -11,6 +11,9 @@ class User < ApplicationRecord
 
   has_many :cocktails, dependent: :destroy
   has_many :reviews
+  
+  has_many :likes
+  has_many :reviews_liked, through: :likes, source: :review
 
   has_many :favorite_cocktails
   has_many :favorites, through: :favorite_cocktails, source: :cocktail

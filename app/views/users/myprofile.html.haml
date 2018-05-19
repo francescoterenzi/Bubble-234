@@ -1,12 +1,7 @@
 .card.border-dark.mb-3
   .card-header
     %h3 #{@user.first_name} #{@user.last_name}
-    %hr
 
-    %div
-      = image_tag "#{@user.avatar.url}"
-
-    %br
     %hr
 
     %h5 Cocktails:
@@ -16,8 +11,6 @@
       - current_user.cocktails.each do |c|
         = link_to "see the #{c.name} recipe", cocktail_path(c)
         %br
-
-    %br
     %hr
     %h5 Reviews:
     - if @user.reviews.size == 0
@@ -27,7 +20,11 @@
         = link_to "review to #{r.cocktail.name} cocktail", cocktail_review_path(:id => r.id, :cocktail_id => r.cocktail_id)
         %br
     %hr
-    = link_to "Show Favorites", users_favorites_path, :class => 'btn btn-outline-success'
+    %h5 Likes:
+    - if @user.likes.size == 0
+      %p No likes yet
+    - else
+      %p #{@user.reviews_liked.size} likes
+      %br
 
-= link_to "Home", root_path, :class => 'btn btn-outline-primary'
-= link_to "Edit Profile", edit_user_registration_path, :class => 'btn btn-outline-danger'
+= link_to "Profile Options", edit_user_registration_path, :class => 'nav-link'

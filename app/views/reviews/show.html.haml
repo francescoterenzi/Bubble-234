@@ -10,5 +10,11 @@
     = link_to "Delete Review", cocktail_review_path(@review.cocktail), :method => :delete, :class => 'btn btn-outline-primary'
 %br
 %br
-= link_to cocktail_reviews_path(@review.cocktail), :class => 'btn btn-outline-success'
+
+- if Like.find_by(:review_id => @review.id, :user_id => current_user.id) == nil
+    = link_to "Like", like_cocktail_review_path(@review, :like => true), method: 'post', :class => 'btn btn-outline-success'
+- else 
+    = link_to "Dislike",  dislike_cocktail_review_path(@review), method: 'delete', :class => 'btn btn-outline-danger'
+
+= link_to "Back", cocktail_reviews_path(@review.cocktail), :class => 'btn btn-outline-success'
 
