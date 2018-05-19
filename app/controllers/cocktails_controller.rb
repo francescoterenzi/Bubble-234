@@ -15,8 +15,21 @@ class CocktailsController < ApplicationController
     end
 
     def show
-     id = params[:id]
-     @cocktail = Cocktail.find(id)
+        id = params[:id]
+        @cocktail = Cocktail.find(id)
+        respond_to do |format|
+          # some other formats like: format.html { render :show }
+          format.html.haml
+          format.pdf do
+            pdf = Prawn::Document.new
+            pdf.text "Name: #{@cocktail.name}\nDescription: #{@cocktail.description}\n"
+            pdf.image "#{Rails.root}/public#{@cocktail.image}"
+            send_data pdf.render,
+              filename: "cocktail.pdf",
+              type: 'application/pdf',
+              disposition: 'inline'
+          end
+        end
     end
 
     def destroy
