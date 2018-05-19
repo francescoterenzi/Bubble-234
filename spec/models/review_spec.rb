@@ -4,7 +4,7 @@ RSpec.describe Review, :type => :model do
 
   it "Create a review for a cocktail" do
     user = User.create(:first_name => "Pinco", :last_name => "Pallino", :email => "test@test.it", :password => "password", :password_confirmation => "password", :username => "test")
-    cocktail = Cocktail.create(:name => "Mojito", :description => "Cuban cocktail", :creation_date => "25-01-18",:user_id => user.id)
+    cocktail = Cocktail.create(:name => "Mojito", :description => "Cuban cocktail",:user_id => user.id)
     review = cocktail.reviews.create(:rate => 3, :comments => "very good", :user_id => user.id)
     expect(cocktail.reload.reviews.first).to eq(review)
   end
