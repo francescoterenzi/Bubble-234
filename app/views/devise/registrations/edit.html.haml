@@ -43,6 +43,8 @@
     = f.label :avatar do
       = f.file_field :avatar
       = f.hidden_field :avatar_cache
+    = f.label :remove_avatar
+    = f.check_box :remove_avatar
   %hr
   %div
     = submit_tag 'Update', :class => 'btn btn-outline-success'

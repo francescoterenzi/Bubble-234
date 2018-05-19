@@ -6,6 +6,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def profile
+    @user = User.find(params[:id])
+    if @user == nil
+      redirect_to root_path, flash: {:alert => 'No user found'}
+    end
+  end
+
   def favorites
     authenticate_user!
     @cocktails = current_user.favorites

@@ -60,8 +60,14 @@
             .modal-body
               = form_tag users_results_path, :method => :get do
                 .input-group.mb-3
-                  = text_field_tag(:usr,'',:class => "form-control mr-sm-2", :placeholder => 'Search Users', :required => :true) 
+                  = text_field_tag(:usr,'',:class => "form-control mr-sm-2", :placeholder => 'Search Users', :required => :true, :autofocus => :true) 
                   = submit_tag 'Search', :class => 'btn btn-outline-success'
 
       =yield
       %hr
+      
+      /autofocus on search bar
+      :javascript
+        $('.modal').on('shown.bs.modal', function() {
+          $(this).find('[autofocus]').focus();
+        });

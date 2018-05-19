@@ -1,0 +1,28 @@
+.card.border-dark.mb-3
+  .card-header
+    %h3 #{@user.first_name} #{@user.last_name}
+
+    %hr
+
+    %h5 Cocktails:
+    - if @user.cocktails.size == 0
+      %p No cocktails yet
+    -else
+      - current_user.cocktails.each do |c|
+        = link_to "see the #{c.name} recipe", cocktail_path(c)
+        %br
+    %hr
+    %h5 Reviews:
+    - if @user.reviews.size == 0
+      %p No reviews yet
+    - else
+      - @user.reviews.each do |r|
+        = link_to "review to #{r.cocktail.name} cocktail", cocktail_review_path(:id => r.id, :cocktail_id => r.cocktail_id)
+        %br
+    %hr
+    %h5 Likes:
+    - if @user.likes.size == 0
+      %p No likes yet
+    - else
+      %p #{@user.reviews_liked.size} likes
+      %br

@@ -1,2 +1,20 @@
 - @users.each do |user|
-  %p #{user.username}
+  .card.mb-3{:style => "display: inline-block; width: 250px;"}
+    %h3.card-header
+      %a{:href => profile_path(user), :class => "card-link"} #{user.first_name} #{user.last_name}
+    .card-body
+      .card-title
+        @ #{user.username}
+      %img{:style => "height: 200px; width: 100%; display: block;", :src => "#{user.avatar.url}", :alt => "Profile image"}
+    
+    %ul.list-group.list-group-flush
+      %li.list-group-item.d-flex.justify-content-between.align-items-center
+        Cocktails
+        %span.badge.badge-primary.badge-pill
+          #{user.cocktails.count}
+      %li.list-group-item.d-flex.justify-content-between.align-items-center
+        Reviews
+        %span.badge.badge-primary.badge-pill
+          #{user.reviews.count}
+    .card-body
+      %a{:href => "#", :class => "card-link"} Follow (Da fare)
