@@ -26,6 +26,8 @@
       - @user.reviews.each do |r|
         = link_to "review to #{r.cocktail.name} cocktail", cocktail_review_path(:id => r.id, :cocktail_id => r.cocktail_id)
         %br
+    %hr
+    = link_to "Show Favorites", users_favorites_path, :class => 'btn btn-outline-success'
 
 = link_to "Home", root_path, :class => 'btn btn-outline-primary'
 = link_to "Edit Profile", edit_user_registration_path, :class => 'btn btn-outline-danger'

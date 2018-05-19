@@ -14,7 +14,7 @@
   %body
     %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
       %a.navbar-brand{:href => root_path}
-        Bubble-2•3•4 
+        Bubble-2•3•4
       %div.collapse.navbar-collapse#navbarColor02
         %ul.navbar-nav.ml-auto
           - if user_signed_in?
@@ -23,7 +23,6 @@
                 #{current_user.first_name} #{current_user.last_name}
               .dropdown-menu{"x-placement" => "bottom-start", :style => "position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 48px, 0px);"}
                 = link_to "New Cocktail", new_cocktail_path, :class => 'dropdown-item'
-                = link_to "Favorites", users_favorites_path, :class => 'dropdown-item'
                 = link_to "My Profile", users_myprofile_path, :class => 'dropdown-item'
                 = link_to "Log Out", destroy_user_session_path, :method => 'delete', :class => 'dropdown-item'
                 - if current_user.admin?
