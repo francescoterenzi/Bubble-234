@@ -55,6 +55,9 @@ class CocktailsController < ApplicationController
 
     def update
       @cocktail = Cocktail.find params[:id]
+      if !params[:link].blank?
+        @cocktail.video = Video.new(video_params)
+      end
 
       if @cocktail.update_attributes(cocktail_params)
         flash[:notice] = "#{@cocktail.name} was successfully updated"
