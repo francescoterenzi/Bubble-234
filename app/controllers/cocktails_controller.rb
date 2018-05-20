@@ -55,7 +55,7 @@ class CocktailsController < ApplicationController
 
     def update
       @cocktail = Cocktail.find params[:id]
-      if !params[:link].blank?
+      if !(@cocktail.link.empty?)
         @cocktail.video = Video.new(video_params)
       end
 
