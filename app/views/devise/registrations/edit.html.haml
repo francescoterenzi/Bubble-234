@@ -49,4 +49,4 @@
   %div
     = submit_tag 'Update', :class => 'btn btn-outline-success'
     = link_to "Delete Account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class => 'btn btn-outline-primary'
-    = link_to "Back", root_path, :class => 'btn btn-outline-danger'
+    = link_to "Back", users_myprofile_path, :class => 'btn btn-outline-danger'

@@ -1,28 +1,81 @@
-.card.border-dark.mb-3
-  .card-header
-    %h3 #{@user.first_name} #{@user.last_name}
+.container
+  .row.my-2
+    .col-lg-8.order-lg-2
+      %ul.nav.nav-tabs
+        %li.nav-item
+          %a.nav-link.active{"data-target" => "#profile", "data-toggle" => "tab", :href => ""} Profile
+        %li.nav-item
+          %a.nav-link{"data-target" => "#cocktails", "data-toggle" => "tab", :href => ""} Cocktails
+      .tab-content.py-4
+        #profile.tab-pane.active
+          %h5.mb-3 #{@user.first_name} #{@user.last_name} (#{@user.username})
+          .row
+            .col-md-6
+              %span.badge.badge-primary
+                %i.fa.fa-glass-martini
+                #{@user.cocktails.count} Cocktails
+              %span.badge.badge-primary
+                %i.fa.fa-pencil-alt
+                #{@user.reviews.count} Reviews
+              %span.badge.badge-primary
+                %i.fa.fa-star
+                Valutazione Media (Da fare!!)
+            .col-md-12
+              %h5.mt-2
+                Recent Activity
+              %table.table.table-sm.table-hover.table-striped
+                %tbody
+                - if @activities.size == 0
+                  %tr
+                    %td
+                      No activities yet!
 
-    %hr
-
-    %h5 Cocktails:
-    - if @user.cocktails.size == 0
-      %p No cocktails yet
-    -else
-      - @user.cocktails.each do |c|
-        = link_to "see the #{c.name} recipe", cocktail_path(c)
-        %br
-    %hr
-    %h5 Reviews:
-    - if @user.reviews.size == 0
-      %p No reviews yet
-    - else
-      - @user.reviews.each do |r|
-        = link_to "review to #{r.cocktail.name} cocktail", cocktail_review_path(:id => r.id, :cocktail_id => r.cocktail_id)
-        %br
-    %hr
-    %h5 Likes:
-    - if @user.likes.size == 0
-      %p No likes yet
-    - else
-      %p #{@user.reviews_liked.size} likes
-      %br
+                - @activities.each do |activity|
+                  %tr
+                    %td
+                      -if activity.is_a?(Cocktail)
+                        #{@user.username} has added 
+                        = link_to "#{activity.name}", cocktail_path(activity) 
+                        to his Favorites
+                      - elsif activity.is_a?(Review)
+                        #{@user.username} has made a 
+                        = link_to "review", cocktail_review_path(:id => activity.id, :cocktail_id => activity.cocktail.id)
+                        for
+                        = link_to "#{activity.cocktail.name}", cocktail_path(activity.cocktail)
+                      - elsif activity.is_a?(Like)
+                        #{@user.username} liked 
+                        = link_to "#{activity.review.user.username}", profile_path(activity.review.user)
+                        's
+                        = link_to "review", cocktail_review_path(:id => activity.review.id, :cocktail_id => activity.review.cocktail.id)
+          / /row
+        #cocktails.tab-pane
+          .alert.alert-info.alert-dismissable
+            %a.panel-close.close{"data-dismiss" => "alert"} ×
+            This is an
+            = succeed "." do
+              %strong .alert
+          %table.table.table-hover.table-striped
+            %tbody
+              %tr
+                %td
+                  %span.float-right.font-weight-bold 3 hrs ago
+                  Here is your a link to the latest summary report from the..
+              %tr
+                %td
+                  %span.float-right.font-weight-bold Yesterday
+                  There has been a request on your account since that was..
+              %tr
+                %td
+                  %span.float-right.font-weight-bold 9/10
+                  Porttitor vitae ultrices quis, dapibus id dolor. Morbi venenatis lacinia rhoncus.
+              %tr
+                %td
+                  %span.float-right.font-weight-bold 9/4
+                  Vestibulum tincidunt ullamcorper eros eget luctus.
+              %tr
+                %td
+                  %span.float-right.font-weight-bold 9/4
+                  Maxamillion ais the fix for tibulum tincidunt ullamcorper eros.
+        
+    .col-lg-4.order-lg-1.text-center
+      %img.mx-auto.img-fluid.img-thumbnail.d-block{:src => @user.avatar.url}

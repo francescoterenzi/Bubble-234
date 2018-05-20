@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     if @user == nil
       redirect_to root_path, flash: {:alert => 'No user found'}
     end
+    @activities = (@user.reviews + @user.likes + @user.favorites)
   end
 
   def profile
@@ -11,6 +12,7 @@ class UsersController < ApplicationController
     if @user == nil
       redirect_to root_path, flash: {:alert => 'No user found'}
     end
+    @activities = (@user.reviews + @user.likes + @user.favorites)
   end
 
   def favorites

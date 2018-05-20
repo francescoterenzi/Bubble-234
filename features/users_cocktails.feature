@@ -11,4 +11,4 @@ Scenario: I haven't any cocktail
     Given I am a registered user
     When I log in
     When I go to the myprofile page
-    Then I should see "No cocktails yet"
+    Then I should see "0 Cocktails"
