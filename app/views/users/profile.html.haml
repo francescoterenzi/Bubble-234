@@ -8,7 +8,7 @@
     - if @user.cocktails.size == 0
       %p No cocktails yet
     -else
-      - current_user.cocktails.each do |c|
+      - @user.cocktails.each do |c|
         = link_to "see the #{c.name} recipe", cocktail_path(c)
         %br
     %hr
