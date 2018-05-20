@@ -1,6 +1,6 @@
 class Cocktail < ApplicationRecord
   validates :user_id, :presence => true
-  validates :name, presence: true, uniqueness: :true
+  validates :name, presence: true
   validates :description, presence: true
   #validates_associated :user
 
