@@ -13,15 +13,17 @@
     %br
     = f.text_area :description
   %br
+  %div
+    = f.label :link
+    %br
+    = f.text_field :link
+  %br
   %br
   %div
     = f.label :image do
       = f.file_field :image
       = f.hidden_field :image_cache
   %br
-  %div
-    = f.label :link
-    = f.text_field :link
   %hr
   = submit_tag 'Save Changes', :class => 'btn btn-outline-success'
   = link_to "Back", cocktail_path(@cocktail), :class => 'btn btn-outline-danger'

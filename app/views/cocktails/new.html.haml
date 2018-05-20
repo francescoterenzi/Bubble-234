@@ -14,15 +14,16 @@
     %br
     = f.text_area :description
   %br
+  %div
+    = f.label :link
+    %br
+    = f.text_field :link
+  %br
   %br
   %div
     = f.label :image do
       = f.file_field :image
       = f.hidden_field :image_cache
-  %br
-  %div
-    = f.label :link
-    = f.text_field :link
   %br
   %hr
   = submit_tag 'Create Cocktail', :class => 'btn btn-outline-success'
