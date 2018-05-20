@@ -8,7 +8,9 @@ class Cocktail < ApplicationRecord
   belongs_to :user
 
   has_many :favorite_cocktails
-  has_many :favorited_by, through: :favorite_cocktails, source: :user 
+  has_many :favorited_by, through: :favorite_cocktails, source: :user
+
+  has_one :video
 
   mount_uploader :image , ImageUploader , presence: true
 end

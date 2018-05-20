@@ -23,6 +23,9 @@ gem 'mini_magick', '~> 4.3'
 
 gem 'prawn', '~>2.2.0'
 
+gem 'yt', '~> 0.13.7'
+gem 'rails-observers'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes

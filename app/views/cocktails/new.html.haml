@@ -20,6 +20,10 @@
       = f.file_field :image
       = f.hidden_field :image_cache
   %br
+  %div
+    = f.label :link
+    = f.text_field :link
+  %br
   %hr
   = submit_tag 'Create Cocktail', :class => 'btn btn-outline-success'
   = link_to "Back", root_path, :class => 'btn btn-outline-danger'

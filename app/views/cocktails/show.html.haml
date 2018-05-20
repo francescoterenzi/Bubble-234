@@ -4,8 +4,14 @@
 %ul#details
     %li Description: #{@cocktail.description}
 
-%div
-    = image_tag "#{@cocktail.image.url}"
+- if !@cocktail.image.nil?
+    %div
+        = image_tag "#{@cocktail.image.url}"
+
+%br
+- if !@cocktail.link.blank?
+    %div
+        %iframe{:src => "https://www.youtube.com/embed/#{@cocktail.video.uid}"}
 %br
 = link_to "Show Reviews", cocktail_reviews_path(@cocktail), :class => 'btn btn-outline-success'
 - if FavoriteCocktail.find_by(:user_id => current_user.id, :cocktail_id => @cocktail.id) != nil

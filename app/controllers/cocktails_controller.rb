@@ -9,7 +9,9 @@ class CocktailsController < ApplicationController
     end
 
     def create
+
         @cocktail = current_user.cocktails.build(cocktail_params)
+        @cocktail.video = Video.new(video_params)
         if @cocktail.save
             flash[:notice] = "'#{@cocktail.name}' was successfully created!"
             redirect_to cocktail_path(@cocktail)
@@ -29,7 +31,9 @@ class CocktailsController < ApplicationController
             pdf.text "Details about cocktail '#{@cocktail.name}'\n", :size => 29, :align => :center
             pdf.text "Created by '#{@cocktail.user.username}'\n\n\n", :size => 20, :align => :center
             pdf.text "Description: #{@cocktail.description}\n\n", :size => 20
-            pdf.image "#{Rails.root}/public#{@cocktail.image}",:scale => 0.7
+            if @cocktail.image.nil?
+              pdf.image "#{Rails.root}/public#{@cocktail.image}",:scale => 0.7
+            end
             send_data pdf.render,
               filename: "cocktail.pdf",
               type: 'application/pdf',
@@ -78,7 +82,11 @@ class CocktailsController < ApplicationController
     end
 
     def cocktail_params
-        params.require(:cocktail).permit(:name, :description, :user_id, :id, :image, :image_cache, :remove_image)
+        params.require(:cocktail).permit(:name, :description, :user_id, :id, :image, :image_cache, :remove_image, :link, :video_id)
+    end
+
+    def video_params
+        params.require(:cocktail).permit(:link)
     end
 
     end
