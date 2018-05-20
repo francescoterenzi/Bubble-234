@@ -12,7 +12,7 @@
     = link_to "Remove from Favorites", favorite_cocktail_path(@cocktail, type: "unfavorite"), method: :put, :class => 'btn btn-outline-danger'
 - else
     = link_to "Add to Favorites", favorite_cocktail_path(@cocktail, type: "favorite"), method: :put, :class => 'btn btn-outline-success'
-= link_to "Download pdf", cocktail_path(@cocktail, format: 'pdf'), :class => 'btn btn-outline-primary'
+= link_to "Download pdf", cocktail_path(@cocktail, format: 'pdf'), :class => 'btn btn-outline-primary', target: :_blank
 
 %br
 %br
