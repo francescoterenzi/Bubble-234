@@ -1,7 +1,7 @@
 - @users.each do |user|
   .card.mb-3{:style => "display: inline-block; width: 250px;"}
     %h3.card-header
-      %a{:href => profile_path(user), :class => "card-link"} #{user.first_name} #{user.last_name}
+      %a{:href => (user.id == current_user.id) ? users_myprofile_path : profile_path(user), :class => "card-link"} #{user.first_name} #{user.last_name}
     .card-body
       .card-title
         @ #{user.username}
