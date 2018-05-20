@@ -31,7 +31,7 @@ class CocktailsController < ApplicationController
             pdf.text "Details about cocktail '#{@cocktail.name}'\n", :size => 29, :align => :center
             pdf.text "Created by '#{@cocktail.user.username}'\n\n\n", :size => 20, :align => :center
             pdf.text "Description: #{@cocktail.description}\n\n", :size => 20
-            if @cocktail.image.nil?
+            if !@cocktail.image.nil?
               pdf.image "#{Rails.root}/public#{@cocktail.image}",:scale => 0.7
             end
             send_data pdf.render,
