@@ -10,15 +10,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :cocktails, dependent: :destroy
-  has_many :reviews
-  
-  has_many :likes
-  has_many :reviews_liked, through: :likes, source: :review
+  has_many :reviews, dependent: :destroy
 
-  has_many :favorite_cocktails
-  has_many :favorites, through: :favorite_cocktails, source: :cocktail
+  has_many :likes, dependent: :destroy
+  has_many :reviews_liked, through: :likes, source: :review, dependent:destroy
 
-  mount_uploader :avatar, AvatarUploader
+  has_many :favorite_cocktails, dependent: :destroy
+  has_many :favorites, through: :favorite_cocktails, source: :cocktail, dependent: :destroy
+
+  mount_uploader :avatar, AvatarUploader, dependent: :destroy
 
   def login=(login)
     @login = login

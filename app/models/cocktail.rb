@@ -2,7 +2,7 @@ class Cocktail < ApplicationRecord
   validates :user_id, :presence => true
   validates :name, presence: true
   validates :description, presence: true
-  #validates_associated :user
+  validates_associated :user
 
   has_many :reviews, dependent: :destroy
   belongs_to :user
@@ -12,5 +12,5 @@ class Cocktail < ApplicationRecord
 
   has_one :video, dependent: :destroy
 
-  mount_uploader :image , ImageUploader , presence: true
+  mount_uploader :image , ImageUploader , presence: true, dependent: :destroy
 end
