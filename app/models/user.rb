@@ -47,10 +47,14 @@ class User < ApplicationRecord
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
-      user.username = auth.info.name.downcase.gsub(/\s+/, "")
+      username = auth.info.name
+      user.username = username.downcase.gsub(/\s+/, "")
       user.first_name, user.last_name = auth.info.name.split(' ', 2)
-      user.avatar = AvatarUploader.new
-      user.avatar.download! auth.info.image
+      default_image = "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"
+      if auth.info.image != default_image
+        user.avatar = AvatarUploader.new
+        user.avatar.download! auth.info.image
+      end
     end
   end
 
