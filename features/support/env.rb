@@ -62,21 +62,15 @@ Before('@omniauth_test') do
   OmniAuth.config.test_mode = true
   Capybara.default_host = 'http://example.com'
 
-  OmniAuth.config.add_mock(:facebook, {
-    :uid => '12345',
-    :info => {
-      :name => 'facebookuser',
-      :email => 'facebook@user.com',
-    }
-  })
-  OmniAuth.config.add_mock(:google_oauth2, {
+  auth = {
       :uid => '12345',
       :info => {
-        :name => 'googleuser',
-        :email => 'google@user.com',
+        :name => 'Pippo De Pippis',
+        :email => 'pippo@depippis.com',
+        :image => 'http://example.com'
       }
-    })
-
+    }
+  OmniAuth.config.add_mock(:google_oauth2, auth)
 end
 
 

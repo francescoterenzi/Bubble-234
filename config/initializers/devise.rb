@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+ # frozen_string_literal: true
 
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
@@ -22,6 +22,10 @@ Devise.setup do |config|
   # with default "from" parameter.
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
   config.omniauth :facebook, "552481158481413", "d311ec7bb82d600ecb4d04897e1b6442"
+
+  config.omniauth :google_oauth2, Rails.application.secrets.GOOGLE_CLIENT_ID, Rails.application.secrets.GOOGLE_SECRET_KEY, {
+    scope: "https://www.googleapis.com/auth/userinfo.email,https://www.googleapis.com/auth/userinfo.profile", display: 'popup', image_size: 200,
+  }
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'

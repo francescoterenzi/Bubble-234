@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:facebook]
+         :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
 
   has_many :cocktails, dependent: :destroy
   has_many :reviews, dependent: :destroy
@@ -46,8 +46,11 @@ class User < ApplicationRecord
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-        user.email = auth.info.email
-        user.password = Devise.friendly_token[0,20]
+      user.email = auth.info.email
+      user.username = auth.info.name.downcase.gsub(/\s+/, "")
+      user.first_name, user.last_name = auth.info.name.split(' ', 2)
+      user.avatar = AvatarUploader.new
+      user.avatar.download! auth.info.image
     end
   end
 
@@ -56,6 +59,18 @@ class User < ApplicationRecord
         if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
             user.email = data["email"] if user.email.blank?
         end
+    end
+  end
+
+  def password_required?
+    super && provider.blank?
+  end
+
+  def update_with_password(params, *options)
+    if encrypted_password.blank?
+      update_attributes(params, *options)
+    else
+      super
     end
   end
 end

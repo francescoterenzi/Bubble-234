@@ -27,16 +27,16 @@
     %i (leave blank if you don't want to change it)
     %br/
     = f.password_field :password, autocomplete: "off"
-  %div
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "off"
-  - if f.object.encrypted_password.present?
     %div
-      = f.label :current_password
-      %i (we need your current password to confirm your changes)
+      = f.label :password_confirmation
       %br/
-      = f.password_field :current_password, autocomplete: "off"
+      = f.password_field :password_confirmation, autocomplete: "off"
+    - if f.object.encrypted_password.present?
+      %div
+        = f.label :current_password
+        %i (we need your current password to confirm your changes)
+        %br/
+        = f.password_field :current_password, autocomplete: "off"
   %hr
   %div
     %h6 Select an Avatar

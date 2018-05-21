@@ -379,7 +379,7 @@ end
 
 Then /^I should see the link to (.*) cocktail$/ do |c|
   ckt = Cocktail.find_by(:name => c)
-  page.should have_link("see the #{c} recipe", :href => cocktail_path(:id => ckt.id))
+  page.should have_link("#{c}", :href => cocktail_path(:id => ckt.id))
 end
 
 Then /^I should see the link to (.*) review$/ do |c|

@@ -17,6 +17,7 @@ gem 'sass-rails', '~> 5.0'
 
 gem 'haml'
 gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 
 # Use Carrierwave for image uploading
 gem 'carrierwave', '~> 1.0'
