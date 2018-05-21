@@ -13,12 +13,12 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
   has_many :likes, dependent: :destroy
-  has_many :reviews_liked, through: :likes, source: :review, dependent:destroy
+  has_many :reviews_liked, through: :likes, source: :review, dependent: :destroy
 
   has_many :favorite_cocktails, dependent: :destroy
   has_many :favorites, through: :favorite_cocktails, source: :cocktail, dependent: :destroy
 
-  mount_uploader :avatar, AvatarUploader, dependent: :destroy
+  mount_uploader :avatar, AvatarUploader
 
   def login=(login)
     @login = login
