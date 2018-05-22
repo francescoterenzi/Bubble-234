@@ -51,11 +51,6 @@
                         = link_to "review", cocktail_review_path(:id => activity.review.id, :cocktail_id => activity.review.cocktail.id)
           / /row
         #cocktails.tab-pane
-          .alert.alert-info.alert-dismissable
-            %a.panel-close.close{"data-dismiss" => "alert"} ×
-            This is an
-            = succeed "." do
-              %strong .alert
           %table.table.table-hover.table-striped
             %tbody
               - @user.cocktails.reverse.each do |c|
