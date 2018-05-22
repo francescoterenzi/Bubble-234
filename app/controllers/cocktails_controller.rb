@@ -46,7 +46,7 @@ class CocktailsController < ApplicationController
       @cocktail = Cocktail.find(params[:id])
       @cocktail.destroy
       flash[:notice] = "Cocktail '#{@cocktail.name}' deleted."
-      redirect_to root_path
+      redirect_to users_myprofile_path
     end
 
     def edit
@@ -55,7 +55,7 @@ class CocktailsController < ApplicationController
 
     def update
       @cocktail = Cocktail.find params[:id]
-      if !(@cocktail.link.empty?)
+      if !(params[:link].blank?)
         @cocktail.video = Video.new(video_params)
       end
 
