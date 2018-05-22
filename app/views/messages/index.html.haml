@@ -1,0 +1,17 @@
+- if @over_ten
+  = link_to "Show Previous", "?m=all"
+- @messages.each do |message|
+  - if message.body
+    - user = User.find(message.user_id)
+    %strong= user.first_name
+    = message.message_time
+    = message.body
+    %br
+= @message.body
+
+= form_for [@conversation, @message], html: {class: 'ui reply form'} do |f|
+  %div{:class => 'field'}
+    = f.text_area :body, class: 'form-control'
+  = f.text_field :user_id, value: current_user.id, type: 'hidden'
+  %div
+    = f.submit 'Add Reply', class: 'ui blue labeled submit icon button'

@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   get 'users/favorites'
   get 'users/results'
 
+  resources :conversations do
+    resources :messages
+  end
+
   resources :users do
     member do
       get :following, :followers
