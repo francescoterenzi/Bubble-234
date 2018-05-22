@@ -16,7 +16,7 @@ gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 
 gem 'haml'
-gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
 
 # Use Carrierwave for image uploading
