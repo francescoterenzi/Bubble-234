@@ -25,11 +25,11 @@
                 %i.fa.fa-star
                 Valutazione Media (Da fare!!)
               %span.badge.badge-primary
-                %i.fa.fa-star
-                = link_to "#{@user.followers.count} Followers", followers_user_path(@user), :style=>'color:#FFFFFF;'
+                %i.fa.fa-users
+                #{@user.followers.count} Followers
               %span.badge.badge-primary
-                %i.fa.fa-star
-                = link_to "#{@user.following.count} Following", following_user_path(@user), :style=>'color:#FFFFFF;'
+                %i.fa.fa-users
+                #{@user.following.count} Following
             .col-md-12
               %h5.mt-2
                 Recent Activity
