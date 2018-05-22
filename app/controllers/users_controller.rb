@@ -8,11 +8,12 @@ class UsersController < ApplicationController
   end
 
   def profile
-    @user = User.find(params[:id])
-    if @user == nil
+    begin
+      @user = User.find(params[:id])
+      @activities = (@user.reviews + @user.likes + @user.favorites)
+    rescue ActiveRecord::RecordNotFound => e
       redirect_to root_path, flash: {:alert => 'No user found'}
     end
-    @activities = (@user.reviews + @user.likes + @user.favorites)
   end
 
   def favorites

@@ -12,15 +12,22 @@ class ReviewsController < ApplicationController
     end
   
     def update
-        @review = Review.find params[:id]
-  
-        @review.update_attributes!(review_params)
-        flash[:notice] = "Your review was successfully updated"
-        redirect_to cocktail_review_path(@review.id)
+        begin
+            @review = Review.find params[:id]
+            @review.update_attributes!(review_params)
+            flash[:notice] = "Your review was successfully updated"
+            redirect_to cocktail_review_path(@review.id)
+        rescue ActiveRecord::RecordNotFound => e
+          redirect_to root_path, flash: {:alert => 'No review found'}
+        end
       end
 
     def show
-        @review = Review.find(params[:id])
+        begin
+            @review = Review.find(params[:id])
+        rescue ActiveRecord::RecordNotFound => e
+          redirect_to root_path, flash: {:alert => 'No review found'}
+        end
     end
 
     def new
@@ -37,23 +44,35 @@ class ReviewsController < ApplicationController
     end
 
     def destroy
-        @review = @cocktail.reviews.find(params[:id])
-        @review.destroy
-        flash[:notice] = "#{@review.user.username}'s Review deleted"
-        redirect_to cocktail_reviews_path(@cocktail)
+        begin
+            @review = @cocktail.reviews.find(params[:id])
+            @review.destroy
+            flash[:notice] = "#{@review.user.username}'s Review deleted"
+            redirect_to cocktail_reviews_path(@cocktail)
+        rescue ActiveRecord::RecordNotFound => e
+            redirect_to root_path, flash: {:alert => 'No review found'}
+        end
     end
 
     def like
-        @review = Review.find params[:id]
-        current_user.reviews_liked << @review
-        flash[:notice] = "#{@review.user.username}'s Review liked"
-        redirect_to cocktail_review_path(@review)
+        begin
+            @review = Review.find params[:id]
+            current_user.reviews_liked << @review
+            flash[:notice] = "#{@review.user.username}'s Review liked"
+            redirect_to cocktail_review_path(@review)
+        rescue ActiveRecord::RecordNotFound => e
+          redirect_to root_path, flash: {:alert => 'No review found'}
+        end
     end
     
     def dislike
-        @review = Review.find params[:id]
-        current_user.reviews_liked.destroy(@review)
-        redirect_to cocktail_review_path(@review)
+        begin
+            @review = Review.find params[:id]
+            current_user.reviews_liked.destroy(@review)
+            redirect_to cocktail_review_path(@review)
+        rescue ActiveRecord::RecordNotFound => e
+          redirect_to root_path, flash: {:alert => 'No user found'}
+        end
     end
 
 end

@@ -21,6 +21,7 @@ class CocktailsController < ApplicationController
     end
 
     def show
+      begin
         id = params[:id]
         @cocktail = Cocktail.find(id)
         respond_to do |format|
@@ -40,30 +41,45 @@ class CocktailsController < ApplicationController
               disposition: 'inline'
           end
         end
+      rescue ActiveRecord::RecordNotFound => e
+        redirect_to root_path, flash: {:alert => 'No cocktail found'}
+      end
     end
 
     def destroy
-      @cocktail = Cocktail.find(params[:id])
-      @cocktail.destroy
-      flash[:notice] = "Cocktail '#{@cocktail.name}' deleted."
-      redirect_to users_myprofile_path
+      begin
+        @cocktail = Cocktail.find(params[:id])
+        @cocktail.destroy
+        flash[:notice] = "Cocktail '#{@cocktail.name}' deleted."
+        redirect_to users_myprofile_path
+      rescue ActiveRecord::RecordNotFound => e
+        redirect_to root_path, flash: {:alert => 'No cocktail found'}
+      end
     end
 
     def edit
-      @cocktail = Cocktail.find params[:id]
+      begin
+        @cocktail = Cocktail.find params[:id]
+      rescue ActiveRecord::RecordNotFound => e
+        redirect_to root_path, flash: {:alert => 'No cocktail found'}
+      end
     end
 
     def update
-      @cocktail = Cocktail.find params[:id]
-      if !(params[:link].blank?)
-        @cocktail.video = Video.new(video_params)
-      end
+      begin
+        @cocktail = Cocktail.find params[:id]
+        if !(params[:link].blank?)
+          @cocktail.video = Video.new(video_params)
+        end
 
-      if @cocktail.update_attributes(cocktail_params)
-        flash[:notice] = "#{@cocktail.name} was successfully updated"
-        redirect_to cocktail_path(@cocktail)
-      else
-        render 'edit'
+        if @cocktail.update_attributes(cocktail_params)
+          flash[:notice] = "#{@cocktail.name} was successfully updated"
+          redirect_to cocktail_path(@cocktail)
+        else
+          render 'edit'
+        end
+      rescue ActiveRecord::RecordNotFound => e
+        redirect_to root_path, flash: {:alert => 'No cocktail found'}
       end
     end
 
