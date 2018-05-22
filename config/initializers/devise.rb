@@ -26,6 +26,8 @@ Devise.setup do |config|
     scope: "https://www.googleapis.com/auth/userinfo.email,https://www.googleapis.com/auth/userinfo.profile", display: 'popup',
   }
 
+  config.omniauth :twitter, Rails.application.secrets.TWITTER_API_KEY, Rails.application.secrets.TWITTER_SECRET_KEY
+
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 
