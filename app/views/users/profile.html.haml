@@ -97,8 +97,4 @@
     .col-lg-4.order-lg-1.text-center
       %img.mx-auto.img-fluid.img-thumbnail.d-block{:src => @user.avatar.url}
       %br
-      - if user_signed_in?
-        - if current_user.following?(@user)
-          = render 'unfollow'
-        - else
-          = render 'follow'
+      = render 'follow_form'

@@ -5,7 +5,7 @@
     .card-body
       .card-title
       %img.img-thumbnail{:style => "height: 200px; width: 100%; display: block;", :src => "#{user.avatar.url}", :alt => "Profile image"}
-    
+
     %ul.list-group.list-group-flush
       %li.list-group-item.d-flex.justify-content-between.align-items-center
         Cocktails
@@ -16,4 +16,14 @@
         %span.badge.badge-primary.badge-pill
           #{user.reviews.count}
     .card-body
-      %a{:href => "#", :class => "card-link"} Follow (Da fare)
+      - if user_signed_in?
+        - if current_user.following?(user)
+          = form_for(current_user.active_relationships.find_by(followed_id: user.id),
+            html: { method: :delete }) do |f|                                         |
+            = f.submit "Unfollow", class: "btn"
+        - else
+          = form_for(current_user.active_relationships.build) do |f|
+            %div
+              = hidden_field_tag :followed_id, user.id
+            = f.submit "Follow", class: "btn btn-primary"
+
