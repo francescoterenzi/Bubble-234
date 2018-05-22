@@ -2,11 +2,11 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   validates :first_name, presence: true
-  validates :last_name, presence: true
+  #validates :last_name, presence: true
   validates :username, presence: :true, uniqueness: :true
   validate :validate_username
 
-  devise :database_authenticatable, :registerable, :confirmable,
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:google_oauth2, :twitter]
 
@@ -76,6 +76,14 @@ class User < ApplicationRecord
         user.avatar = AvatarUploader.new
         user.avatar.download! auth.info.image
       end
+    end
+  end
+
+  def self.from_omniauth_twitter(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = "#{auth.info.nickname}@twitter.com"
+      user.username = auth.info.nickname
+      user.first_name, user.last_name = auth.info.name.split(' ', 2)
     end
   end
 
