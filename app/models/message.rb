@@ -1,10 +1,12 @@
 class Message < ApplicationRecord
-    belongs_to :conversation
-    belongs_to :user
-   
-    validates_presence_of :body, :conversation_id, :user_id
-   
-    def message_time
-     created_at.strftime "%d-%m-%Y %H:%M:%S"
-    end
+  belongs_to :user
+  belongs_to :chat_room
+
+  validates :body, presence: true, length: {minimum: 2, maximum: 1000}
+
+  after_create_commit { MessageBroadcastJob.perform_later(self) }
+
+  def timestamp
+    created_at.strftime('%H:%M:%S %d %B %Y')
+  end
 end

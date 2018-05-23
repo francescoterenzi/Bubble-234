@@ -25,7 +25,8 @@ class User < ApplicationRecord
   has_many :favorite_cocktails, dependent: :destroy
   has_many :favorites, through: :favorite_cocktails, source: :cocktail, dependent: :destroy
 
-  has_many :conversations, :foreign_key => :sender_id
+  has_many :chat_rooms, dependent: :destroy
+  has_many :messages, dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader
 
@@ -118,6 +119,10 @@ class User < ApplicationRecord
     else
       sum
     end
+  end
+
+  def name
+    email.split('@')[0]
   end
 
 end

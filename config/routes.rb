@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  mount ActionCable.server => '/cable'
+
   root to: "cocktails#index"
 
   devise_for :users, :path_names => {:sign_in => 'login', :sign_out => 'logout'}, :controllers => { registrations: 'registrations', omniauth_callbacks: 'users/omniauth_callbacks'}
@@ -12,9 +13,7 @@ Rails.application.routes.draw do
 
   get 'cocktails/random', to: 'cocktails#random', as: 'random'
 
-  resources :conversations do
-    resources :messages
-  end
+  resources :chat_rooms, only: [:new, :create, :show, :index]
 
   resources :users do
     member do
