@@ -70,7 +70,7 @@ class CocktailsController < ApplicationController
     def update
       begin
         @cocktail = Cocktail.find params[:id]
-        if !(params[:link].blank?)
+        if !(params[:cocktail][:link].blank?) && (params[:cocktail][:link] != @cocktail.link)
           @cocktail.video = Video.new(video_params)
         end
 
