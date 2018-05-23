@@ -23,6 +23,8 @@
     = f.label :image do
       = f.file_field :image
       = f.hidden_field :image_cache
+    = f.label :remove_image
+    = f.check_box :remove_image
   %br
   %hr
   = submit_tag 'Save Changes', :class => 'btn btn-outline-success'
