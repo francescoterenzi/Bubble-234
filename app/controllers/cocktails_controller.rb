@@ -33,7 +33,9 @@ class CocktailsController < ApplicationController
             pdf.text "Created by '#{@cocktail.user.username}'\n\n\n", :size => 20, :align => :center
             pdf.text "Description: #{@cocktail.description}\n\n", :size => 20
             if !@cocktail.image.nil?
-              pdf.image "#{Rails.root}/public#{@cocktail.image}",:scale => 0.7
+              if @cocktail.image.url.include? "public"
+                pdf.image "#{Rails.root}/public#{@cocktail.image}",:scale => 0.5
+              end
             end
             send_data pdf.render,
               filename: "cocktail.pdf",

@@ -72,8 +72,7 @@
             = link_to "Add a Review", new_cocktail_review_path(@cocktail), :class => "btn btn-primary"
         
     .col-lg-4.order-lg-1.text-center
-      - if !@cocktail.image.nil?
-        %img.mx-auto.img-fluid.img-thumbnail.d-block{:src => @cocktail.image.url}
+      %img.mx-auto.img-fluid.img-thumbnail.d-block{:src => @cocktail.image.url}
 
 
 
