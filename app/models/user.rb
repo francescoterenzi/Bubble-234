@@ -103,4 +103,19 @@ class User < ApplicationRecord
       super
     end
   end
+
+  def media
+    counter = 0
+    sum = 0
+    if self.cocktails.size > 0
+      self.cocktails.each do |c|
+        sum += c.media
+        counter += 1
+      end
+      (sum / counter).round(1)
+    else
+      sum
+    end
+  end
+
 end

@@ -41,6 +41,9 @@ module NavigationHelpers
     when /^the cocktail (.*) page$/
       cocktail_path(Cocktail.find_by(:name => $1))
 
+    when /^the random cocktail page$/
+      random_path
+
     when /^the results page$/
       users_results_path
 

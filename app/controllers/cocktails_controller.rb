@@ -33,6 +33,7 @@ class CocktailsController < ApplicationController
       begin
         id = params[:id]
         @cocktail = Cocktail.find(id)
+        @avg = @cocktail.media
         respond_to do |format|
           # some other formats like: format.html { render :show }
           format.html.haml
