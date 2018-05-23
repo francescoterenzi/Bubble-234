@@ -13,4 +13,18 @@ class Cocktail < ApplicationRecord
   has_one :video, dependent: :destroy
 
   mount_uploader :image , ImageUploader , presence: true, dependent: :destroy
+
+  def media
+    counter = 0
+    sum = 0
+    if self.reviews.size > 0
+      self.reviews.each do |r|
+        sum += r.rate
+        counter += 1
+      end
+      (sum.to_f / counter).round(1)
+    else
+      sum
+    end
+  end
 end

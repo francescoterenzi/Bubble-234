@@ -33,6 +33,7 @@ class CocktailsController < ApplicationController
       begin
         id = params[:id]
         @cocktail = Cocktail.find(id)
+        @avg = @cocktail.media
         respond_to do |format|
           # some other formats like: format.html { render :show }
           format.html.haml
@@ -74,6 +75,12 @@ class CocktailsController < ApplicationController
       rescue ActiveRecord::RecordNotFound => e
         redirect_to root_path, flash: {:alert => 'No cocktail found'}
       end
+    end
+
+    def random
+      @cocktails = Cocktail.where("user_id <> ?", current_user)
+      @cocktail = @cocktails.sample
+      render 'show'
     end
 
     def update

@@ -7,8 +7,8 @@ Scenario: Write a review
   Given I am a registered user
   And another users's cocktail "Mojito" exists
   And I log in
-  When I go to the cocktail "Mojito" reviews page
-  And I follow "Create a new Review"
+  When I go to the cocktail "Mojito" page
+  And I follow "Add a Review"
   When I select "3" from "Rate"
   And I fill in "Comments" with "Il più buono di tutti"
   And I press "Create Review"

@@ -10,4 +10,4 @@
 = form_tag cocktail_review_path(@cocktail), :method => :put do
   = render :partial => 'review_form'
   = submit_tag 'Save Changes', :class => 'btn btn-outline-success'
-  = link_to "Back", cocktail_reviews_path(@cocktail), :class => 'btn btn-outline-danger'
+  = link_to "Back", cocktail_review_path(@review), :class => 'btn btn-outline-danger'

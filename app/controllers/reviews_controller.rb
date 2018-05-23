@@ -7,7 +7,12 @@ class ReviewsController < ApplicationController
         end
     end
 
-    def index
+    def edit
+      begin
+        @review = Review.find params[:id]
+      rescue ActiveRecord::RecordNotFound => e
+        redirect_to root_path, flash: {:alert => 'No review found'}
+      end
     end
 
     def update
@@ -34,8 +39,9 @@ class ReviewsController < ApplicationController
     end
 
     def create
-        current_user.reviews << @cocktail.reviews.build(review_params)
-        redirect_to cocktail_reviews_path(@cocktail)
+        @review = @cocktail.reviews.build(review_params)
+        current_user.reviews << @review
+        redirect_to cocktail_review_path(:id => @review.id, :cocktail_id => @cocktail.id)
     end
 
     def review_params
@@ -47,7 +53,7 @@ class ReviewsController < ApplicationController
             @review = @cocktail.reviews.find(params[:id])
             @review.destroy
             flash[:notice] = "#{@review.user.username}'s Review deleted"
-            redirect_to cocktail_reviews_path(@cocktail)
+            redirect_to cocktail_path(@cocktail)
         rescue ActiveRecord::RecordNotFound => e
             redirect_to root_path, flash: {:alert => 'No review found'}
         end

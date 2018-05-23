@@ -1,79 +1,84 @@
-.container
-  .row.my-2
-    .col-lg-8.order-lg-2
-      %ul.nav.nav-tabs
-        %li.nav-item
-          %a.nav-link.active{"data-target" => "#profile", "data-toggle" => "tab", :href => ""} About the Cocktail
-        %li.nav-item
-          %a.nav-link{"data-target" => "#reviews", "data-toggle" => "tab", :href => ""} Reviews
-      .tab-content.py-4
-        #profile.tab-pane.active
-          .row
-            .col-md-6
-              %h3.mb-3 #{@cocktail.name}
-            .col-md-6
-              %span.badge.badge-primary
-                %i.fa.fa-heart
-                #{@cocktail.favorited_by.count} Favorite
-              %span.badge.badge-primary
-                %i.fa.fa-pencil-alt
-                #{@cocktail.reviews.count} Reviews
-              %span.badge.badge-primary
-                %i.fa.fa-star
-                Valutazione Media (Da fare!!)
-          .row
-            .col-md-6
-              .container
-                %h6 #{@cocktail.description}
-                %br
-                = link_to "Created by #{@cocktail.user.username}", profile_path(@cocktail.user)
-            .col-md-6
-              - if user_signed_in?
-                - if @cocktail.user == current_user
-                  = link_to "Edit", edit_cocktail_path(@cocktail), :class => 'badge.badge-dark.badge-pill'
-                  %br
-                  = link_to "Delete Cocktail", cocktail_path(@cocktail), :method => :delete, :class => 'badge.badge-dark.badge-pill'
-                %br
-                - if FavoriteCocktail.find_by(:user_id => current_user.id, :cocktail_id => @cocktail.id) != nil
-                  = link_to "Remove from Favorites", favorite_cocktail_path(@cocktail, type: "unfavorite"), method: :put, :class => 'badge.badge-dark.badge-pill'
-                - else
-                  = link_to "Add to Favorites", favorite_cocktail_path(@cocktail, type: "favorite"), method: :put, :class => 'badge.badge-dark.badge-pill'
-                %br
-                = link_to "Download PDF", cocktail_path(@cocktail, format: 'pdf'), :class => 'badge.badge-dark.badge-pill', target: :_blank
-                %br
-              - else
-                Please sign in!!
-              = render 'twitter'
-              %hr/
-              Video
-              - if !(@cocktail.link.blank?)
-                %div
-                  %iframe{:src => "https://www.youtube.com/embed/#{@cocktail.video.uid}", :width => "400", :height => "240"}
+.row.my-2
+  .col-lg-8.order-lg-2
+    %ul.nav.nav-tabs
+      %li.nav-item
+        %a.nav-link.active{"data-target" => "#profile", "data-toggle" => "tab", :href => ""} About the Cocktail
+      %li.nav-item
+        %a.nav-link{"data-target" => "#reviews", "data-toggle" => "tab", :href => ""} Reviews
+    .tab-content.py-4
+      #profile.tab-pane.active
+        .row
+          .col-md-6
+            %h3.mb-3 #{@cocktail.name}
+            Created by: 
+            = link_to "#{@cocktail.user.username}", profile_path(@cocktail.user)
+          .col-md-6
+            %span.badge.badge-primary
+              %i.fa.fa-heart
+              #{@cocktail.favorited_by.count} Favorite
+            %span.badge.badge-primary
+              %i.fa.fa-pencil-alt
+              #{@cocktail.reviews.count} Reviews
+            %span.badge.badge-primary
+              %i.fa.fa-star
+              Valutazione Media #{@avg}
+            %hr
+        .row
+          .col-md-6
+            .container
+              %hr
+              %h6 #{@cocktail.description}
               %br
               %hr
-          / /row
-        #reviews.tab-pane
-          %table.table.table-hover.table-striped
-            %tbody
-              - if @cocktail.reviews.size == 0
-                %tr
-                  %td
-                    No reviews yet!
-              - @cocktail.reviews.reverse.each do |review|
-                %tr
-                  %td
-                    #{review.user.username}
-                  %td
-                    - (1..5).each do |i|
-                      -if i <= review.rate
-                        %i{:class => "fas fa-star"}
-                  %td
-                    = link_to "Show More", cocktail_review_path(:id => review.id, :cocktail_id => @cocktail.id)
-          - if @cocktail.user != current_user
-            = link_to "Add a Review", new_cocktail_review_path(@cocktail), :class => "btn btn-primary"
+              = render 'twitter'
+          .col-md-6
+            - if !(@cocktail.link.blank?)
+              %div
+                %iframe{:src => "https://www.youtube.com/embed/#{@cocktail.video.uid}", :width => "400", :height => "240"}
+            - else
+              No video available for this cocktail!
+            %br
+            %hr
+        / /row
+      #reviews.tab-pane
+        %table.table.table-hover.table-striped
+          %tbody
+            - if @cocktail.reviews.size == 0
+              %tr
+                %td
+                  No reviews yet!
+            - @cocktail.reviews.reverse.each do |review|
+              %tr
+                %td
+                  #{review.user.username}
+                %td
+                  - (1..5).each do |i|
+                    -if i <= review.rate
+                      %i{:class => "fas fa-star"}
+                %td
+                  = link_to "Show More", cocktail_review_path(:id => review.id, :cocktail_id => @cocktail.id)
+                %td
+                  %i.fa.fa-thumbs-up
+                  #{review.likes.count}
 
-    .col-lg-4.order-lg-1.text-center
-      %img.mx-auto.img-fluid.img-thumbnail.d-block{:src => @cocktail.image.url}
+        - if @cocktail.user != current_user
+          = link_to "Add a Review", new_cocktail_review_path(@cocktail), :class => "btn btn-primary"
+
+  .col-lg-4.order-lg-1.text-center
+    %img.mx-auto.img-fluid.img-thumbnail.d-block{:src => @cocktail.image.url}
+    %hr
+    - if user_signed_in?
+      - if @cocktail.user == current_user
+        = link_to "Edit", edit_cocktail_path(@cocktail), :class => 'btn btn-primary btn-sm'
+        
+        = link_to "Delete Cocktail", cocktail_path(@cocktail), :method => :delete, :class => 'btn btn-primary btn-sm'
+        
+      - if FavoriteCocktail.find_by(:user_id => current_user.id, :cocktail_id => @cocktail.id) != nil
+        = link_to "Remove from Favorites", favorite_cocktail_path(@cocktail, type: "unfavorite"), method: :put, :class => 'btn btn-primary btn-sm'
+      - else
+        = link_to "Add to Favorites", favorite_cocktail_path(@cocktail, type: "favorite"), method: :put, :class => 'btn btn-primary btn-sm'
+        
+      = link_to "Download PDF", cocktail_path(@cocktail, format: 'pdf'), :class => 'btn btn-primary btn-sm', target: :_blank
 
 
 
