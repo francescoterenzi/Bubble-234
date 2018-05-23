@@ -6,7 +6,7 @@ Feature: Delite a Review
 Scenario: Write a review
   Given I am a registered user
   And I wrote a review for "Mojito" cocktail
-  When I go to the cocktail "Mojito" reviews page
-  And I follow "details of test review"
+  When I go to the cocktail "Mojito" page
+  And I follow "Show More"
   And I follow "Delete Review"
   And I should see "test's Review deleted "
