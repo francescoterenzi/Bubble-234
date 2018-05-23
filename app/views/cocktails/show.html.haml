@@ -10,7 +10,7 @@
         #profile.tab-pane.active
           .row
             .col-md-6
-              %h5.mb-3 #{@cocktail.name}
+              %h3.mb-3 #{@cocktail.name}
             .col-md-6
               %span.badge.badge-primary
                 %i.fa.fa-heart
@@ -25,6 +25,8 @@
             .col-md-6
               .container
                 %h6 #{@cocktail.description}
+                %br
+                = link_to "Created by #{@cocktail.user.username}", profile_path(@cocktail.user)
             .col-md-6
               - if user_signed_in?
                 - if @cocktail.user == current_user
