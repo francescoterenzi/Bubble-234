@@ -1,0 +1,4 @@
+%div
+  %a.twitter-share-button{"data-count" => "horizontal", "data-text" => "Watch the recepie for cocktail '#{@cocktail.name}' from Bubble-2•3•4\n",
+    "data-url" => "#{request.url}", "data-via" => "#{@cocktail.user.username}", href: "http://twitter.com/share"} Tweet
+  %script{src: "https://platform.twitter.com/widgets.js", type: "text/javascript"}

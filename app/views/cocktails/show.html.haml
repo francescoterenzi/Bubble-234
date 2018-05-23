@@ -40,8 +40,10 @@
                   = link_to "Add to Favorites", favorite_cocktail_path(@cocktail, type: "favorite"), method: :put, :class => 'badge.badge-dark.badge-pill'
                 %br
                 = link_to "Download PDF", cocktail_path(@cocktail, format: 'pdf'), :class => 'badge.badge-dark.badge-pill', target: :_blank
+                %br
               - else
                 Please sign in!!
+              = render 'twitter'
               %hr/
               Video
               - if !(@cocktail.link.blank?)

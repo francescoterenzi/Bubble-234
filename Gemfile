@@ -16,6 +16,7 @@ gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 
 gem 'haml'
+gem 'twitter'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
 
