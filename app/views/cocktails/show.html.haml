@@ -8,22 +8,28 @@
           %a.nav-link{"data-target" => "#reviews", "data-toggle" => "tab", :href => ""} Reviews
       .tab-content.py-4
         #profile.tab-pane.active
-          %h5.mb-3 #{@cocktail.name}
+          .row
+            .col-md-6
+              %h5.mb-3 #{@cocktail.name}
+            .col-md-6
+              %span.badge.badge-primary
+                %i.fa.fa-heart
+                #{@cocktail.favorited_by.count} Favorite
+              %span.badge.badge-primary
+                %i.fa.fa-pencil-alt
+                #{@cocktail.reviews.count} Reviews
+              %span.badge.badge-primary
+                %i.fa.fa-star
+                Valutazione Media (Da fare!!)
           .row
             .col-md-6
               .container
-                %h6 
-                Da sistemare la ricetta e la foto
-                %br
-                Se aggiungo il video con la edit crasha di brutto!!
-                %br
-                Da sistemare i vari link delle reviews e sistemarne la grafica (e i test)
-                -#{@cocktail.description}
+                %h6 #{@cocktail.description}
             .col-md-6
-              %h6 Actions (DA SISTEMARE)
               - if user_signed_in?
                 - if @cocktail.user == current_user
                   = link_to "Edit", edit_cocktail_path(@cocktail), :class => 'badge.badge-dark.badge-pill'
+                  %br
                   = link_to "Delete Cocktail", cocktail_path(@cocktail), :method => :delete, :class => 'badge.badge-dark.badge-pill'
                 %br
                 - if FavoriteCocktail.find_by(:user_id => current_user.id, :cocktail_id => @cocktail.id) != nil
@@ -38,18 +44,9 @@
               Video
               - if !(@cocktail.link.blank?)
                 %div
-                  %iframe{:src => "https://www.youtube.com/embed/#{@cocktail.video.uid}"}
+                  %iframe{:src => "https://www.youtube.com/embed/#{@cocktail.video.uid}", :width => "400", :height => "240"}
               %br
               %hr
-              %span.badge.badge-primary
-                %i.fa.fa-heart
-                #{@cocktail.favorited_by.count} Favorite
-              %span.badge.badge-primary
-                %i.fa.fa-pencil-alt
-                #{@cocktail.reviews.count} Reviews
-              %span.badge.badge-primary
-                %i.fa.fa-star
-                Valutazione Media (Da fare!!)
           / /row
         #reviews.tab-pane
           %table.table.table-hover.table-striped
@@ -70,7 +67,7 @@
                     = link_to "Show More", cocktail_review_path(:id => review.id, :cocktail_id => @cocktail.id)
           - if @cocktail.user != current_user
             = link_to "Add a Review", new_cocktail_review_path(@cocktail), :class => "btn btn-primary"
-        
+
     .col-lg-4.order-lg-1.text-center
       %img.mx-auto.img-fluid.img-thumbnail.d-block{:src => @cocktail.image.url}
 
