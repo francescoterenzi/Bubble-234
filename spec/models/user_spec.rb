@@ -17,10 +17,10 @@ RSpec.describe User, type: :model do
     expect(user).not_to be_valid
   end
 
-  it "Missing Last Name" do
-    user = User.new(:first_name => "First", :email => "user@test.it", :password => "123456", :password_confirmation => "123456", :username => "test")
-    expect(user).not_to be_valid
-  end
+  #it "Missing Last Name" do
+  #  user = User.new(:first_name => "First", :email => "user@test.it", :password => "123456", :password_confirmation => "123456", :username => "test")
+  #  expect(user).not_to be_valid
+  #end
 
   it "Missing Password" do
     user = User.new(:first_name => "First", :last_name => "Last", :email => "user@test.it", :password_confirmation => "123456", :username => "test")

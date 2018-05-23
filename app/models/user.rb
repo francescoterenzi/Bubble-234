@@ -84,11 +84,11 @@ class User < ApplicationRecord
       user.email = auth.info.email #"#{auth.info.nickname}@twitter.com"
       user.username = auth.info.nickname
       user.first_name, user.last_name = auth.info.name.split(' ', 2)
-      #default_image = "https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png"
-      #if auth.info.image != default_image
-      #  user.avatar = AvatarUploader.new
-      #  user.avatar.download! auth.info.image
-      #end
+      default_image = "https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png"
+      if auth.info.image != default_image
+        user.avatar = AvatarUploader.new
+        user.avatar.download! auth.info.image
+      end
     end
   end
 
