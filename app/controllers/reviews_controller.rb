@@ -1,16 +1,15 @@
 class ReviewsController < ApplicationController
 
     before_action :authenticate_user! && :find_cocktail, except: :show
-    
+
     def find_cocktail
         unless (@cocktail = Cocktail.find_by(:id => params[:cocktail_id]))
         end
     end
 
     def index
-
     end
-  
+
     def update
         begin
             @review = Review.find params[:id]
@@ -64,7 +63,7 @@ class ReviewsController < ApplicationController
           redirect_to root_path, flash: {:alert => 'No review found'}
         end
     end
-    
+
     def dislike
         begin
             @review = Review.find params[:id]

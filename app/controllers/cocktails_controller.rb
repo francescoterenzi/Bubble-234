@@ -1,5 +1,14 @@
 class CocktailsController < ApplicationController
     before_action :authenticate_user!, except: [:show, :index]
+    helper_method :find_following_cocktails
+
+    def find_following_cocktails
+        f_cocktails = Array.new
+        current_user.following.each do |user|
+            f_cocktails.concat(user.cocktails)
+        end
+        f_cocktails.flatten
+    end
 
     def index
     end
