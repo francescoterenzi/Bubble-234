@@ -27,6 +27,7 @@
                 #{current_user.first_name} #{current_user.last_name}
               .dropdown-menu{"x-placement" => "bottom-start", :style => "position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 48px, 0px);"}
                 = link_to "Profile", users_myprofile_path, :class => 'dropdown-item'
+                = link_to "Random", random_path, :class => 'dropdown-item'
                 = link_to "Options", edit_user_registration_path, :class => 'dropdown-item'
                 = link_to "Log Out", destroy_user_session_path, :method => 'delete', :class => 'dropdown-item'
                 - if current_user.admin?

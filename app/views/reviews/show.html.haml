@@ -16,5 +16,5 @@
 - else 
     = link_to "Dislike",  dislike_cocktail_review_path(@review), method: 'delete', :class => 'btn btn-outline-danger'
 
-= link_to "Back", cocktail_reviews_path(@review.cocktail), :class => 'btn btn-outline-success'
+= link_to "Back", cocktail_path(@review.cocktail), :class => 'btn btn-outline-success'
 

@@ -78,8 +78,7 @@
                 - @user.following.each do |f|
                   %tr
                     %td
-                      %span.float-right.font-weight-bold
-                        = link_to "#{f.username}", profile_path(f)
+                      = link_to "#{f.username}", profile_path(f)
               - else
                 %h5 No Following
         #followers.tab-pane
@@ -89,8 +88,7 @@
                 - @user.followers.each do |f|
                   %tr
                     %td
-                      %span.float-right.font-weight-bold
-                        = link_to "#{f.username}", profile_path(f)
+                      = link_to "#{f.username}", profile_path(f)
               - else
                 %h5 No Followers
 

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get 'users/favorites'
   get 'users/results'
 
+  get 'cocktails/random', to: 'cocktails#random', as: 'random'
+
   resources :conversations do
     resources :messages
   end

@@ -76,6 +76,12 @@ class CocktailsController < ApplicationController
       end
     end
 
+    def random
+      @cocktails = Cocktail.where("user_id <> ?", current_user)
+      @cocktail = @cocktails.sample
+      render 'show'
+    end
+
     def update
       begin
         @cocktail = Cocktail.find params[:id]
