@@ -1,5 +1,6 @@
 - if @over_ten
   = link_to "Show Previous", "?m=all"
+  %br
 - @messages.each do |message|
   - if message.body
     - user = User.find(message.user_id)
@@ -15,3 +16,6 @@
   = f.text_field :user_id, value: current_user.id, type: 'hidden'
   %div
     = f.submit 'Add Reply', class: 'ui blue labeled submit icon button'
+
+%br
+= link_to "back to conversations", conversations_path,:class => 'btn btn-outline-success'

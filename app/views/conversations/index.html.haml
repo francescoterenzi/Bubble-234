@@ -1,14 +1,20 @@
 %h3 Mailbox
-- @conversations.each do |conversation|
-  - if conversation.sender_id == current_user.id ||      conversation.recipient_id == current_user.id
+- if @conversations == nil
+  %p no conversations yet
+- else 
+  - @conversations.each do |conversation|
     - if conversation.sender_id == current_user.id
-      - recipient = User.find(conversation.recipient_id)
+      = link_to "chat with #{conversation.recipient.username}", conversation_messages_path(conversation)
     - else
-      - recipient = User.find(conversation.sender_id)
-    = link_to recipient.first_name,   conversation_messages_path(conversation)
-
-%h3 All Users
-- @users.each do |user|
-  - if user.id != current_user.id
-    = link_to "Message to #{user.username}", conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post
+      = link_to "chat with #{conversation.sender.username}", conversation_messages_path(conversation)
     %br
+
+%br
+%br
+
+%h3 All User
+- User.all.each do |user|
+  - if user.id != current_user.id
+    - if Conversation.find_by(sender_id: current_user.id, recipient_id: user.id ) == nil
+      = link_to "Message to #{user.username}", conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'
+      %br

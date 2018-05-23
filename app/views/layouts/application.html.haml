@@ -22,6 +22,8 @@
               = link_to "New Cocktail", new_cocktail_path, :class => 'nav-link'
             %li.nav-item>
               = link_to "Favorites", users_favorites_path, :class => 'nav-link'
+            %li.nav-item>
+              = link_to "Chat", conversations_path, :class => 'nav-link'
             %li.nav-item.dropdown
               %a.nav-link.dropdown-toggle{"data-toggle" => "dropdown", :href => "#", :role => "button", "aria-haspopup" => "true", "aria-expanded"=> "false"}
                 #{current_user.first_name} #{current_user.last_name}
