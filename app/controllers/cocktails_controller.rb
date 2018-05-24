@@ -1,5 +1,5 @@
 class CocktailsController < ApplicationController
-    before_action :authenticate_user!, except: [:show, :index]
+    before_action :authenticate_user!, except: [:show, :index, :results]
     helper_method :find_following_cocktails
 
     def find_following_cocktails
@@ -116,6 +116,15 @@ class CocktailsController < ApplicationController
           # Type missing, nothing happens
           redirect_to :back, notice: 'Nothing happened.'
         end
+    end
+
+    def results
+      @keywords = params[:words]
+      @cocktails = Cocktail.where("name like ? or description like ?", "%#{@keywords}%", "%#{@keywords}%")
+      if @cocktails.size == 0
+        flash[:warning] = 'No cocktails found!'
+        redirect_to root_path
+      end
     end
 
     def cocktail_params

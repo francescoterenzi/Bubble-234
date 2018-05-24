@@ -1,0 +1,24 @@
+- @cocktails.each do |cocktail|
+  .card.mb-3{:style => "display: inline-block; width: 250px;"}
+    %h3.card-header
+      %a{:href => cocktail_path(cocktail), :class => "card-link"} #{cocktail.name}
+    .card-body
+      .card-title
+      %img.img-thumbnail{:style => "height: 200px; width: 100%; display: block;", :src => "#{cocktail.image.url}", :alt => "Cocktail image"}
+
+    %ul.list-group.list-group-flush
+      %li.list-group-item.d-flex.justify-content-between.align-items-center
+        Average Rate
+        %span.badge.badge-primary.badge-pill
+          #{cocktail.media}
+      %li.list-group-item.d-flex.justify-content-between.align-items-center
+        Reviews
+        %span.badge.badge-primary.badge-pill
+          #{cocktail.reviews.count}
+    - if user_signed_in?
+      .card-body
+        - if FavoriteCocktail.find_by(:user_id => current_user.id, :cocktail_id => @cocktail.id) != nil
+          = link_to "Remove from Favorites", favorite_cocktail_path(@cocktail, type: "unfavorite"), method: :put, :class => 'btn btn-primary'
+        - else
+          = link_to "Add to Favorites", favorite_cocktail_path(@cocktail, type: "favorite"), method: :put, :class => 'btn btn-primary'
+

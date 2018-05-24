@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'users/results'
 
   get 'cocktails/random', to: 'cocktails#random', as: 'random'
+  get 'cocktails/results'
 
   resources :chat_rooms, only: [:new, :create, :show, :index]
 
