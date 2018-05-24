@@ -3,30 +3,30 @@
 
 = form_for(:cocktail, url: cocktails_path, :html => {:multipart => true}) do |f|
 
-  %div
-    = f.label :name
-    %br
-    = f.text_field :name
-  %br
+  .form-group
+    .new_form_width
+      = f.label :name
+      = f.text_field :name, :class => "form-control", :placeholder => "Name"
 
-  %div
-    = f.label :description
-    %br
-    = f.text_area :description
-  %br
-  = f.select :category, options_for_select(['Shaking', 'Stirring', 'Mixing & Straining', 'Muddler', 'Build', 'Frozen'], selected: @cocktail.category)
+  .form-group
+    .new_form_width
+      = f.label :description
+      = f.text_area :description, :class => "form-control", :placeholder => "Description"
+  .form-group
+    = f.select :category, options_for_select(['Shaking', 'Stirring', 'Mixing & Straining', 'Muddler', 'Build', 'Frozen'], selected: @cocktail.category)
   %br
   %hr
-  %div
-    = f.label :link
-    %br
-    = f.text_field :link
+  .form-group
+    .new_form_width
+      = f.label :link, 'Youtube link'
+      = f.text_field :link, :class => "form-control", :placeholder => "Youtube link"
+
   %br
-  %br
-  %div
-    = f.label :image do
-      = f.file_field :image
-      = f.hidden_field :image_cache
+  .form-group
+    .new_form_width
+      = f.label :image do
+        = f.file_field :image
+        = f.hidden_field :image_cache
   %br
   %hr
   = submit_tag 'Create Cocktail', :class => 'btn btn-outline-success'

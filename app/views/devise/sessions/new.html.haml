@@ -1,14 +1,17 @@
 = render :partial => 'error'
 %h2 Log in
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  %div
-    = f.label :login
-    %br/
-    = f.text_field :login, autofocus: true
-  %div
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "off"
+  .form-group
+    .new_form_width
+      = f.label :login, 'Email or Username'
+      %br/
+      = f.text_field :login, autofocus: true, :class => "form-control", :placeholder => "Email or username"
+  .form-group
+    .new_form_width
+      = f.label :password, 'Enter Password'
+      %br/
+      = f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Password"
+
   - if devise_mapping.rememberable?
     %div
       = f.check_box :remember_me

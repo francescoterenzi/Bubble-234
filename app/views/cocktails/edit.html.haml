@@ -2,25 +2,30 @@
 %h2 Editing Cocktail "#{@cocktail.name}"
 
 = form_for(@cocktail, url: cocktail_path(@cocktail), html: { method: :put, :multipart => true }) do |f|
-  %div
-    = f.label :name
-    %br
-    = f.text_field :name
-  %br
+  .form-group
+    .new_form_width
+      = f.label :name
+      = f.text_field :name, :class => "form-control", :placeholder => "Name"
 
-  %div
-    = f.label :description
-    %br
-    = f.text_area :description
+  .form-group
+    .new_form_width
+      = f.label :description
+      = f.text_area :description, :class => "form-control", :placeholder => "Description"
+  .form-group
+    = f.select :category, options_for_select(['Shaking', 'Stirring', 'Mixing & Straining', 'Muddler', 'Build', 'Frozen'], selected: @cocktail.category)
   %br
-  %div
-    = f.text_field :link
+  %hr
+  .form-group
+    .new_form_width
+      = f.label :link, 'Youtube link'
+      = f.text_field :link, :class => "form-control", :placeholder => "Youtube link"
+
   %br
-  %br
-  %div
-    = f.label :image do
-      = f.file_field :image
-      = f.hidden_field :image_cache
+  .form-group
+    .new_form_width
+      = f.label :image do
+        = f.file_field :image
+        = f.hidden_field :image_cache
     = f.label :remove_image
     = f.check_box :remove_image
   %br
