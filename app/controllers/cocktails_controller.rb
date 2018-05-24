@@ -125,7 +125,25 @@ class CocktailsController < ApplicationController
 
     def results
       @keywords = params[:words]
-      @cocktails = Cocktail.where("name like ? or description like ?", "%#{@keywords}%", "%#{@keywords}%")
+      @category = params[:category]
+      @orderby = params[:orderby]
+
+      if(@category != 'Search by category')
+        @cocktails = Cocktail.where("name like ? or description like ?", "%#{@keywords}%", "%#{@keywords}%" && "category = '#{@category}'")
+      else
+        @cocktails = Cocktail.where("name like ? or description like ?", "%#{@keywords}%", "%#{@keywords}%")
+      end
+
+      if(@orderby == 'A-Z')
+        @cocktails = @cocktails.sort_by(&:name)
+      elsif(@orderby == 'Most recent')
+        @cocktails = @cocktails.sort_by(&:created_at).reverse
+      elsif(@orderby == 'Top rating')
+        @cocktails = @cocktails.sort_by{|cocktail| cocktail.media}.reverse
+      elsif(@orderby == 'Top reviewed')
+        @cocktails = @cocktails.sort_by{|cocktail| cocktail.reviews.count}.reverse
+      end
+
       if @cocktails.size == 0
         flash[:warning] = 'No cocktails found!'
         redirect_to root_path
@@ -140,4 +158,4 @@ class CocktailsController < ApplicationController
         params.require(:cocktail).permit(:link)
     end
 
-    end
+end
