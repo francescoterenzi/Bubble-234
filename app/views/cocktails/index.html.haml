@@ -7,5 +7,5 @@
 - if user_signed_in?
   - if current_user.following.count > 0
     - count = find_following_cocktails
-    - count.sort_by(&:created_at).each do |u|
+    - count.each do |u|
       %h5 #{u.name}

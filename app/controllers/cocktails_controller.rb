@@ -7,7 +7,7 @@ class CocktailsController < ApplicationController
         current_user.following.each do |user|
             f_cocktails.concat(user.cocktails)
         end
-        f_cocktails.flatten
+        f_cocktails.flatten.sort_by(&:created_at).reverse
     end
 
     def index
