@@ -79,8 +79,13 @@ class CocktailsController < ApplicationController
 
     def random
       @cocktails = Cocktail.where("user_id <> ?", current_user)
-      @cocktail = @cocktails.sample
-      render 'show'
+      if @cocktails.size == 0
+        flash[:notice] = "No cocktails!"
+        redirect_to root_path
+      else
+        @cocktail = @cocktails.sample
+        render 'show'
+      end
     end
 
     def update
