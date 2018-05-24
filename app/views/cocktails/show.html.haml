@@ -10,7 +10,7 @@
         .row
           .col-md-6
             %h3.mb-3 #{@cocktail.name}
-            Created by: 
+            Created by:
             = link_to "#{@cocktail.user.username}", profile_path(@cocktail.user)
           .col-md-6
             %span.badge.badge-primary
@@ -27,6 +27,8 @@
           .col-md-6
             .container
               %hr
+              %h5
+                Category: #{@cocktail.category}
               %h6 #{@cocktail.description}
               %br
               %hr
@@ -70,14 +72,14 @@
     - if user_signed_in?
       - if @cocktail.user == current_user
         = link_to "Edit", edit_cocktail_path(@cocktail), :class => 'btn btn-primary btn-sm'
-        
+
         = link_to "Delete Cocktail", cocktail_path(@cocktail), :method => :delete, :class => 'btn btn-primary btn-sm'
-        
+
       - if FavoriteCocktail.find_by(:user_id => current_user.id, :cocktail_id => @cocktail.id) != nil
         = link_to "Remove from Favorites", favorite_cocktail_path(@cocktail, type: "unfavorite"), method: :put, :class => 'btn btn-primary btn-sm'
       - else
         = link_to "Add to Favorites", favorite_cocktail_path(@cocktail, type: "favorite"), method: :put, :class => 'btn btn-primary btn-sm'
-        
+
       = link_to "Download PDF", cocktail_path(@cocktail, format: 'pdf'), :class => 'btn btn-primary btn-sm', target: :_blank
 
 

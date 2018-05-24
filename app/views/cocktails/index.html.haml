@@ -1,9 +1,9 @@
 = form_tag cocktails_results_path, :method => :get do
   .input-group.mb-3
-    = text_field_tag(:words,'',:class => "form-control mr-sm-2", :placeholder => 'Search Cocktails', :required => :true, :autofocus => :true) 
+    = text_field_tag(:words,'',:class => "form-control mr-sm-2", :placeholder => 'Search Cocktails', :required => :true, :autofocus => :true)
     = submit_tag 'Search', :class => 'btn btn-outline-success'
 - if user_signed_in?
   - if current_user.following.count > 0
     - count = find_following_cocktails
-    - count.each do |u|
+    - count.sort_by(&:created_at).each do |u|
       %h5 #{u.name}

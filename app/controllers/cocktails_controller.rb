@@ -128,7 +128,7 @@ class CocktailsController < ApplicationController
     end
 
     def cocktail_params
-        params.require(:cocktail).permit(:name, :description, :user_id, :id, :image, :image_cache, :remove_image, :link, :video_id)
+        params.require(:cocktail).permit(:name, :description, :user_id, :id, :image, :image_cache, :remove_image, :link, :video_id, :category)
     end
 
     def video_params

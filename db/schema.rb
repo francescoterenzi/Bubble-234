@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180523211932) do
+ActiveRecord::Schema.define(version: 20180524094419) do
 
   create_table "chat_rooms", force: :cascade do |t|
     t.string "title"
@@ -27,6 +27,9 @@ ActiveRecord::Schema.define(version: 20180523211932) do
     t.string "image"
     t.integer "video_id"
     t.string "link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string "category"
     t.index ["user_id"], name: "index_cocktails_on_user_id"
     t.index ["video_id"], name: "index_cocktails_on_video_id"
   end
