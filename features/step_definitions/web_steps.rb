@@ -393,7 +393,7 @@ end
 module LoginSteps
   def login(email, password)
     visit(new_user_session_path)
-    fill_in('Login', :with => email)
+    fill_in('Email or username', :with => email)
     fill_in('Password', :with => password)
     click_button('Log In')
   end
