@@ -12,9 +12,9 @@
             %h3.mb-3 #{@cocktail.name}
             Created by:
             - if current_user.id == @cocktail.id
-              = link_to "#{@cocktail.user.username}", users_myprofile_path(@cocktail.user)
+              = link_to "#{@cocktail.user.username}", user_path(@cocktail.user)
             - else
-              = link_to "#{@cocktail.user.username}", profile_path(@cocktail.user)
+              = link_to "#{@cocktail.user.username}", user_path(@cocktail.user)
           .col-md-6
             %span.badge.badge-primary
               %i.fa.fa-heart
@@ -24,18 +24,18 @@
               #{@cocktail.reviews.count} Reviews
             %span.badge.badge-primary
               %i.fa.fa-star
-              Average Rate #{@avg}
+              Average Rate #{@cocktail.media}
             %hr
         .row
           .col-md-6
-            .container
-              %hr
-              %h5
-                Category: #{@cocktail.category}
-              %h6 #{@cocktail.description}
-              %br
-              %hr
-              = render 'twitter'
+            %hr
+            %h5
+              Category: #{@cocktail.category}
+            .scrollable
+              %p.text-justify{:style => "height: 200px; overflow-wrap: break-word; overflow-y: scroll;"} #{@cocktail.description}
+            %br
+            %hr
+            = render 'twitter'
           .col-md-6
             - if !(@cocktail.link.blank?)
               %div
@@ -55,7 +55,7 @@
             - @cocktail.reviews.reverse.each do |review|
               %tr
                 %td
-                  =link_to "#{review.user.username}", profile_path(review.user)
+                  =link_to "#{review.user.username}", user_path(review.user)
                 %td
                   - (1..5).each do |i|
                     -if i <= review.rate
@@ -78,7 +78,7 @@
       - if @cocktail.user == current_user
         = link_to "Edit", edit_cocktail_path(@cocktail), :class => 'btn btn-primary btn-sm'
 
-        = link_to "Delete Cocktail", cocktail_path(@cocktail), :method => :delete, :class => 'btn btn-primary btn-sm'
+        = link_to "Delete", cocktail_path(@cocktail), :method => :delete, :class => 'btn btn-primary btn-sm'
 
       - if FavoriteCocktail.find_by(:user_id => current_user.id, :cocktail_id => @cocktail.id) != nil
         = link_to "Remove from Favorites", favorite_cocktail_path(@cocktail, type: "unfavorite"), method: :put, :class => 'btn btn-primary btn-sm'

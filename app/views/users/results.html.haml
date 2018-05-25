@@ -1,7 +1,7 @@
 - @users.each do |user|
   .card.mb-3{:style => "display: inline-block; width: 250px;"}
     %h3.card-header
-      %a{:href => (user.id == current_user.id) ? users_myprofile_path : profile_path(user), :class => "card-link"} #{user.first_name} #{user.last_name}
+      %a{:href => user_path(user), :class => "card-link"} #{user.first_name} #{user.last_name}
     .card-body
       .card-title
       %img.img-thumbnail{:style => "height: 200px; width: 100%; display: block;", :src => "#{user.avatar.url}", :alt => "Profile image"}
@@ -18,7 +18,7 @@
     .card-body
       - if user_signed_in?
         - if current_user.id == user.id
-          = button_to "My Profile", users_myprofile_path, class: "btn", :method => :get
+          = button_to "My Profile", user_path(current_user), class: "btn", :method => :get
         - else
           - if current_user.following?(user)
             = form_for(current_user.active_relationships.find_by(followed_id: user.id),

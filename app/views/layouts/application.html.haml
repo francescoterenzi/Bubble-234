@@ -14,21 +14,21 @@
   %body
     %nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
       %a.navbar-brand{:href => root_path}
+        %i.fa.fa-glass-martini
         Bubble 2•3•4
+        %i.fa.fa-glass-martini
       %div.collapse.navbar-collapse#navbarColor02
         %ul.navbar-nav.ml-auto
           - if user_signed_in?
             %li.nav-item>
               = link_to "New Cocktail", new_cocktail_path, :class => 'nav-link'
             %li.nav-item>
-              = link_to "Favorites", users_favorites_path, :class => 'nav-link'
-            %li.nav-item>
               = link_to "Chat", chat_rooms_path, :class => 'nav-link'
             %li.nav-item.dropdown
               %a.nav-link.dropdown-toggle{"data-toggle" => "dropdown", :href => "#", :role => "button", "aria-haspopup" => "true", "aria-expanded"=> "false"}
                 #{current_user.first_name} #{current_user.last_name}
               .dropdown-menu{"x-placement" => "bottom-start", :style => "position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 48px, 0px);"}
-                = link_to "Profile", users_myprofile_path, :class => 'dropdown-item'
+                = link_to "Profile", user_path(current_user), :class => 'dropdown-item'
                 = link_to "Random", random_path, :class => 'dropdown-item'
                 = link_to "Options", edit_user_registration_path, :class => 'dropdown-item'
                 = link_to "Log Out", destroy_user_session_path, :method => 'delete', :class => 'dropdown-item'
@@ -36,7 +36,7 @@
                   .dropdown-divider
                   = link_to "Admin", rails_admin_path, :class => 'dropdown-item'
             %li.nav-item
-              %button.btn.btn-outline-secondary.btn-lg{:href=> "#", "data-toggle" => "modal", "data-target" => ".bs-modal-sm"}
+              %a.nav-link{:href=> "#", "data-toggle" => "modal", "data-target" => ".bs-modal-sm"}
                 %span.fa.fa-search.fa-lg
           - else
             %li.nav-item>
@@ -64,7 +64,7 @@
               = form_tag users_results_path, :method => :get do
                 .input-group.mb-3
                   = text_field_tag(:usr,'',:class => "form-control mr-sm-2", :placeholder => 'Search Users', :required => :true, :autofocus => :true) 
-                  = submit_tag 'Search', :class => 'btn btn-outline-success'
+                  = submit_tag 'Search', :class => 'btn btn-primary'
 
       =yield
       %hr

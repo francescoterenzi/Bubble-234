@@ -284,6 +284,8 @@ end
 
 When /^I register as (.+), (.+)$/ do |email, password|
   register(email, password)
+  @user = User.find_by(email: email)
+  @current_user = @user
 end
 
 Given /^I am signed in with (.*) provider$/ do |provider|
@@ -292,6 +294,7 @@ end
 
 When /^I sign in with (.*) provider$/ do |provider|
   visit "/users/auth/#{provider.downcase}"
+  @current_user = User.find_by(:uid => '12345')
 end
 
 Given /^I am a registered user$/ do

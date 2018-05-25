@@ -34,7 +34,6 @@ class CocktailsController < ApplicationController
       begin
         id = params[:id]
         @cocktail = Cocktail.find(id)
-        @avg = @cocktail.media
         respond_to do |format|
           # some other formats like: format.html { render :show }
           format.html.haml
@@ -64,7 +63,7 @@ class CocktailsController < ApplicationController
         @cocktail = Cocktail.find(params[:id])
         @cocktail.destroy
         flash[:notice] = "Cocktail '#{@cocktail.name}' deleted."
-        redirect_to users_myprofile_path
+        redirect_to user_path(current_user)
       rescue ActiveRecord::RecordNotFound => e
         redirect_to root_path, flash: {:alert => 'No cocktail found'}
       end
@@ -129,7 +128,7 @@ class CocktailsController < ApplicationController
       @category = params[:category]
       @orderby = params[:orderby]
 
-      if(@category != 'Search by category')
+      if(@category != '')
         @cocktails = Cocktail.where("name like ? or description like ?", "%#{@keywords}%", "%#{@keywords}%" && "category = '#{@category}'")
       else
         @cocktails = Cocktail.where("name like ? or description like ?", "%#{@keywords}%", "%#{@keywords}%")

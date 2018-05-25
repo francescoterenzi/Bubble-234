@@ -6,9 +6,6 @@ Rails.application.routes.draw do
 
   devise_for :users, :path_names => {:sign_in => 'login', :sign_out => 'logout'}, :controllers => { registrations: 'registrations', omniauth_callbacks: 'users/omniauth_callbacks'}
 
-  get 'users/myprofile'
-  get 'users/:id/profile', to: 'users#profile', as: 'profile'
-  get 'users/favorites'
   get 'users/results'
 
   get 'cocktails/random', to: 'cocktails#random', as: 'random'

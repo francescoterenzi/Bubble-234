@@ -23,7 +23,7 @@ module NavigationHelpers
       '/users/sign_up'
 
     when /^the myprofile page$/
-      '/users/myprofile'
+      user_path(@current_user)
 
     when /^the user (.*) profile page$/
       byebug

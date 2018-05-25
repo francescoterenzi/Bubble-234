@@ -1,9 +1,13 @@
 = form_tag cocktails_results_path, :method => :get do
-  = select_tag :category, options_for_select(['Search by category','Shaking', 'Stirring', 'Mixing & Straining', 'Muddler', 'Build', 'Frozen'], params[:category])
-  = select_tag :orderby, options_for_select(['Order by','A-Z', 'Most recent', 'Top rating', 'Top reviewed'], params[:orderby])
-  .input-group.mb-3
-    = text_field_tag(:words,'',:class => "form-control mr-sm-2", :placeholder => 'Search Cocktails', :required => :true, :autofocus => :true)
-    = submit_tag 'Search Cocktails', :class => 'btn btn-outline-success'
+  .form-row
+    = select_tag :category, options_for_select(['Shaking', 'Stirring', 'Mixing & Straining', 'Muddler', 'Build', 'Frozen'], params[:category]), :prompt => 'Search by category'
+  .form-row
+    .form-group.col-md-6
+      = text_field_tag(:words,'',:class => "form-control mr-sm-2", :placeholder => 'Search Cocktails', :required => :true, :autofocus => :true)
+    .form-group.col-sm-2 
+      = select_tag :orderby, options_for_select(['A-Z', 'Most recent', 'Top rating', 'Top reviewed'], params[:orderby]), :class => "form-control new_form_width", :prompt => 'Order by'
+    .form-group.col-sm-2  
+      = submit_tag 'Search Cocktails', :class => 'btn btn-primary'
 - if user_signed_in?
   - if current_user.following.count > 0
     - count = find_following_cocktails
