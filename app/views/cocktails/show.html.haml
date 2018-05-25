@@ -37,7 +37,7 @@
             %hr
             = render 'twitter'
           .col-md-6
-            - if !(@cocktail.link.blank?)
+            - if !(@cocktail.link.blank?) && !(@cocktail.video.nil?)
               %div
                 %iframe{:src => "https://www.youtube.com/embed/#{@cocktail.video.uid}", :width => "400", :height => "240"}
             - else

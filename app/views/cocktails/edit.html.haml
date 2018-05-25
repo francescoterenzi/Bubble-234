@@ -18,7 +18,7 @@
   .form-group
     .new_form_width
       = f.label :link, 'Youtube link'
-      = f.text_field :link, :class => "form-control", :placeholder => "Youtube link"
+      = f.url_field :link, :class => "form-control", :placeholder => "Youtube link", :pattern => "(?:https?:\/\/)?(?:youtu\.be\/|(?:www\.)?youtube\.com\/watch(?:\.php)?\?.*v=)([a-zA-Z0-9\-_]+)"
 
   %br
   .form-group

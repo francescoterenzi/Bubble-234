@@ -92,7 +92,7 @@ class CocktailsController < ApplicationController
       begin
         @cocktail = Cocktail.find params[:id]
         if !(params[:cocktail][:link].blank?) && (params[:cocktail][:link] != @cocktail.link)
-          @cocktail.video = Video.new(video_params)
+          @cocktail.video = Video.new(video_params) unless frozen?
         end
 
         if @cocktail.update_attributes(cocktail_params)
