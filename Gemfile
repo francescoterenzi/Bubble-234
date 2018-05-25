@@ -14,6 +14,7 @@ gem 'sqlite3'
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'bootstrap-social-rails'
 
 gem 'haml'
 gem 'twitter'

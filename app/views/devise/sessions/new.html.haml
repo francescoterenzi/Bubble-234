@@ -1,5 +1,5 @@
 = render :partial => 'error'
-%h2 Log in
+%h2 Log In
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .form-group
     .new_form_width
@@ -18,9 +18,10 @@
       = f.label :remember_me
     %hr/
     %div
-      = link_to "Sign In with Twitter", "http://127.0.0.1:3000/users/auth/twitter"
+      = link_to raw('<i class="fab fa-twitter"></i> Sign In with Twitter'), "http://127.0.0.1:3000/users/auth/twitter", :class => "btn btn-twitter" 
+    
+      = link_to raw('<i class="fab fa-google"></i> Sign In with Google'),  user_google_oauth2_omniauth_authorize_path, :class => "btn btn-google"
       %br
-      = link_to "Sign In with Google",  user_google_oauth2_omniauth_authorize_path
       %br
-      = submit_tag 'Log In', :class => 'btn btn-outline-success'
-      = link_to "Back", root_path, :class => 'btn btn-outline-danger'
+      = submit_tag 'Log In', :class => 'btn btn-secondary'
+      = link_to "Back", root_path, :class => 'btn btn-secondary'

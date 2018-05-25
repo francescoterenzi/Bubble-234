@@ -10,8 +10,6 @@
           %a.nav-link{"data-target" => "#following", "data-toggle" => "tab", :href => ""} Following
         %li.nav-item
           %a.nav-link{"data-target" => "#followers", "data-toggle" => "tab", :href => ""} Followers
-        %li.nav-item
-          %a.nav-link{ :href => edit_user_registration_path} Edit
       .tab-content.py-4
         #profile.tab-pane.active
           %h5.mb-3 #{@user.first_name} #{@user.last_name} (#{@user.username})

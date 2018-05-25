@@ -55,11 +55,13 @@
             - @cocktail.reviews.reverse.each do |review|
               %tr
                 %td
-                  #{review.user.username}
+                  =link_to "#{review.user.username}", profile_path(review.user)
                 %td
                   - (1..5).each do |i|
                     -if i <= review.rate
                       %i{:class => "fas fa-star"}
+                    -else
+                      %i{:class => "far fa-star"}
                 %td
                   = link_to "Show More", cocktail_review_path(:id => review.id, :cocktail_id => @cocktail.id)
                 %td
