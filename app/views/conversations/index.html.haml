@@ -1,5 +1,7 @@
 .row
   .col-md-9
+    %h1 Conversations
+    %hr
     %ul#conversations-list
       - @conversations.each do |conversation|
         = render 'conversations/conversation', conversation: conversation, user: current_user
@@ -9,7 +11,7 @@
       .card-body
         %ul
           - @users.each do |user|
-            %li= link_to user.email, conversations_path(user_id: user), remote: true, method: :post
+            %li= link_to user.username, conversations_path(user_id: user), remote: true, method: :post
     
     
     
