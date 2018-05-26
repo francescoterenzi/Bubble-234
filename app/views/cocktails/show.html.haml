@@ -11,10 +11,7 @@
           .col-md-6
             %h3.mb-3 #{@cocktail.name}
             Created by:
-            - if current_user.id == @cocktail.id
-              = link_to "#{@cocktail.user.username}", user_path(@cocktail.user)
-            - else
-              = link_to "#{@cocktail.user.username}", user_path(@cocktail.user)
+            = link_to "#{@cocktail.user.username}", user_path(@cocktail.user)
           .col-md-6
             %span.badge.badge-primary
               %i.fa.fa-heart

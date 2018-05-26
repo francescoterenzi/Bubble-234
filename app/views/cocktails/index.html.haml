@@ -5,7 +5,7 @@
     .form-group.col-md-6
       = text_field_tag(:words,'',:class => "form-control mr-sm-2", :placeholder => 'Search Cocktails', :required => :true, :autofocus => :true)
     .form-group.col-sm-2 
-      = select_tag :orderby, options_for_select(['A-Z', 'Most recent', 'Top rating', 'Top reviewed'], params[:orderby]), :class => "form-control new_form_width", :prompt => 'Order by'
+      = select_tag :orderby, options_for_select(['A-Z', 'Most Recent', 'Top Rating', 'Most Reviewed'], params[:orderby]), :class => "form-control new_form_width"
     .form-group.col-sm-2  
       = submit_tag 'Search Cocktails', :class => 'btn btn-primary'
 - if user_signed_in?
