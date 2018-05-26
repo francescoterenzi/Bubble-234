@@ -1,15 +1,95 @@
 = form_tag cocktails_results_path, :method => :get do
-  .form-row
-    = select_tag :category, options_for_select(['Shaking', 'Stirring', 'Mixing & Straining', 'Muddler', 'Build', 'Frozen'], params[:category]), :prompt => 'Search by category'
-  .form-row
-    .form-group.col-md-6
-      = text_field_tag(:words,'',:class => "form-control mr-sm-2", :placeholder => 'Search Cocktails', :required => :true, :autofocus => :true)
-    .form-group.col-sm-2 
-      = select_tag :orderby, options_for_select(['A-Z', 'Most Recent', 'Top Rating', 'Most Reviewed'], params[:orderby]), :class => "form-control new_form_width"
-    .form-group.col-sm-2  
-      = submit_tag 'Search Cocktails', :class => 'btn btn-primary'
+  .jumbotron
+    .form-row
+      = select_tag :category, options_for_select(['Shaking', 'Stirring', 'Mixing & Straining', 'Muddler', 'Build', 'Frozen'], params[:category]), :prompt => 'Search by category'
+    .form-row
+      .form-group.col-md-6
+        = text_field_tag(:words,'',:class => "form-control mr-sm-2", :placeholder => 'Search Cocktails', :required => :true, :autofocus => :true)
+      .form-group.col-sm-2 
+        = select_tag :orderby, options_for_select(['A-Z', 'Most Recent', 'Top Rating', 'Most Reviewed'], params[:orderby]), :class => "form-control new_form_width"
+      .form-group.col-sm-2  
+        = submit_tag 'Search Cocktails', :class => 'btn btn-primary'
+
 - if user_signed_in?
   - if current_user.following.count > 0
+    %h3 Updates
     - count = find_following_cocktails
-    - count.each do |u|
-      %h5 #{u.name}
+    .col-md-12
+      - count.each do |cocktail|
+        .card.mb-3{:style => "display: inline-block; width: 250px;"}
+          %h3.card-header
+            %a{:href => cocktail_path(cocktail), :class => "card-link"} #{cocktail.name}
+          .card-body
+            .card-title
+            %img.img-thumbnail{:style => "height: 200px; width: 100%; display: block;", :src => "#{cocktail.image.url}", :alt => "Cocktail image"}
+
+          %ul.list-group.list-group-flush
+            %li.list-group-item.d-flex.justify-content-between.align-items-center
+              Average Rate
+              %span.badge.badge-primary.badge-pill
+                #{cocktail.media}
+            %li.list-group-item.d-flex.justify-content-between.align-items-center
+              Reviews
+              %span.badge.badge-primary.badge-pill
+                #{cocktail.reviews.count}
+          .card-body
+            - if FavoriteCocktail.find_by(:user_id => current_user.id, :cocktail_id => cocktail.id) != nil
+              = link_to "Remove from Favorites", favorite_cocktail_path(cocktail, type: "unfavorite"), method: :put, :class => 'btn btn-primary'
+            - else
+              = link_to "Add to Favorites", favorite_cocktail_path(cocktail, type: "favorite"), method: :put, :class => 'btn btn-primary'
+      %hr
+
+%h3 Newest Cocktails
+.col-md-12
+  - @newest.each do |cocktail|
+    .card.mb-3{:style => "display: inline-block; width: 250px;"}
+      %h3.card-header
+        %a{:href => cocktail_path(cocktail), :class => "card-link"} #{cocktail.name}
+      .card-body
+        .card-title
+        %img.img-thumbnail{:style => "height: 200px; width: 100%; display: block;", :src => "#{cocktail.image.url}", :alt => "Cocktail image"}
+
+      %ul.list-group.list-group-flush
+        %li.list-group-item.d-flex.justify-content-between.align-items-center
+          Average Rate
+          %span.badge.badge-primary.badge-pill
+            #{cocktail.media}
+        %li.list-group-item.d-flex.justify-content-between.align-items-center
+          Reviews
+          %span.badge.badge-primary.badge-pill
+            #{cocktail.reviews.count}
+      - if user_signed_in?
+        .card-body
+          - if FavoriteCocktail.find_by(:user_id => current_user.id, :cocktail_id => cocktail.id) != nil
+            = link_to "Remove from Favorites", favorite_cocktail_path(cocktail, type: "unfavorite"), method: :put, :class => 'btn btn-primary'
+          - else
+            = link_to "Add to Favorites", favorite_cocktail_path(cocktail, type: "favorite"), method: :put, :class => 'btn btn-primary'
+%hr
+
+%h3 Top Rated Cocktails
+.col-md-12
+  - @best.each do |cocktail|
+    .card.mb-3{:style => "display: inline-block; width: 250px;"}
+      %h3.card-header
+        %a{:href => cocktail_path(cocktail), :class => "card-link"} #{cocktail.name}
+      .card-body
+        .card-title
+        %img.img-thumbnail{:style => "height: 200px; width: 100%; display: block;", :src => "#{cocktail.image.url}", :alt => "Cocktail image"}
+
+      %ul.list-group.list-group-flush
+        %li.list-group-item.d-flex.justify-content-between.align-items-center
+          Average Rate
+          %span.badge.badge-primary.badge-pill
+            #{cocktail.media}
+        %li.list-group-item.d-flex.justify-content-between.align-items-center
+          Reviews
+          %span.badge.badge-primary.badge-pill
+            #{cocktail.reviews.count}
+      - if user_signed_in?
+        .card-body
+          - if FavoriteCocktail.find_by(:user_id => current_user.id, :cocktail_id => cocktail.id) != nil
+            = link_to "Remove from Favorites", favorite_cocktail_path(cocktail, type: "unfavorite"), method: :put, :class => 'btn btn-primary'
+          - else
+            = link_to "Add to Favorites", favorite_cocktail_path(cocktail, type: "favorite"), method: :put, :class => 'btn btn-primary'
+%hr
+

@@ -11,6 +11,10 @@ class CocktailsController < ApplicationController
     end
 
     def index
+      @newest = Cocktail.all.order('created_at DESC')
+      @best = []
+      Cocktail.all.each { |c| @best << c if c.media >= 3 }
+      @best.sort_by{|cocktail| cocktail.media}.reverse
     end
 
     def new
@@ -126,12 +130,8 @@ class CocktailsController < ApplicationController
       @category = params[:category]
       @orderby = params[:orderby]
 
-      if(@category != '')
-        @cocktails = Cocktail.where("name like ? or description like ?", "%#{@keywords}%", "%#{@keywords}%" && "category = '#{@category}'")
-      else
-        @cocktails = Cocktail.where("name like ? or description like ?", "%#{@keywords}%", "%#{@keywords}%")
-      end
-
+      @cocktails = Cocktail.where("name like ? or description like ?", "%#{@keywords}%", "%#{@keywords}%" && "category = '#{@category}'")
+      
       if(@orderby == 'A-Z')
         @cocktails = @cocktails.sort_by(&:name)
       elsif(@orderby == 'Most recent')
