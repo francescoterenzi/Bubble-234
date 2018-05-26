@@ -13,7 +13,7 @@ class Cocktail < ApplicationRecord
 
   has_one :video, dependent: :destroy
 
-  mount_uploader :image , ImageUploader , presence: true, dependent: :destroy
+  mount_uploader :image , ImageUploader, dependent: :destroy
 
   def media
     counter = 0
