@@ -1,5 +1,3 @@
-require 'net/http'
-
 class CocktailsController < ApplicationController
     before_action :authenticate_user!, except: [:show, :index, :results]
     helper_method :find_following_cocktails

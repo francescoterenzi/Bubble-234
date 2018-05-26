@@ -231,7 +231,7 @@ Then /^the "([^"]*)" checkbox(?: within (.*))? should not be checked$/ do |label
   end
 end
 
-Then /^(?:|I )should be on (.+)$/ do |page_name|
+Then /^(?:|I )should be on (.*)$/ do |page_name|
   current_path = URI.parse(current_url).path
   if current_path.respond_to? :should
     current_path.should == path_to(page_name)
@@ -296,6 +296,7 @@ When /^I sign in with (.*) provider$/ do |provider|
   visit "/users/auth/#{provider.downcase}"
   @current_user = User.find_by(:uid => '12345')
 end
+
 
 Given /^I am a registered user$/ do
   @user = User.create!(:first_name => 'test', :last_name => 'user', :email => 'test@test.com', :username => 'test',:password => 'testtest', :password_confirmation => 'testtest')
@@ -389,6 +390,15 @@ Then /^I should see the link to (.*) review$/ do |c|
   ckt = Cocktail.find_by(:name => c)
   r = Review.find_by(:cocktail_id => ckt.id)
   page.should have_link("review", :href => cocktail_review_path(:id => r.id, :cocktail_id => r.cocktail_id))
+end
+
+Given /^I created the cocktail (.*)$/ do |cocktail|
+    steps %Q{
+        Given I am a registered user
+        And I log in
+        And I create a cocktail #{cocktail}
+        Then I should see #{cocktail}
+    }
 end
 
 

@@ -62,19 +62,32 @@ Before('@omniauth_test') do
   OmniAuth.config.test_mode = true
   Capybara.default_host = 'http://example.com'
 
-  default = "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"
+  default_google = "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"
+  default_twitter = "https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png"
 
 
-  auth = {
+  auth_google = {
       :uid => '12345',
       :info => {
         :name => 'Pippo De Pippis',
         :email => 'pippo@depippis.com',
-        :image => default
+        :image => default_google
       }
     }
-  OmniAuth.config.add_mock(:google_oauth2, auth)
+
+  auth_twitter = {
+      :uid => '12345',
+      :info => {
+        :name => 'Pippo De Pippis',
+        :nickname => 'pippo',
+        :email => 'pippo@depippis.com',
+        :image => default_twitter
+      }
+    }
+  OmniAuth.config.add_mock(:google_oauth2, auth_google)
+  OmniAuth.config.add_mock(:twitter, auth_twitter)
 end
+
 
 
 After('@omniauth_test') do
