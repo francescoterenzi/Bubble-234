@@ -322,9 +322,16 @@ Given /^I create a cocktail (.*)$/ do |title|
   new_cocktail(title)
 end
 
+
 Given /^another user called (.*) exists$/ do |user|
-  @user = User.create!(:first_name => user, :last_name => user, :email => user, :username => user,:password => 'testtest', :password_confirmation => 'testtest')
+  @user = User.create!(id: 100, :first_name => user, :last_name => user, :email => "testtest@test.com", :username => user,:password => 'testtest', :password_confirmation => 'testtest')
 end
+
+When /^I visit the profile of (.*)$/ do |user|
+  u = User.find_by(:username => "#{user}")
+  visit "/users/#{u.id}"
+end
+
 
 When /^I press Delete button$/ do
   visit('/admin/users/0/delete')
@@ -386,6 +393,17 @@ Then /^I should see the link to (.*) cocktail$/ do |c|
   page.should have_link("#{c}", :href => cocktail_path(:id => ckt.id))
 end
 
+Then /^I visit the link to follow (.*)$/ do |user|
+  id = User.find_by(:username => "#{user}").id
+  visit "/users/#{id}/following"
+end
+
+Then /^I should see the link to (.*) profile page$/ do |user|
+  id = User.find_by(:name => user).id
+  page.should have_link("#{c}", :href => "users/#{id}")
+end
+
+
 Then /^I should see the link to (.*) review$/ do |c|
   ckt = Cocktail.find_by(:name => c)
   r = Review.find_by(:cocktail_id => ckt.id)
@@ -400,7 +418,6 @@ Given /^I created the cocktail (.*)$/ do |cocktail|
         Then I should see #{cocktail}
     }
 end
-
 
 
 module LoginSteps
@@ -427,6 +444,14 @@ module CocktailSteps
       visit(new_cocktail_path)
       fill_in("Name", :with => name)
       fill_in("Description", :with => "My cocktail")
+      click_button('Create Cocktail')
+  end
+
+  def new_cocktail_with_video(name)
+      visit(new_cocktail_path)
+      fill_in("Name", :with => name)
+      fill_in("Description", :with => "My cocktail")
+      fill_in("Youtube link", :with => "https://www.google.it/search?q=mojito+recipe&source=lnms&tbm=vid&sa=X&ved=0ahUKEwiYwN6-jqTbAhWhIsAKHY0eB8UQ_AUICygC&biw=1242&bih=579")
       click_button('Create Cocktail')
   end
 end

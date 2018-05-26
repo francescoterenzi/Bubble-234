@@ -10,7 +10,7 @@
           %a.nav-link{"data-target" => "#people", "data-toggle" => "tab", :href => ""} People
       .tab-content.py-4
         #profile.tab-pane.active
-          %h5.mb-3 
+          %h5.mb-3
             #{@user.first_name} #{@user.last_name}
             %small.text-muted (#{@user.username})
           .row
@@ -115,4 +115,12 @@
       - if @user == current_user
         = link_to "New Cocktail", new_cocktail_path, :class => 'btn btn-primary'
       - else
-        = render 'follow_form'
+        - if user_signed_in?
+          - if current_user.following?(@user)
+            = render 'unfollow'
+          - else
+            = form_for(current_user.active_relationships.build) do |f|
+              %div
+                = hidden_field_tag :followed_id, @user.id
+              = submit_tag "Follow", class: "btn btn-primary"
+
