@@ -11,7 +11,13 @@ Rails.application.routes.draw do
   get 'cocktails/random', to: 'cocktails#random', as: 'random'
   get 'cocktails/results'
 
-  resources :chat_rooms, only: [:new, :create, :show, :index]
+  resources :conversations, only: [:index, :create] do
+    member do
+      post :close
+    end
+    resources :messages, only: [:create]
+  end
+
 
   resources :users do
     member do

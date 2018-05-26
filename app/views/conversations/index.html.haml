@@ -1,0 +1,15 @@
+.row
+  .col-md-9
+    %ul#conversations-list
+      - @conversations.each do |conversation|
+        = render 'conversations/conversation', conversation: conversation, user: current_user
+  .col-md-3
+    .card.border-primary.mb-3{:style => "max-width: 20rem;"}
+      .card-header ALL USERS
+      .card-body
+        %ul
+          - @users.each do |user|
+            %li= link_to user.email, conversations_path(user_id: user), remote: true, method: :post
+    
+    
+    
