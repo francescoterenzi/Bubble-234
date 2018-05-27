@@ -12,7 +12,7 @@
       = f.label :description
       = f.text_area :description, :class => "form-control", :placeholder => "Description"
   .form-group
-    = f.select :category, options_for_select(['Shaking', 'Stirring', 'Mixing & Straining', 'Muddler', 'Build', 'Frozen'], selected: @cocktail.category)
+    = f.select :category, options_for_select(['The Unforgettables', 'Contemporary Classics', 'New Era Cocktails'], selected: @cocktail.category)
   %br
   %hr
   .form-group

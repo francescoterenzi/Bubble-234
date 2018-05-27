@@ -1,10 +1,10 @@
 = form_tag cocktails_results_path, :method => :get do
   .jumbotron
     .form-row
-      = select_tag :category, options_for_select(['Shaking', 'Stirring', 'Mixing & Straining', 'Muddler', 'Build', 'Frozen'], params[:category]), :prompt => 'Search by category'
-    .form-row
       .form-group.col-md-6
         = text_field_tag(:words,'',:class => "form-control mr-sm-2", :placeholder => 'Search Cocktails', :required => :true, :autofocus => :true)
+      .form-group.col-sm-2 
+        = select_tag :category, options_for_select(['The Unforgettables', 'Contemporary Classics', 'New Era Cocktails']), :prompt => 'Search by category', :class => "form-control new_form_width"
       .form-group.col-sm-2 
         = select_tag :orderby, options_for_select(['A-Z', 'Most Recent', 'Top Rating', 'Most Reviewed'], params[:orderby]), :class => "form-control new_form_width"
       .form-group.col-sm-2  
