@@ -32,6 +32,7 @@
                 = link_to "Random", random_path, :class => 'dropdown-item'
                 = link_to "Options", edit_user_registration_path, :class => 'dropdown-item'
                 = link_to "Log Out", destroy_user_session_path, :method => 'delete', :class => 'dropdown-item'
+                = link_to 'Write to developers',"mailto:valerio.nicolanti@hotmail.it", :class => 'dropdown-item'
                 - if current_user.admin?
                   .dropdown-divider
                   = link_to "Admin", rails_admin_path, :class => 'dropdown-item'
@@ -63,12 +64,12 @@
             .modal-body
               = form_tag users_results_path, :method => :get do
                 .input-group.mb-3
-                  = text_field_tag(:usr,'',:class => "form-control mr-sm-2", :placeholder => 'Search Users', :required => :true, :autofocus => :true) 
+                  = text_field_tag(:usr,'',:class => "form-control mr-sm-2", :placeholder => 'Search Users', :required => :true, :autofocus => :true)
                   = submit_tag 'Search', :class => 'btn btn-primary'
 
       =yield
       %hr
-      
+
       /autofocus on search bar
       :javascript
         $('.modal').on('shown.bs.modal', function() {
