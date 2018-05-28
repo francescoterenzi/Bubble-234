@@ -5,7 +5,7 @@ Feature: Write a Review
 
 Scenario: Write a review
   Given I am a registered user
-  And another users's cocktail "Mojito" exists
+  And another user's cocktail "Mojito" exists
   And I log in
   When I go to the cocktail "Mojito" page
   And I follow "Add a Review"

@@ -129,9 +129,11 @@ class CocktailsController < ApplicationController
       @keywords = params[:words]
       @category = params[:category]
       @orderby = params[:orderby]
-
-      @cocktails = Cocktail.where("(name like ? or description like ?) and category == ?", "%#{@keywords}%", "%#{@keywords}%" , "#{@category}")
-      
+      if @category != ""
+        @cocktails = Cocktail.where("(name like ? or description like ?) and category like ?", "%#{@keywords}%", "%#{@keywords}%" , "#{@category}")
+      else
+        @cocktails = Cocktail.where("name like ? or description like ?", "%#{@keywords}%", "%#{@keywords}%")
+      end
       if(@orderby == 'A-Z')
         @cocktails = @cocktails.sort_by(&:name)
       elsif(@orderby == 'Most recent')

@@ -26,8 +26,7 @@ module NavigationHelpers
       user_path(@current_user)
 
     when /^the user (.*) profile page$/
-      byebug
-      '/users/'+User.find_by(:email => $1).id.to_s
+      '/users/'+User.find_by(:username => $1).id.to_s
 
     when /^the users_edit page$/
       edit_user_path(@user)
@@ -46,6 +45,9 @@ module NavigationHelpers
 
     when /^the results page$/
       users_results_path
+
+    when /^the cocktail results page$/
+      cocktails_results_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

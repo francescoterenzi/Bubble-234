@@ -6,7 +6,7 @@ I want to search a user by nickname
 Scenario: Found users
 Given I am a logged in user
 And I am on the home page
-When I search test
+When I search the user test
 Then I should be on the results page
 And I should see "test"
 

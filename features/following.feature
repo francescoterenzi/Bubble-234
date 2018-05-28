@@ -1,10 +1,9 @@
 Feature: Following
 
 Scenario: I don't have any following users
-  Given I am a registered user
+  Given I am a logged in user
   And another user called "pincopallino" exists
-  When I log in
-  And I visit the profile of "pincopallino"
-  And I follow "Follow"
-  And I go to the myprofile page
-  Then I should see the link to "pincopallino" profile page
+  When I go to the user "pincopallino" profile page
+  And I press "Follow"
+  Then I should be on the user "pincopallino" profile page
+  And I should see "1 Followers"

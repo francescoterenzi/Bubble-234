@@ -260,11 +260,15 @@ end
 #####
 
 When /^I try to search an user that doesn't exist$/ do
-  search('@')
+  search_user('@')
 end
 
-When /^I search (.*)$/ do |username|
-  search(username)
+When /^I search the user (.*)$/ do |username|
+  search_user(username)
+end
+
+When /^I search the cocktail (.*)$/ do |name|
+  search_cocktail(name)
 end
 
 When /^I log in$/ do
@@ -324,12 +328,7 @@ end
 
 
 Given /^another user called (.*) exists$/ do |user|
-  @user = User.create!(id: 100, :first_name => user, :last_name => user, :email => "testtest@test.com", :username => user,:password => 'testtest', :password_confirmation => 'testtest')
-end
-
-When /^I visit the profile of (.*)$/ do |user|
-  u = User.find_by(:username => "#{user}")
-  visit "/users/#{u.id}"
+  @user = User.create!(:first_name => user, :last_name => user, :email => "testtest@test.com", :username => user,:password => 'testtest', :password_confirmation => 'testtest')
 end
 
 
@@ -368,7 +367,7 @@ Given /^I am not authenticated$/ do
   visit destroy_user_session_path  # ensure that at least
 end
 
-Given /^another users's cocktail (.*) exists$/ do |cocktail|
+Given /^another user's cocktail (.*) exists$/ do |cocktail|
   User.create(:first_name => 'fake', :last_name => 'fake', :email => 'fake@user.com', :username => 'fake_test',:password => 'testtest', :password_confirmation => 'testtest')
   login("fake_test", "testtest")
   new_cocktail(cocktail)
@@ -377,7 +376,7 @@ end
 
 Given /^I wrote a review for (.*) cocktail$/ do |cocktail|
   steps %Q{
-    Given another users's cocktail #{cocktail} exists
+    Given another user's cocktail #{cocktail} exists
     And I log in
     When I go to the cocktail #{cocktail} page
     And I follow "Add a Review"
@@ -454,10 +453,15 @@ module CocktailSteps
       fill_in("Youtube link", :with => "https://www.google.it/search?q=mojito+recipe&source=lnms&tbm=vid&sa=X&ved=0ahUKEwiYwN6-jqTbAhWhIsAKHY0eB8UQ_AUICygC&biw=1242&bih=579")
       click_button('Create Cocktail')
   end
+
+  def search_cocktail(name)
+    fill_in("Search Cocktails", :with => name)
+    click_button('Search Cocktails')
+  end
 end
 
 module UserSteps
-  def search(name)
+  def search_user(name)
       fill_in("Search Users", :with => name)
       click_button('Search')
   end
