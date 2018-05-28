@@ -418,6 +418,15 @@ Given /^I created the cocktail (.*)$/ do |cocktail|
     }
 end
 
+Given /^I added the cocktail (.*) to favorites$/ do |cocktail|
+  steps %Q{
+    Given another user's cocktail #{cocktail} exists
+    And I log in
+    And I am on the cocktail #{cocktail} page
+    And I follow "Add to Favorites"
+  }
+end
+
 
 module LoginSteps
   def login(email, password)

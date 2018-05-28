@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180525193218) do
+ActiveRecord::Schema.define(version: 20180528205726) do
 
   create_table "cocktails", force: :cascade do |t|
     t.string "name"
@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 20180525193218) do
   end
 
   create_table "likes", force: :cascade do |t|
-    t.boolean "like"
     t.integer "review_id"
     t.integer "user_id"
   end

@@ -64,7 +64,7 @@
                   = link_to "Show More", cocktail_review_path(:id => review.id, :cocktail_id => @cocktail.id)
                 %td
                   %i.fa.fa-thumbs-up
-                  #{review.likes.count}
+                  #{review.liked_by.count}
 
         - if @cocktail.user != current_user
           = link_to "Add a Review", new_cocktail_review_path(@cocktail), :class => "btn btn-primary"

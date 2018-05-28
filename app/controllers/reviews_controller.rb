@@ -60,24 +60,20 @@ class ReviewsController < ApplicationController
     end
 
     def like
-        begin
-            @review = Review.find params[:id]
-            current_user.reviews_liked << @review
-            flash[:notice] = "#{@review.user.username}'s Review liked"
-            redirect_to cocktail_review_path(@review)
-        rescue ActiveRecord::RecordNotFound => e
-          redirect_to root_path, flash: {:alert => 'No review found'}
-        end
+        @review = Review.find (params[:id])
+        current_user.reviews_liked << @review
+        flash[:notice] = "#{@review.user.username}'s Review liked"
+        redirect_to cocktail_review_path(@review)
     end
 
     def dislike
-        begin
-            @review = Review.find params[:id]
-            current_user.reviews_liked.destroy(@review)
-            redirect_to cocktail_review_path(@review)
-        rescue ActiveRecord::RecordNotFound => e
-          redirect_to root_path, flash: {:alert => 'No user found'}
-        end
+        @review = Review.find params[:id]
+        current_user.reviews_liked.destroy(@review)
+        redirect_to cocktail_review_path(@review)
+    end
+
+    def cocktail_params
+        params.require(:review).permit(:id, :rate, :comments)
     end
 
 end
