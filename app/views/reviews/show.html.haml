@@ -26,7 +26,7 @@
       Likes:
       -if @review.liked_by.size == 0
         no one likes this
-      - if @review.liked_by.size == 1
+      - elsif @review.liked_by.size == 1
         1 person likes this
       -else 
         #{@review.liked_by.size} people like this
