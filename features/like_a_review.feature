@@ -13,4 +13,4 @@ Scenario: Like a Review
   And I am on the cocktail "Mojito" page
   And I follow "Show More"
   And I press the button with "like" id 
-  Then I should see "Likes: 1 people like this"
+  Then I should see "Likes: 1 person likes this"
