@@ -26,6 +26,8 @@
       Likes:
       -if @review.liked_by.size == 0
         no one likes this
+      - if @review.liked_by.size == 1
+        1 person likes this
       -else 
         #{@review.liked_by.size} people like this
     
@@ -37,7 +39,7 @@
       - if Like.find_by(:review_id => @review.id, :user_id => current_user.id) == nil
         = link_to raw('<i class="fas fa-thumbs-up"></i>'), like_cocktail_review_path(@review), method: 'post', :class => 'btn btn-secondary', :id => 'like'
       - else 
-        = link_to raw('<i class="fas fa-thumbs-down"></i>'),  dislike_cocktail_review_path(@review), method: 'delete', :class => 'btn btn btn-primary'
+        = link_to raw('<i class="fas fa-thumbs-down"></i>'),  dislike_cocktail_review_path(@review), method: 'delete', :class => 'btn btn btn-primary', :id => 'dislike'
     %hr
 
 
