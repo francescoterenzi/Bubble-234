@@ -5,6 +5,7 @@ class Cocktail < ApplicationRecord
   validates :category, presence: true
   validates :description, presence: true
   validates_associated :user
+  validates_inclusion_of :category, :in => ["Contemporary Classics", "New Era Cocktails", "The Unforgettables"]
 
   has_many :reviews, dependent: :destroy
   belongs_to :user

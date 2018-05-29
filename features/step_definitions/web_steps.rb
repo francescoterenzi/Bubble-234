@@ -488,10 +488,6 @@ module CocktailSteps
       click_button('Create Cocktail')
   end
 
-  def search_cocktail(name)
-    fill_in("Search Cocktails", :with => name)
-    click_button('Search Cocktails')
-  end
 end
 
 module UserSteps
