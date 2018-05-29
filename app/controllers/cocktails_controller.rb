@@ -112,7 +112,9 @@ class CocktailsController < ApplicationController
         @cocktail = Cocktail.find params[:id]
         type = params[:type]
         if type == "favorite"
-          current_user.favorites << @cocktail
+          if !current_user.favorites.include? @cocktail 
+            current_user.favorites << @cocktail
+          end
           redirect_back fallback_location: root_path, notice: "#{@cocktail.name} added to Favorites"
 
         elsif type == "unfavorite"
