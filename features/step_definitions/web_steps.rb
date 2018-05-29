@@ -53,6 +53,10 @@ When /^(?:|I )press "([^"]*)"$/ do |button|
   click_button(button)
 end
 
+When /^(?:|I )press the button with "([^"]*)" id$/ do |v|
+click_on(id: v)
+end
+
 When /^(?:|I )follow "([^"]*)"$/ do |link|
   click_link(link)
 end
@@ -280,6 +284,10 @@ When /^I log in$/ do
   end
 end
 
+When /^I log out$/ do
+  visit(destroy_user_session_path)
+end
+
 When /^I log in as (.*)$/ do |email|
   @user = User.find_by(email: email)
   @current_user = @user
@@ -374,6 +382,14 @@ Given /^another user's cocktail (.*) exists$/ do |cocktail|
   visit(destroy_user_session_path)
 end
 
+Given /^another user's review for (.*) cocktail exists$/ do |cocktail|
+  User.create(:first_name => 'fake', :last_name => 'fake', :email => 'fake@user.com', :username => 'fake_test',:password => 'testtest', :password_confirmation => 'testtest')
+  login("fake_test", "testtest")
+  c = Cocktail.find_by(:name => cocktail)
+  new_review(c)
+  visit(destroy_user_session_path)
+end
+
 Given /^I wrote a review for (.*) cocktail$/ do |cocktail|
   steps %Q{
     Given another user's cocktail #{cocktail} exists
@@ -447,6 +463,15 @@ module LoginSteps
   end
 end
 
+module ReviewSteps
+  def new_review(cocktail)
+    visit(new_cocktail_review_path(cocktail))
+    select(5, :from => 'Rate')
+    fill_in("Comments", :with => "Very Good")
+    click_button('Create Review')
+  end
+end
+
 module CocktailSteps
   def new_cocktail(name)
       visit(new_cocktail_path)
@@ -476,6 +501,7 @@ module UserSteps
   end
 end
 
+World(ReviewSteps)
 World(LoginSteps)
 World(CocktailSteps)
 World(UserSteps)

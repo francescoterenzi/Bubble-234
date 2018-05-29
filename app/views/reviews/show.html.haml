@@ -35,7 +35,7 @@
       = link_to "Delete Review", cocktail_review_path(@review.cocktail), :method => :delete, :class => 'btn btn-outline-primary'
     -else
       - if Like.find_by(:review_id => @review.id, :user_id => current_user.id) == nil
-        = link_to raw('<i class="fas fa-thumbs-up"></i>'), like_cocktail_review_path(@review), method: 'post', :class => 'btn btn-secondary'
+        = link_to raw('<i class="fas fa-thumbs-up"></i>'), like_cocktail_review_path(@review), method: 'post', :class => 'btn btn-secondary', :id => 'like'
       - else 
         = link_to raw('<i class="fas fa-thumbs-down"></i>'),  dislike_cocktail_review_path(@review), method: 'delete', :class => 'btn btn btn-primary'
     %hr
