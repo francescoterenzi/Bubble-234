@@ -9,9 +9,11 @@
     .card.border-primary.mb-3{:style => "max-width: 20rem;"}
       .card-header ALL USERS
       .card-body
-        %ul
-          - @users.each do |user|
-            %li= link_to user.username, conversations_path(user_id: user), remote: true, method: :post
+        %table.table.table-hover.table-striped
+          %tbody
+            - @users.each do |user|
+              %tr
+                %td= link_to user.username, conversations_path(user_id: user), remote: true, method: :post
     
     
     
