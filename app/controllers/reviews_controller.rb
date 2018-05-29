@@ -61,8 +61,9 @@ class ReviewsController < ApplicationController
 
     def like
         @review = Review.find (params[:id])
-        current_user.reviews_liked << @review
-        flash[:notice] = "#{@review.user.username}'s Review liked"
+        if !current_user.reviews_liked.include? @review
+            current_user.reviews_liked << @review
+        end
         redirect_to cocktail_review_path(@review)
     end
 

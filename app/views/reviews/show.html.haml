@@ -22,6 +22,13 @@
         The user only rated this cocktail!
       -else 
         #{@review.comments}
+    %p.card-text 
+      Likes:
+      -if @review.liked_by.size == 0
+        no one likes this
+      -else 
+        #{@review.liked_by.size} people like this
+    
   .card-footer
     - if current_user == @review.user
       = link_to "Edit", edit_cocktail_review_path(@review.cocktail), :class => 'btn btn-secondary'
