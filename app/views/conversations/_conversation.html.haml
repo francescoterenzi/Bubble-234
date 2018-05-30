@@ -11,6 +11,6 @@
       %form.new_message
         %input{name: "conversation_id", type: "hidden", value: "#{conversation.id}"}/
         %input{name: "user_id", type: "hidden", value: "#{user.id}"}/
-        %textarea.form-control{value: "body"}
+        %textarea.form-control{name: "body"}
         %br
         %input.btn.btn-primary{type: "submit", value: "Send"}/
