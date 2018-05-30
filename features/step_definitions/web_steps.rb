@@ -418,6 +418,13 @@ Then /^I should see the link to (.*) profile page$/ do |user|
   page.should have_link("#{c}", :href => "users/#{id}")
 end
 
+Then /^I should see the window of the conversation with (.*)$/ do |user|
+  r_id = User.find_by(:username => user).id
+  s_id = User.find_by(:username => "test").id
+  c = Conversation.find_by(:id => 1)
+  page.should have_link("#{user}", :href => "conversations/#{c.id}/close")
+end
+
 
 Then /^I should see the link to (.*) review$/ do |c|
   ckt = Cocktail.find_by(:name => c)
