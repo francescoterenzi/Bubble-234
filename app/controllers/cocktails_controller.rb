@@ -14,7 +14,7 @@ class CocktailsController < ApplicationController
       @newest = Cocktail.all.order('created_at DESC')
       @best = []
       Cocktail.all.each { |c| @best << c if c.media >= 3 }
-      @best.sort_by{|cocktail| cocktail.media}.reverse
+      @best = @best.sort_by{|cocktail| cocktail.media}.reverse
     end
 
     def new

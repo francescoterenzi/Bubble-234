@@ -1,8 +1,8 @@
 %li
   .card.border-dark.mb-3{"data-conversation-id" => "#{conversation.id}"}
     .card-header
-      = link_to conversation.opposed_user(user).username, '', class: 'toggle-window' 
-      = link_to raw('<i class="fas fa-times"> </i>'), close_conversation_path(conversation, :format => :js), class: "btn btn-outline-primary", remote: true, method: :post
+      = link_to conversation.opposed_user(user).username, '', class: 'toggle-window'
+      = link_to raw('<i class="fas fa-times"> </i>'), close_conversation_path(conversation, :format => :js), class: "btn btn-outline-primary", :style => "float: right;", remote: true, method: :post
     .card-body{style: "display: none;"}
       .messages-list
         %ul

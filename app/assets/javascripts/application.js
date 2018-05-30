@@ -30,7 +30,7 @@ window.setTimeout(function() {
       var messages_list = panel.find('.messages-list');
   
       panel.find('.card-body').toggle();
-      panel.attr('class', 'card border-dark');
+      panel.attr('class', 'card border-dark mb-3');
   
       if (panel.find('.card-body').is(':visible')) {
         var height = messages_list[0].scrollHeight;
