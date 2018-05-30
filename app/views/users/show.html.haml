@@ -36,78 +36,84 @@
             .col-md-12
               %h5.mt-2
                 Recent Activity
-              %table.table.table-sm.table-hover.table-striped
-                %tbody
-                - if @activities.size == 0
-                  %tr
-                    %td
-                      No activities yet!
-                - else
-                  - @activities.each do |activity|
+              .scrollable{:style => "height: 200px;"}
+                %table.table.table-sm.table-hover.table-striped
+                  %tbody
+                  - if @activities.size == 0
                     %tr
                       %td
-                        -if activity.is_a?(Cocktail)
-                          #{@user.username} has added
-                          = link_to "#{activity.name}", cocktail_path(activity)
-                          to his Favorites
-                        - elsif activity.is_a?(Review)
-                          #{@user.username} has made a
-                          = link_to "review", cocktail_review_path(:id => activity.id, :cocktail_id => activity.cocktail.id)
-                          for
-                          = link_to "#{activity.cocktail.name}", cocktail_path(activity.cocktail)
-                        - elsif activity.is_a?(Like)
-                          #{@user.username} liked
-                          = link_to "#{activity.review.user.username}", user_path(activity.review.user)
-                          's
-                          = link_to "review", cocktail_review_path(:id => activity.review.id, :cocktail_id => activity.review.cocktail.id)
-                        %span.float-right.font-weight-bol
-                          #{activity.created_at.strftime("%m-%d-%Y")}
+                        No activities yet!
+                  - else
+                    - @activities.each do |activity|
+                      %tr
+                        %td
+                          -if activity.is_a?(Cocktail)
+                            #{@user.username} has added
+                            = link_to "#{activity.name}", cocktail_path(activity)
+                            to his Favorites
+                          - elsif activity.is_a?(Review)
+                            #{@user.username} has made a
+                            = link_to "review", cocktail_review_path(:id => activity.id, :cocktail_id => activity.cocktail.id)
+                            for
+                            = link_to "#{activity.cocktail.name}", cocktail_path(activity.cocktail)
+                          - elsif activity.is_a?(Like)
+                            #{@user.username} liked
+                            = link_to "#{activity.review.user.username}", user_path(activity.review.user)
+                            's
+                            = link_to "review", cocktail_review_path(:id => activity.review.id, :cocktail_id => activity.review.cocktail.id)
+                          %span.float-right.font-weight-bol
+                            #{activity.created_at.strftime("%m-%d-%Y")}
           / /row
         #cocktails.tab-pane
           %h3 Created
-          %table.table.table-hover.table-striped
-            %tbody
-              - if @user.cocktails.count > 0
-                - @user.cocktails.reverse.each do |c|
-                  %tr
-                    %td
-                      = link_to "#{c.name}", cocktail_path(c)
-              - else
-                %h5 No Cocktails Created By #{@user.username}
-          - if @user == current_user
-            %hr
-            %h3 Favorites
+          .scrollable{:style => "height: 200px;"}
             %table.table.table-hover.table-striped
-              %tbody
-                - if @user.favorites.count > 0
-                  - @user.favorites.reverse.each do |c|
+              %tbody 
+                - if @user.cocktails.count > 0
+                  - @user.cocktails.reverse.each do |c|
                     %tr
                       %td
                         = link_to "#{c.name}", cocktail_path(c)
                 - else
-                  %h5 No Favorites!
+                  %h5 No Cocktails Created By #{@user.username}
+
+          - if @user == current_user
+            %hr
+            %h3 Favorites
+            %div{:style => "height: 200px; overflow-wrap: break-word; overflow-y: scroll;"}
+              %table.table.table-hover.table-striped
+                %tbody
+                  - if @user.favorites.count > 0
+                    - @user.favorites.reverse.each do |c|
+                      %tr
+                        %td
+                          = link_to "#{c.name}", cocktail_path(c)
+                  - else
+                    %h5 No Favorites!
         #people.tab-pane
           %h3 Following
-          %table.table.table-hover.table-striped
-            %tbody
-              - if @user.following.count > 0
-                - @user.following.each do |f|
-                  %tr
-                    %td
-                      = link_to "#{f.username}", user_path(f)
-              - else
-                %h5 No Following
+          .scrollable{:style => "height: 200px;"}
+            %table.table.table-hover.table-striped
+              %tbody
+                - if @user.following.count > 0
+                  - @user.following.each do |f|
+                    %tr
+                      %td
+                        = link_to "#{f.username}", user_path(f)
+                - else
+                  %h5 No Following
           %hr
           %h3 Followers
-          %table.table.table-hover.table-striped
-            %tbody
-              - if @user.followers.count > 0
-                - @user.followers.each do |f|
-                  %tr
-                    %td
-                      = link_to "#{f.username}", user_path(f)
-              - else
-                %h5 No Followers
+          .scrollable{:style => "height: 200px;"}
+            %table.table.table-hover.table-striped
+              %tbody
+                - if @user.followers.count > 0
+                  - @user.followers.each do |f|
+                    %tr
+                      %td
+                        = link_to "#{f.username}", user_path(f)
+                - else
+                  %h5 No Followers
 
     .col-lg-4.order-lg-1.text-center
       %img.mx-auto.img-fluid.img-thumbnail.d-block{:src => @user.avatar.url}

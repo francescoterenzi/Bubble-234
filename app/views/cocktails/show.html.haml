@@ -29,8 +29,9 @@
             %h5
               Category: #{@cocktail.category}
               %hr
-            .scrollable
-              %p.text-justify{:style => "height: 200px; overflow-wrap: break-word; overflow-y: scroll;"} #{@cocktail.description}
+            .scrollable{:style => "height: 200px;"} 
+              %p.text-justify
+              #{@cocktail.description}
             %br
             %hr
             = render 'twitter'
@@ -44,30 +45,31 @@
             %hr
         / /row
       #reviews.tab-pane
-        %table.table.table-hover.table-striped
-          %tbody
-            - if @cocktail.reviews.size == 0
-              %tr
-                %td
-                  No reviews yet!
-            - @cocktail.reviews.reverse.each do |review|
-              %tr
-                %td
-                  =link_to "#{review.user.username}", user_path(review.user)
-                %td
-                  - (1..5).each do |i|
-                    -if i <= review.rate
-                      %i{:class => "fas fa-star"}
-                    -else
-                      %i{:class => "far fa-star"}
-                %td
-                  = link_to "Show More", cocktail_review_path(:id => review.id, :cocktail_id => @cocktail.id)
-                %td
-                  %i.fa.fa-thumbs-up
-                  #{review.liked_by.count}
+        .scrollable{:style => "height: 400px;"}
+          %table.table.table-hover.table-striped
+            %tbody
+              - if @cocktail.reviews.size == 0
+                %tr
+                  %td
+                    No reviews yet!
+              - @cocktail.reviews.reverse.each do |review|
+                %tr
+                  %td
+                    =link_to "#{review.user.username}", user_path(review.user)
+                  %td
+                    - (1..5).each do |i|
+                      -if i <= review.rate
+                        %i{:class => "fas fa-star"}
+                      -else
+                        %i{:class => "far fa-star"}
+                  %td
+                    = link_to "Show More", cocktail_review_path(:id => review.id, :cocktail_id => @cocktail.id)
+                  %td
+                    %i.fa.fa-thumbs-up
+                    #{review.liked_by.count}
 
-        - if @cocktail.user != current_user
-          = link_to "Add a Review", new_cocktail_review_path(@cocktail), :class => "btn btn-primary"
+          - if @cocktail.user != current_user
+            = link_to "Add a Review", new_cocktail_review_path(@cocktail), :class => "btn btn-primary"
 
   .col-lg-4.order-lg-1.text-center
     %img.mx-auto.img-fluid.img-thumbnail.d-block{:src => @cocktail.image.url}

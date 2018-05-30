@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def show
     begin
       @user = User.find(params[:id])
-      @activities = (@user.reviews + @user.likes + @user.favorites).sort_by(&:created_at).reverse
+      @activities = (@user.reviews + @user.likes + @user.favorites).sort_by(&:created_at)
       @avg = @user.media
     rescue ActiveRecord::RecordNotFound => e
       redirect_to root_path, flash: {:alert => 'No user found'}
