@@ -25,8 +25,8 @@ class User < ApplicationRecord
   has_many :favorite_cocktails, dependent: :destroy
   has_many :favorites, through: :favorite_cocktails, source: :cocktail, dependent: :destroy
 
-  has_many :messages
-  has_many :conversations, foreign_key: :sender_id
+  has_many :messages, dependent: :destroy
+  has_many :conversations, foreign_key: :sender_id, dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader
 
