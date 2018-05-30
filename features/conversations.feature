@@ -4,9 +4,9 @@ Feature: Conversations
     I want to start a conversations
 
 Scenario: Start a conversations
-    Given I am a registered user
-    And another user called "pinco_pallino" exists
+    Given another user exists
+    And I am a registered user
     And I log in
-    When I am on the conversations page
-    And I follow "pinco_pallino"
-    Then I should see the window of the conversation with "pinco_pallino"
+    When I am on the chat page
+    And I follow "chat with fake_test"
+    Then I should see "fake_test"

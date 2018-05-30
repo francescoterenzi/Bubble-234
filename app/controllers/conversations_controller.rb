@@ -12,7 +12,7 @@ class ConversationsController < ApplicationController
         add_to_conversations unless conversated?
     
         respond_to do |format|
-          format.js
+            format.js
         end
     end
     

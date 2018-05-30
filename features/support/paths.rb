@@ -48,6 +48,10 @@ module NavigationHelpers
 
     when /^the cocktail results page$/
       cocktails_results_path
+    
+    when /^the chat page$/
+      conversations_path
+
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

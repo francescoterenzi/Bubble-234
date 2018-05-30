@@ -54,7 +54,7 @@ When /^(?:|I )press "([^"]*)"$/ do |button|
 end
 
 When /^(?:|I )press the button with "([^"]*)" id$/ do |v|
-click_on(id: v)
+  click_on(id: v)
 end
 
 When /^(?:|I )follow "([^"]*)"$/ do |link|
@@ -419,10 +419,10 @@ Then /^I should see the link to (.*) profile page$/ do |user|
 end
 
 Then /^I should see the window of the conversation with (.*)$/ do |user|
-  r_id = User.find_by(:username => user).id
+  r_id = User.find_by(:username => "fake_test").id
   s_id = User.find_by(:username => "test").id
   c = Conversation.find_by(:id => 1)
-  page.should have_link("#{user}", :href => "conversations/#{c.id}/close")
+  page.should have_link('', :href => "conversations/#{c.id}/close")
 end
 
 

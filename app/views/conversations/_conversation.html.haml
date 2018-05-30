@@ -1,8 +1,8 @@
 %li
   .card.border-dark.mb-3{"data-conversation-id" => "#{conversation.id}"}
     .card-header
-      = link_to conversation.opposed_user(user).username, '', class: 'toggle-window'
-      = link_to raw('<i class="fas fa-times"></i>'), close_conversation_path(conversation), class: "btn btn-outline-primary", remote: true, method: :post
+      = link_to conversation.opposed_user(user).username, '', class: 'toggle-window' 
+      = link_to raw('<i class="fas fa-times"> </i>'), close_conversation_path(conversation, :format => :js), class: "btn btn-outline-primary", remote: true, method: :post
     .card-body{style: "display: none;"}
       .messages-list
         %ul
@@ -11,6 +11,6 @@
       %form.new_message
         %input{name: "conversation_id", type: "hidden", value: "#{conversation.id}"}/
         %input{name: "user_id", type: "hidden", value: "#{user.id}"}/
-        %textarea.form-control{name: "body"}
+        %textarea.form-control{value: "body"}
         %br
         %input.btn.btn-primary{type: "submit", value: "Send"}/
