@@ -304,6 +304,12 @@ Given /^I am signed in with (.*) provider$/ do |provider|
   visit "/users/auth/#{provider.downcase}"
 end
 
+Given /^I follow at least one user named (.*)$/ do |follow|
+    @current_user = @user
+    @following = User.create(:first_name => "#{follow}", :last_name => 'fake', :email => 'fake@user.com', :username => "#{follow}",:password => 'testtest', :password_confirmation => 'testtest')
+    @current_user.following << @following
+end
+
 When /^I sign in with (.*) provider$/ do |provider|
   visit "/users/auth/#{provider.downcase}"
   @current_user = User.find_by(:uid => '12345')
