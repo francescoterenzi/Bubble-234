@@ -41,7 +41,11 @@ class ReviewsController < ApplicationController
     def create
         @review = @cocktail.reviews.build(review_params)
         current_user.reviews << @review
-        redirect_to cocktail_review_path(:id => @review.id, :cocktail_id => @cocktail.id)
+        if @review.save
+            redirect_to cocktail_review_path(:id => @review.id, :cocktail_id => @cocktail.id)
+        else
+            render 'new'
+        end
     end
 
     def review_params

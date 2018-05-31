@@ -138,11 +138,11 @@ class CocktailsController < ApplicationController
       end
       if(@orderby == 'A-Z')
         @cocktails = @cocktails.sort_by(&:name)
-      elsif(@orderby == 'Most recent')
+      elsif(@orderby == 'Most Recent')
         @cocktails = @cocktails.sort_by(&:created_at).reverse
-      elsif(@orderby == 'Top rating')
+      elsif(@orderby == 'Top Rating')
         @cocktails = @cocktails.sort_by{|cocktail| cocktail.media}.reverse
-      elsif(@orderby == 'Top reviewed')
+      elsif(@orderby == 'Most Reviewed')
         @cocktails = @cocktails.sort_by{|cocktail| cocktail.reviews.count}.reverse
       end
 

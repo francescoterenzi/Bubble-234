@@ -47,9 +47,9 @@
                     - @activities.each do |activity|
                       %tr
                         %td
-                          -if activity.is_a?(Cocktail)
+                          -if activity.is_a?(FavoriteCocktail)
                             #{@user.username} has added
-                            = link_to "#{activity.name}", cocktail_path(activity)
+                            = link_to "#{activity.cocktail.name}", cocktail_path(activity.cocktail)
                             to his Favorites
                           - elsif activity.is_a?(Review)
                             #{@user.username} has made a
