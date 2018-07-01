@@ -67,10 +67,12 @@
                   %td
                     %i.fa.fa-thumbs-up
                     #{review.liked_by.count}
-
-          - if @cocktail.user != current_user 
-            - if @cocktail.reviews.detect{|r| r.user == current_user}.nil?
-              = link_to "Add a Review", new_cocktail_review_path(@cocktail), :class => "btn btn-primary"
+                    
+                    
+          - if user_signed_in?
+            - if @cocktail.user != current_user 
+              - if @cocktail.reviews.detect{|r| r.user == current_user}.nil?
+                = link_to "Add a Review", new_cocktail_review_path(@cocktail), :class => "btn btn-primary"
 
   .col-lg-4.order-lg-1.text-center
     %img.mx-auto.img-fluid.img-thumbnail.d-block{:src => @cocktail.image.url}
